@@ -1,10 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { HeaderCS } from "../../components";
+import { colors } from "../../utils/colors";
 
 const LoginScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text>LoginScreen</Text>
+    <View style={styles.screen}>
+      <View style={styles.header}>
+        <HeaderCS title={"Unlock Your Dream Getaway"} desc={"Discover seamless booking at your fingertips. Log in to manage reservations, explore exclusive offers, and make your stay unforgettable."} />
+      </View>
+      <View></View>
     </View>
   );
 };
@@ -12,8 +17,12 @@ const LoginScreen = () => {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
-    backgroundColor: "red",
+  },
+  header: {
+    backgroundColor: colors.primary,
+    paddingTop: 40,
+    paddingHorizontal: 10,
   },
 });
