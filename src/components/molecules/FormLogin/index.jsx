@@ -11,9 +11,9 @@ const FormLogin = ({ onPress }) => {
         <Gap height={30} />
         <ICLogo />
         <Gap height={50} />
-        <InputCS typeInput="WithIcon" icon={<ICEmail />} placeholder={"Enter Your Email"} />
+        <InputCS typeInput="WithIcon" icon={<ICEmail />} placeholder={"Enter Your Email"} placeholderColor={colors.secondary} />
         <Gap height={30} />
-        <InputCS typeInput="WithIcon" icon={<ICPassword />} placeholder={"Enter Your Password"} />
+        <InputCS typeInput="WithIcon" icon={<ICPassword />} placeholder={"Enter Your Password"} placeholderColor={colors.secondary} />
         <Gap height={30} />
         <View style={styles.textContainer}>
           <View style={styles.rememberContainer}>

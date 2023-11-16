@@ -1,3 +1,5 @@
 import FormLogin from "./FormLogin";
 import BottomNavigator from "./BottomNavigator";
-export { FormLogin,BottomNavigator };
+import SearchHotel from "./SearchHotel";
+import Card from "./Card";
+export { FormLogin, BottomNavigator, SearchHotel, Card };
