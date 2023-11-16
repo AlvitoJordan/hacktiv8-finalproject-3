@@ -1,0 +1,46 @@
+[
+    {
+        "id" : 1,
+        "name" : "Hotel A",
+        "url" : ["Gambar 1", "Gambar 2"],
+        "location" : "Sumatera Utara, Indonesia",
+        "description" : "Ini adalah Hotel terbaik di Sumatera Utara",
+        "booking" : 500,
+        "amenities" : [
+            "Free Wi-Fi",
+            "Spa",
+            "Pool",
+            "Gym",
+            "CCTV Cameras"
+        ],
+        "room": [
+            {
+                "id" : 101,
+                "type" : "Standard",
+                "capacity" : 1,
+                "price_per_day" : 150.000,
+                "status" : "available"
+            },
+            {
+                "id" : 102,
+                "type" : "Double",
+                "capacity" : 2,
+                "price_per_day" : 300.000,
+                "status" : "available"
+            }
+        ],
+        "review" : {
+            "facilities_rate" : 5.0,
+            "food_rate" : 4.5,
+            "location" : 4.5,
+            "hotel_staff" : 4.5,
+            "cleanliness" : 4.7,
+            "user" : "Adi Syaputra",
+            "address" : {
+                "city" : "Medan",
+                "region" : "Indonesia"
+            },
+            "comment" : "Hotel terbaik"    
+        }
+    }
+]
