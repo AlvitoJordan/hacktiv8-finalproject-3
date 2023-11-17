@@ -9,23 +9,23 @@ const SearchHotel = () => {
     <View style={styles.container}>
       <InputCS typeInput={"WithIcon"} style={styles.input} icon={<ICSearch />} placeholder={"Where Do You Want Go ?"} styleInput={styles.inputStyle} placeholderColor={colors.primary} />
       <Gap height={20} />
-      <View style={styles.calender}>
-        <View style={styles.checkDate}>
+      <View style={styles.calendarContainer}>
+        <View style={styles.calendarSection}>
           <ICCalender />
           <TextCS style={styles.textCheckDate}>Check-in Date</TextCS>
         </View>
-        <View style={styles.checkDate}>
+        <View style={styles.calendarSection}>
           <ICCalender />
           <TextCS style={styles.textCheckDate}>Check-out Date</TextCS>
         </View>
       </View>
       <Gap height={20} />
-      <View style={styles.guest}>
-        <View style={styles.guestTotal}>
+      <View style={styles.guestContainer}>
+        <View style={styles.guestTotalSection}>
           <ICGuest />
           <TextCS style={styles.textGuest}>0 Guest</TextCS>
         </View>
-        <View style={styles.arrow}>
+        <View style={styles.arrowSection}>
           <TouchableOpacity>
             <ICArrowBottom />
           </TouchableOpacity>
@@ -63,12 +63,12 @@ const styles = StyleSheet.create({
     borderLeftWidth: 1,
     color: colors.primary,
   },
-  calender: {
+  calendarContainer: {
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  checkDate: {
+  calendarSection: {
     backgroundColor: colors.white,
     width: "48%",
     borderRadius: 100,
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     color: colors.primary,
     paddingLeft: 4,
   },
-  guest: {
+  guestContainer: {
     width: "100%",
     backgroundColor: colors.white,
     borderRadius: 100,
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  guestTotal: {
+  guestTotalSection: {
     flexDirection: "row",
     alignItems: "center",
   },
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     color: colors.primary,
     paddingLeft: 10,
   },
-  arrow: {
+  arrowSection: {
     flexDirection: "row",
     alignItems: "center",
     paddingRight: 4,

@@ -1,4 +1,4 @@
-import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ImageBackground, StyleSheet, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { DUHotelManila, ICFavorite, ICRate } from "../../../assets/";
 import { colors } from "../../../utils/colors";
@@ -8,21 +8,21 @@ const CardHotel = () => {
   return (
     <View style={styles.container}>
       <ImageBackground source={DUHotelManila} style={styles.image} imageStyle={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
-        <View style={styles.wrapper}>
-          <TouchableOpacity style={styles.favorite}>
+        <View style={styles.imageWrapper}>
+          <TouchableOpacity style={styles.favoriteIcon}>
             <ICFavorite />
           </TouchableOpacity>
         </View>
       </ImageBackground>
-      <View style={styles.detail}>
-        <View style={styles.detailHotel}>
+      <View style={styles.detailsContainer}>
+        <View>
           <TextCS style={styles.title}>Kingfords Hotel Manila</TextCS>
           <Gap height={5} />
           <ICRate />
           <Gap height={10} />
-          <TextCS style={styles.location}>Filipina</TextCS>
+          <TextCS>Filipina</TextCS>
         </View>
-        <View style={styles.detailPrice}>
+        <View>
           <TextCS style={styles.price}>$ 500</TextCS>
           <TextCS style={styles.day}>Per day</TextCS>
         </View>
@@ -49,12 +49,12 @@ const styles = StyleSheet.create({
     height: 180,
     padding: 10,
   },
-  wrapper: {
+  imageWrapper: {
     width: "100%",
     justifyContent: "flex-end",
     flexDirection: "row",
   },
-  favorite: {
+  favoriteIcon: {
     width: 35,
     height: 35,
     backgroundColor: colors.white,
@@ -62,18 +62,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  detail: {
+  detailsContainer: {
     padding: 20,
     flexDirection: "row",
     justifyContent: "space-between",
   },
   title: {
-  
     fontWeight: "700",
     fontSize: 20,
-  },
-  location: {
- 
   },
   price: {
     color: colors.primary,
