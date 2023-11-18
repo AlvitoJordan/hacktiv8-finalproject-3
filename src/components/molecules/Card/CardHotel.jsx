@@ -4,7 +4,7 @@ import { DUHotelManila, ICFavorite, ICRate } from "../../../assets/";
 import { colors } from "../../../utils/colors";
 import { Gap, TextCS } from "../../atoms";
 
-const CardHotel = () => {
+const CardHotel = ({onPress}) => {
   return (
     <View style={styles.container}>
       <ImageBackground source={DUHotelManila} style={styles.image} imageStyle={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
@@ -14,7 +14,7 @@ const CardHotel = () => {
           </TouchableOpacity>
         </View>
       </ImageBackground>
-      <View style={styles.detailsContainer}>
+      <TouchableOpacity onPress={onPress} style={styles.detailsContainer}>
         <View>
           <TextCS style={styles.title}>Kingfords Hotel Manila</TextCS>
           <Gap height={5} />
@@ -26,7 +26,7 @@ const CardHotel = () => {
           <TextCS style={styles.price}>$ 500</TextCS>
           <TextCS style={styles.day}>Per day</TextCS>
         </View>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
