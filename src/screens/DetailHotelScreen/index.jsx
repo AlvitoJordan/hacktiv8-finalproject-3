@@ -1,40 +1,40 @@
-import { ImageBackground, ScrollView, StyleSheet, Text, View } from "react-native";
+import { ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { DUHotelManila, ICBack, ICLocation, ICRate, ICRestourant, ICRoomService, ICSwimming, ICWifi } from "../../assets";
-import { Card, Gap, TextCS } from "../../components";
+import { ButtonCS, Card, Gap, TextCS } from "../../components";
 import { colors } from "../../utils/colors";
 
-const DetailHotelScreen = () => {
+const DetailHotelScreen = ({ navigation }) => {
   return (
-    <View style={styles.screen}>
+    <ScrollView style={styles.screen} showsVerticalScrollIndicator={false}>
       <ImageBackground source={DUHotelManila} style={styles.imageWrapper}>
-        <View style={styles.back}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
           <ICBack />
-        </View>
+        </TouchableOpacity>
         <View style={styles.detailContainer}>
           <View>
             <TextCS style={styles.title}>Hotel Word Love</TextCS>
             <Gap height={3} />
             <ICRate />
             <Gap height={10} />
-            <View style={styles.location}>
+            <View style={styles.locationContainer}>
               <ICLocation />
               <TextCS style={styles.textLocation}>Malang, Jawa Timur</TextCS>
             </View>
           </View>
-          <View style={styles.containerPrice}>
+          <View style={styles.priceContainer}>
             <TextCS style={styles.price}>$ 500</TextCS>
             <TextCS style={styles.day}>Per day</TextCS>
           </View>
         </View>
       </ImageBackground>
       <View style={styles.aboutContainer}>
-        <TextCS style={styles.aboutTitle}>ABOUT</TextCS>
+        <TextCS style={styles.sectionTitle}>ABOUT</TextCS>
         <Gap height={10} />
         <TextCS style={styles.aboutDescription}>Rencanakan trip Anda yang berikutnya, baca ulasan, serta dapatkan saran wisata dari komunitas kami tentang tempat menginap dan hal yang dapat dilakukan.</TextCS>
       </View>
       <View style={styles.facilitiesContainer}>
-        <TextCS style={styles.facilitiesTitle}>FACILITIES</TextCS>
+        <TextCS style={styles.sectionTitle}>FACILITIES</TextCS>
         <Gap height={10} />
         <ScrollView contentContainerStyle={{ padding: 5 }} horizontal showsHorizontalScrollIndicator={false}>
           <Card type={"facilities"} title="Wifi" icon={<ICWifi />} />
@@ -44,7 +44,23 @@ const DetailHotelScreen = () => {
           <Card type={"facilities"} title="Wifi" icon={<ICWifi />} />
         </ScrollView>
       </View>
-    </View>
+      <Gap height={20} />
+      <View style={styles.commentContainer}>
+        <View style={styles.titleContainer}>
+          <TextCS style={styles.sectionTitle}>COMMENT</TextCS>
+        </View>
+        <ScrollView contentContainerStyle={{ padding: 5 }} horizontal showsHorizontalScrollIndicator={false}>
+          <Card type={"commentar"} />
+          <Card type={"commentar"} />
+          <Card type={"commentar"} />
+          <Card type={"commentar"} />
+        </ScrollView>
+      </View>
+      <Gap height={20} />
+      <View style={styles.buttonContainer}>
+        <ButtonCS title={"Book This Hotel"} style={styles.button} />
+      </View>
+    </ScrollView>
   );
 };
 
@@ -61,7 +77,7 @@ const styles = StyleSheet.create({
     height: 285,
     justifyContent: "space-between",
   },
-  back: {
+  backButton: {
     paddingLeft: 10,
     paddingTop: 30,
   },
@@ -78,7 +94,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     fontSize: 30,
   },
-  location: {
+  locationContainer: {
     flexDirection: "row",
     alignItems: "center",
   },
@@ -86,7 +102,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     paddingLeft: 5,
   },
-  containerPrice: {
+  priceContainer: {
     backgroundColor: colors.primary,
     padding: 10,
     width: 100,
@@ -105,9 +121,9 @@ const styles = StyleSheet.create({
   aboutContainer: {
     padding: 20,
     backgroundColor: colors.white,
-    elevation: 3,
+    elevation: 1,
   },
-  aboutTitle: {
+  sectionTitle: {
     color: colors.primary,
     fontWeight: "500",
     fontSize: 20,
@@ -121,11 +137,27 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingLeft: 20,
     backgroundColor: colors.white,
-    elevation: 3,
+    elevation: 1,
   },
-  facilitiesTitle: {
-    color: colors.primary,
-    fontWeight: "500",
-    fontSize: 20,
+  commentContainer: {
+    backgroundColor: colors.white,
+    elevation: 1,
+    paddingVertical: 20,
+    paddingLeft: 20,
+  },
+  titleContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    paddingRight: 20,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    paddingRight: 20,
+    paddingBottom: 20,
+  },
+  button: {
+    width: 200,
+    borderRadius: 10,
   },
 });
