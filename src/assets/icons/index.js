@@ -15,6 +15,8 @@ import ICGuest from "./guest.svg";
 import ICArrowTop from "./arrowtop.svg";
 import ICArrowBottom from "./arrowbottom.svg";
 import ICFavorite from "./favorite.svg";
+import ICOrang from "./orang.svg";
+import ICLocation from "./location.svg";
 
 export {
   ICLogo,
@@ -34,4 +36,6 @@ export {
   ICArrowTop,
   ICArrowBottom,
   ICFavorite,
+  ICOrang,
+  ICLocation,
 };
