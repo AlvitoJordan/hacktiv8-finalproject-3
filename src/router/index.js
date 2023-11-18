@@ -21,7 +21,7 @@ const MainApp = () => {
 export const Router = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="DetailHotel">
+      <Stack.Navigator>
         <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="MainApp" component={MainApp} options={{ headerShown: false }} />
         <Stack.Screen name="DetailHotel" component={DetailHotelScreen} options={{ headerShown: false }} />

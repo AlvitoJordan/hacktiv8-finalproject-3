@@ -21,6 +21,8 @@ import ICWifi from "./wifi.svg";
 import ICSwimming from "./swimming.svg";
 import ICRestourant from "./restourant.svg";
 import ICRoomService from "./roomservice.svg";
+import ICOrang from "./orang.svg";
+
 export {
   ICLogo,
   ICEmail,
@@ -45,4 +47,5 @@ export {
   ICSwimming,
   ICRestourant,
   ICRoomService,
+  ICOrang,
 };
