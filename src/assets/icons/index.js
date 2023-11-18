@@ -15,7 +15,12 @@ import ICGuest from "./guest.svg";
 import ICArrowTop from "./arrowtop.svg";
 import ICArrowBottom from "./arrowbottom.svg";
 import ICFavorite from "./favorite.svg";
-
+import ICBack from "./back.svg";
+import ICLocation from "./location.svg";
+import ICWifi from "./wifi.svg";
+import ICSwimming from "./swimming.svg";
+import ICRestourant from "./restourant.svg";
+import ICRoomService from "./roomservice.svg";
 export {
   ICLogo,
   ICEmail,
@@ -34,4 +39,10 @@ export {
   ICArrowTop,
   ICArrowBottom,
   ICFavorite,
+  ICBack,
+  ICLocation,
+  ICWifi,
+  ICSwimming,
+  ICRestourant,
+  ICRoomService,
 };
