@@ -3,5 +3,6 @@ import HomeScreen from "./HomeScreen";
 import FavoriteScreen from "./FavoriteScreen";
 import ProfileScreen from "./ProfileScreen";
 import SettingScreen from "./SettingScreen";
+import DetailHotelScreen from "./DetailHotelScreen";
 
-export { LoginScreen, HomeScreen, FavoriteScreen, ProfileScreen, SettingScreen };
+export { LoginScreen, HomeScreen, FavoriteScreen, ProfileScreen, SettingScreen,DetailHotelScreen };

@@ -15,8 +15,13 @@ import ICGuest from "./guest.svg";
 import ICArrowTop from "./arrowtop.svg";
 import ICArrowBottom from "./arrowbottom.svg";
 import ICFavorite from "./favorite.svg";
-import ICOrang from "./orang.svg";
+import ICBack from "./back.svg";
 import ICLocation from "./location.svg";
+import ICWifi from "./wifi.svg";
+import ICSwimming from "./swimming.svg";
+import ICRestourant from "./restourant.svg";
+import ICRoomService from "./roomservice.svg";
+import ICOrang from "./orang.svg";
 
 export {
   ICLogo,
@@ -36,6 +41,11 @@ export {
   ICArrowTop,
   ICArrowBottom,
   ICFavorite,
-  ICOrang,
+  ICBack,
   ICLocation,
+  ICWifi,
+  ICSwimming,
+  ICRestourant,
+  ICRoomService,
+  ICOrang,
 };
