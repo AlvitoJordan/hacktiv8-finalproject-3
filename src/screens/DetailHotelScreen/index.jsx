@@ -58,7 +58,7 @@ const DetailHotelScreen = ({ navigation }) => {
       </View>
       <Gap height={20} />
       <View style={styles.buttonContainer}>
-        <ButtonCS title={"Book This Hotel"} style={styles.button} />
+        <ButtonCS title={"Book This Hotel"} style={styles.button} onPress={() => navigation.navigate("BookingHotel")} />
       </View>
     </ScrollView>
   );

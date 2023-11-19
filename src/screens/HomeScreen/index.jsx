@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet, View } from "react-native";
 import React from "react";
-import { ICLogo } from "../../assets";
-import { Card, Gap, PopularDestination, SearchHotel, TopDestination } from "../../components";
+import { ICLogo } from "../../../assets";
+import { Card, Gap, PopularDestination, SearchHotel, TopDestination } from "../../../components";
 
 const HomeScreen = ({ navigation }) => {
   return (
