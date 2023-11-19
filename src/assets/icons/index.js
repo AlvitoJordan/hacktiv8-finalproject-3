@@ -22,6 +22,7 @@ import ICSwimming from "./swimming.svg";
 import ICRestourant from "./restourant.svg";
 import ICRoomService from "./roomservice.svg";
 import ICOrang from "./orang.svg";
+import ICArrowRight from "./arrowright.svg";
 
 export {
   ICLogo,
@@ -48,4 +49,5 @@ export {
   ICRestourant,
   ICRoomService,
   ICOrang,
+  ICArrowRight,
 };
