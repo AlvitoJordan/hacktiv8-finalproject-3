@@ -4,4 +4,5 @@ import SearchHotel from "./SearchHotel";
 import Card from "./Card";
 import TopDestination from "./TopDestination";
 import PopularDestination from "./PopularDestination";
-export { FormLogin, BottomNavigator, SearchHotel, Card, TopDestination, PopularDestination };
+import List from "./List";
+export { FormLogin, BottomNavigator, SearchHotel, Card, TopDestination, PopularDestination, List };
