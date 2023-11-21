@@ -1,12 +1,21 @@
 import { ScrollView, StyleSheet, View } from "react-native";
 import React from "react";
-import { ICLogo } from "../../../assets";
-import { Card, Gap, PopularDestination, SearchHotel, TopDestination } from "../../../components";
+import { ICLogo } from "../../assets";
+import {
+  Card,
+  Gap,
+  PopularDestination,
+  SearchHotel,
+  TopDestination,
+} from "../../components";
 
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.screen}>
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.container}
+      >
         <Gap height={30} />
         <ICLogo />
         <Gap height={30} />
@@ -18,7 +27,10 @@ const HomeScreen = ({ navigation }) => {
         <PopularDestination />
         <Gap height={30} />
         {/* For Searching */}
-        <Card type={"hotel"} onPress={() => navigation.navigate("DetailHotel")} />
+        <Card
+          type={"hotel"}
+          onPress={() => navigation.navigate("DetailHotel")}
+        />
       </ScrollView>
     </View>
   );

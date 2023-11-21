@@ -1,5 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { BookingHotelScreen, DetailHotelScreen, FavoriteScreen, HomeScreen, LoginScreen, ProfileScreen, SettingScreen } from "../screens";
+import {
+  BookingHotelScreen,
+  DetailHotelScreen,
+  FavoriteScreen,
+  HomeScreen,
+  LoginScreen,
+  ProfileScreen,
+  SettingScreen,
+} from "../screens";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { BottomNavigator } from "../components";
@@ -10,10 +18,26 @@ const Tab = createBottomTabNavigator();
 const MainApp = () => {
   return (
     <Tab.Navigator tabBar={(props) => <BottomNavigator {...props} />}>
-      <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-      <Tab.Screen name="Favorite" component={FavoriteScreen} options={{ headerShown: false }} />
-      <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
-      <Tab.Screen name="Setting" component={SettingScreen} options={{ headerShown: false }} />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Favorite"
+        component={FavoriteScreen}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Setting"
+        component={SettingScreen}
+        options={{ headerShown: false }}
+      />
     </Tab.Navigator>
   );
 };
@@ -21,11 +45,27 @@ const MainApp = () => {
 export const Router = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="BookingHotel">
-        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="MainApp" component={MainApp} options={{ headerShown: false }} />
-        <Stack.Screen name="DetailHotel" component={DetailHotelScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="BookingHotel" component={BookingHotelScreen} options={{ headerShown: false }} />
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="MainApp"
+          component={MainApp}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="DetailHotel"
+          component={DetailHotelScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="BookingHotel"
+          component={BookingHotelScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
