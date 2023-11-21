@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { ICLogo, ICOrang } from "../../assets";
-import { Gap } from "../../components";
+import { Card, Gap } from "../../components";
 
 const ProfileScreen = () => {
   return (
@@ -16,27 +16,31 @@ const ProfileScreen = () => {
               <ICOrang />
             </View>
             <View>
-              <Text>Rezal Nur Syaifudin</Text>
-              <Text>rezalnurscc@gmail.com</Text>
+              <Text style={styles.text_infoFirst}>Rezal Nur Syaifudin</Text>
+              <Text style={styles.text_infoSecc}>rezalnurscc@gmail.com</Text>
             </View>
           </View>
           <Gap height={5} />
           <View style={styles.wrapp_info}>
             <View style={styles.wrapp_row}>
               <Text> Bookings </Text>
-              <Text> 25 </Text>
+              <Text style={styles.text_infoValue}> 225 </Text>
             </View>
 
             <View style={styles.wrapp_row}>
               <Text> Reviews </Text>
-              <Text> 25 </Text>
+              <Text style={styles.text_infoValue}> 35 </Text>
             </View>
 
             <View style={styles.wrapp_row}>
               <Text> Favorites </Text>
-              <Text> 25 </Text>
+              <Text style={styles.text_infoValue}> 55 </Text>
             </View>
           </View>
+        </View>
+        <Gap height={20} />
+        <View style={styles.containerCart}>
+          <Card type="Profil" />
         </View>
       </ScrollView>
     </View>
@@ -60,7 +64,7 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 20,
     alignItems: "center",
-    flexDirection: "coll",
+    flexDirection: 'coll',
     paddingVertical: 20,
     gap: 10,
   },
@@ -71,12 +75,13 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
     paddingHorizontal: 25,
-    flexDirection: "row",
-    gap: 30,
+    flexDirection: 'row',
+    gap: 20,
+
   },
   wrapp_img: {
     borderRadius: 11,
-    overflow: "hidden",
+    overflow: "hidden"
   },
 
   wrapp_info: {
@@ -84,14 +89,15 @@ const styles = StyleSheet.create({
     width: "90%",
     marginHorizontal: 25,
     borderRadius: 9,
-    flexDirection: "row",
+    flexDirection: 'row',
     justifyContent: "space-evenly",
+
   },
   wrapp_row: {
     width: "default",
     borderRadius: 20,
     alignItems: "center",
-    flexDirection: "coll",
+    flexDirection: 'coll',
     gap: 5,
     paddingVertical: 10,
   },
@@ -100,4 +106,28 @@ const styles = StyleSheet.create({
     width: "5px",
     backgroundColor: "#DEDEDE",
   },
-});
+  text_infoFirst: {
+    color: "#ffffff",
+    fontSize: 15,
+    fontWeight: "bold",
+  },
+  text_infoSecc: {
+    color: "#ffffff",
+
+  },
+  text_infoValue: {
+    color: "#D1114D",
+  },
+  // =======================================
+
+  containerCart: {
+
+    width: "100%",
+    alignItems: "center",
+    flexDirection: 'coll',
+    paddingVertical: 20,
+    gap: 15,
+  },
+
+
+})
