@@ -11,6 +11,7 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { BottomNavigator } from "../components";
+import SearchScreen from "../screens/SearchScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -45,7 +46,7 @@ const MainApp = () => {
 export const Router = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="MainApp">
         <Stack.Screen
           name="Login"
           component={LoginScreen}
@@ -64,6 +65,11 @@ export const Router = () => {
         <Stack.Screen
           name="BookingHotel"
           component={BookingHotelScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Search"
+          component={SearchScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
