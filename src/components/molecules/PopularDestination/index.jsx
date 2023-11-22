@@ -1,58 +1,124 @@
-import { Image, ImageBackground, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
-import React from "react";
+import {
+  Image,
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Text,
+} from "react-native";
+import React, { useState } from "react";
 import { Gap, TextCS } from "../../atoms";
 import { colors } from "../../../utils/colors";
-import { DUHotelIbis, DUHotelManila, ICFavorite, ICRate } from "../../../assets";
+import {
+  DUHotelIbis,
+  DUHotelManila,
+  ICFavorite,
+  ICRate,
+} from "../../../assets";
 import CardHotel from "../Card/CardHotel";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const PopularDestination = () => {
+  const [wish, setWish] = useState(false);
+  const navigation = useNavigation();
+
+  const wishToggle = () => {
+    setWish(!wish); // Mengubah nilai state saat tombol ditekan
+  };
   return (
     <View style={styles.container}>
-      <TextCS style={styles.title}>Popular Destination Indonesia</TextCS>
-      <Gap height={20} />
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.listDestination}>
+      <Text style={styles.title}>POPULAR DESTINATIONS</Text>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styles.listDestination}
+      >
         <View style={styles.containerCard}>
-          <ImageBackground source={DUHotelManila} style={styles.image} imageStyle={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
+          <ImageBackground source={DUHotelManila} style={styles.image}>
             <View style={styles.imageWrapper}>
-              <TouchableOpacity style={styles.favoriteIcon}>
-                <ICFavorite />
+              <TouchableOpacity
+                onPress={wishToggle}
+                style={styles.favoriteIcon}
+              >
+                {wish ? (
+                  <MaterialIcons
+                    name="favorite"
+                    size={25}
+                    color={colors.primary}
+                  />
+                ) : (
+                  <MaterialIcons
+                    name="favorite-border"
+                    size={25}
+                    color={colors.primary}
+                  />
+                )}
               </TouchableOpacity>
             </View>
           </ImageBackground>
-          <TouchableOpacity onPress={""} style={styles.detailsContainer}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("DetailHotel")}
+            style={styles.detailsContainer}
+          >
             <View>
-              <TextCS style={styles.titleHotel}>Kingfords Hotel Manila</TextCS>
-              <Gap height={5} />
-              <ICRate />
-              <Gap height={10} />
-              <TextCS>Filipina</TextCS>
+              <Text numberOfLines={2} style={styles.titleHotel}>
+                Kingfords Hotel Manila
+              </Text>
+              <View style={styles.rating}>
+                <Ionicons name="star" size={15} color={colors.secondary} />
+                <Text>3.4</Text>
+              </View>
+              <Text style={styles.regionText}>Filipina</Text>
             </View>
-            <View>
+            <View style={styles.priceStyle}>
               <TextCS style={styles.price}>$ 500</TextCS>
-              <TextCS style={styles.day}>Per day</TextCS>
+              <TextCS style={styles.day}>Per Night</TextCS>
             </View>
           </TouchableOpacity>
         </View>
         <View style={styles.containerCard}>
-          <ImageBackground source={DUHotelIbis} style={styles.image} imageStyle={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
+          <ImageBackground source={DUHotelManila} style={styles.image}>
             <View style={styles.imageWrapper}>
-              <TouchableOpacity style={styles.favoriteIcon}>
-                <ICFavorite />
+              <TouchableOpacity
+                onPress={wishToggle}
+                style={styles.favoriteIcon}
+              >
+                {wish ? (
+                  <MaterialIcons
+                    name="favorite"
+                    size={25}
+                    color={colors.primary}
+                  />
+                ) : (
+                  <MaterialIcons
+                    name="favorite-border"
+                    size={25}
+                    color={colors.primary}
+                  />
+                )}
               </TouchableOpacity>
             </View>
           </ImageBackground>
-          <TouchableOpacity onPress={""} style={styles.detailsContainer}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("DetailHotel")}
+            style={styles.detailsContainer}
+          >
             <View>
-              <TextCS style={styles.titleHotel}>Kingfords Hotel Manila</TextCS>
-              <Gap height={5} />
-              <ICRate />
-              <Gap height={10} />
-              <TextCS>Filipina</TextCS>
+              <Text numberOfLines={2} style={styles.titleHotel}>
+                Kingfords Hotel Manila
+              </Text>
+              <View style={styles.rating}>
+                <Ionicons name="star" size={15} color={colors.secondary} />
+                <Text>3.4</Text>
+              </View>
+              <Text style={styles.regionText}>Filipina</Text>
             </View>
-            <View>
+            <View style={styles.priceStyle}>
               <TextCS style={styles.price}>$ 500</TextCS>
-              <TextCS style={styles.day}>Per day</TextCS>
+              <TextCS style={styles.day}>Per Night</TextCS>
             </View>
           </TouchableOpacity>
         </View>
@@ -66,51 +132,41 @@ export default PopularDestination;
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    paddingBottom:20
+    paddingBottom: 20,
+  },
+  containerCard: {
+    width: 200,
+    borderRadius: 15,
+    backgroundColor: colors.white,
+    marginRight: 15,
+    overflow: "hidden",
+    marginVertical: 15,
+  },
+  imageWrapper: {
+    justifyContent: "flex-end",
+    padding: 10,
+    flexDirection: "row",
+  },
+  image: {
+    width: "100%",
+    height: 150,
+    resizeMode: "cover",
   },
   title: {
-    fontWeight: "600",
+    fontWeight: "bold",
     fontSize: 20,
     color: colors.primary,
   },
-  imageWrapper: {
-    height: 240,
-    backgroundColor: colors.white,
-    borderRadius: 20,
-    borderColor: colors.gray,
-    borderWidth: 3,
-  },
-  image: {
-    width: 200,
-    height: 160,
-    justifyContent: "flex-end",
-    padding: 20,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+  rating: {
+    flexDirection: "row",
+    gap: 5,
+    alignItems: "center",
+    marginVertical: 5,
   },
   location: {
     fontWeight: "600",
     fontSize: 24,
     padding: 10,
-  },
-  containerCard: {
-    width: 220,
-    borderRadius: 20,
-    backgroundColor: colors.white,
-    height: 300,
-    marginRight:10,
-    elevation: 1,
-    borderWidth:2,
-    borderColor: colors.gray
-  },
-  image: {
-    height: 180,
-    padding: 10,
-  },
-  imageWrapper: {
-    width: "100%",
-    justifyContent: "flex-end",
-    flexDirection: "row",
   },
   favoriteIcon: {
     width: 35,
@@ -121,21 +177,27 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   detailsContainer: {
-    padding: 20,
+    padding: 10,
     flexDirection: "row",
     justifyContent: "space-between",
   },
   titleHotel: {
-    fontWeight: "700",
+    fontWeight: "bold",
     fontSize: 15,
-    width: 100
+    width: 100,
   },
   price: {
     color: colors.primary,
-    fontWeight: "700",
+    fontWeight: "bold",
     fontSize: 15,
+  },
+  priceStyle: {
+    alignItems: "flex-end",
   },
   day: {
     color: colors.primary,
+  },
+  regionText: {
+    color: colors.secondary,
   },
 });

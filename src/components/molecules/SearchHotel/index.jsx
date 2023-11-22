@@ -3,27 +3,28 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
-  Platform,
   Pressable,
+  TextInput,
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import { colors } from "../../../utils/colors";
-import { ButtonCS, Gap, InputCS, TextCS } from "../../atoms";
-import { Ionicons, FontAwesome, MaterialIcons } from "@expo/vector-icons";
-import {
-  ICArrowBottom,
-  ICArrowTop,
-  ICCalender,
-  ICGuest,
-  ICSearch,
-} from "../../../assets";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import moment from "moment";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 const SearchHotel = () => {
-  const [date, setDate] = useState(new Date());
-  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-  const [guestCount, setGuestCount] = useState(0);
+  const [checkInDate, setCheckInDate] = useState(new Date());
+  const tomorrow = new Date(checkInDate);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const [checkOutDate, setCheckOutDate] = useState(tomorrow);
+  const [showCheckInDatePicker, setShowCheckInDatePicker] = useState(false);
+  const [showCheckOutDatePicker, setShowCheckOutDatePicker] = useState(false);
+  const [guestCount, setGuestCount] = useState(1);
+  const navigation = useNavigation();
+  const route = useRoute();
+  const selectedItem = route.params?.selectedItem;
 
   const increaseGuestCount = () => {
     if (guestCount < 7) {
@@ -32,147 +33,145 @@ const SearchHotel = () => {
   };
 
   const decreaseGuestCount = () => {
-    if (guestCount > 0) {
+    if (guestCount > 1) {
       setGuestCount(guestCount - 1);
     }
   };
-  const showDatePicker = () => {
-    setDatePickerVisibility(true);
+
+  const showDatePicker = (type) => {
+    if (type === "checkIn") {
+      setShowCheckInDatePicker(true);
+    } else {
+      setShowCheckOutDatePicker(true);
+    }
   };
 
-  const hideDatePicker = () => {
-    setDatePickerVisibility(false);
+  const hideDatePicker = (type) => {
+    if (type === "checkIn") {
+      setShowCheckInDatePicker(false);
+    } else {
+      setShowCheckOutDatePicker(false);
+    }
   };
 
-  const handleConfirm = (date) => {
-    console.warn("A date has been picked: ", date);
-    hideDatePicker();
+  const handleDateConfirm = (type, date) => {
+    if (type === "checkIn") {
+      hideDatePicker(type);
+      setCheckInDate(date);
+    } else {
+      hideDatePicker(type);
+      setCheckOutDate(date);
+    }
   };
 
-  const today = new Date();
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1); // Mendapatkan tanggal besok
-
-  const formatDate = (dateToFormat) => {
-    return dateToFormat.toLocaleDateString("en-US", {
-      month: "long",
-      day: "numeric",
-    });
+  const handleSearch = () => {
+    if (!selectedItem) {
+      Alert.alert("Tempat Tidak Boleh Kosong");
+    } else {
+      Alert.alert(
+        "Search Details",
+        `Selected Item: ${
+          selectedItem ? selectedItem.title : "None"
+        }\nCheck-In Date: ${moment(checkInDate).format(
+          "YYYY-MM-DD"
+        )}\nCheck-Out Date: ${moment(checkOutDate).format(
+          "YYYY-MM-DD"
+        )}\nGuest Count: ${guestCount}`
+      );
+    }
   };
+
   return (
     <View style={styles.container}>
-      {/* <InputCS
-        typeInput={"WithIcon"}
-        style={styles.input}
-        icon={<ICSearch />}
-        placeholder={"Where Do You Want Go ?"}
-        styleInput={styles.inputStyle}
-        placeholderColor={colors.primary}
-      /> */}
-      <Pressable style={styles.customButton}>
+      <Pressable
+        style={styles.textInput}
+        onPress={() => navigation.navigate("Search")}
+      >
         <Ionicons
           name="search"
           size={15}
           color={colors.primary}
           style={styles.icon}
         />
-        <Text style={styles.buttonText}>Where Do You Want Go ?</Text>
+        <TextInput
+          editable={false}
+          style={styles.text}
+          placeholder="Where Do You Want Go ?"
+          placeholderTextColor={colors.primary}
+          value={selectedItem ? selectedItem.title : ""}
+        ></TextInput>
       </Pressable>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          width: "100%",
-          margin: 10,
-        }}
-      >
-        <View
-          style={{
-            width: "48%",
-          }}
-        >
+
+      <View style={styles.datePickerContainer}>
+        <View style={styles.twoRowWidth}>
           <Pressable
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: colors.white,
-              borderRadius: 5,
-              padding: 10,
-            }}
-            onPress={showDatePicker}
+            style={styles.datePickerInput}
+            onPress={() => showDatePicker("checkIn")}
           >
             <Ionicons
               name="calendar"
+              size={15}
               color={colors.primary}
-              style={{ marginRight: 5 }}
+              style={styles.icon}
             />
-            <Text style={{ color: colors.primary }}>{formatDate(today)}</Text>
+            <TextInput
+              editable={false}
+              style={styles.text}
+              value={moment(checkInDate).format("YYYY-MM-DD")}
+            ></TextInput>
           </Pressable>
           <DateTimePickerModal
-            isVisible={isDatePickerVisible}
+            isVisible={showCheckInDatePicker}
+            display="default"
             mode="date"
-            date={date}
+            date={checkInDate}
             minimumDate={new Date()}
-            onConfirm={handleConfirm}
-            onCancel={hideDatePicker}
-            style={{ flex: 1 }}
+            onConfirm={(date) => handleDateConfirm("checkIn", date)}
+            onCancel={() => hideDatePicker("checkIn")}
           />
         </View>
-        <View
-          style={{
-            width: "48%",
-          }}
-        >
+        <View style={styles.twoRowWidth}>
           <Pressable
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: colors.white,
-              borderRadius: 5,
-              padding: 10,
-            }}
-            onPress={() => {
-              setDate(tomorrow);
-              showDatePicker();
-            }}
+            style={styles.datePickerInput}
+            onPress={() => showDatePicker("checkOut")}
           >
             <Ionicons
               name="calendar"
+              size={15}
               color={colors.primary}
-              style={{ marginRight: 5 }}
+              style={styles.icon}
             />
-            <Text style={{ color: colors.primary }}>
-              {formatDate(tomorrow)}
-            </Text>
+            <TextInput
+              editable={false}
+              style={styles.text}
+              value={moment(checkOutDate).format("YYYY-MM-DD")}
+            ></TextInput>
           </Pressable>
           <DateTimePickerModal
-            isVisible={isDatePickerVisible}
+            isVisible={showCheckOutDatePicker}
+            display="default"
             mode="date"
-            date={date}
-            minimumDate={new Date()}
-            onConfirm={handleConfirm}
-            onCancel={hideDatePicker}
-            style={{ flex: 1 }}
+            date={checkOutDate}
+            minimumDate={tomorrow}
+            onConfirm={(date) => handleDateConfirm("checkOut", date)}
+            onCancel={() => hideDatePicker("checkOut")}
           />
         </View>
       </View>
-      {/* <View style={styles.calendarContainer}>
-        <View style={styles.calendarSection}>
-          <ICCalender />
-          <TextCS style={styles.textCheckDate}>Check-in Date</TextCS>
-        </View>
-        <View style={styles.calendarSection}>
-          <ICCalender />
-          <TextCS style={styles.textCheckDate}>Check-out Date</TextCS>
-        </View>
-      </View> */}
-      {/* <Gap height={20} /> */}
+
       <View style={styles.guestContainer}>
         <View style={styles.guestTotalSection}>
-          <FontAwesome name="user" size={20} color={colors.primary} />
-          <TextCS style={styles.textGuest}>{guestCount} Guest</TextCS>
+          <Ionicons
+            name="people"
+            size={15}
+            color={colors.primary}
+            style={styles.icon}
+          />
+          <TextInput
+            editable={false}
+            style={styles.text}
+            value={`${guestCount} Guest`}
+          ></TextInput>
         </View>
         <View style={styles.arrowSection}>
           <TouchableOpacity onPress={decreaseGuestCount}>
@@ -191,8 +190,9 @@ const SearchHotel = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <Gap height={20} />
-      <ButtonCS title={"Search"} />
+      <Pressable style={styles.button} onPress={handleSearch}>
+        <Text style={styles.textButton}>SEARCH</Text>
+      </Pressable>
     </View>
   );
 };
@@ -203,79 +203,72 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primary,
     width: "100%",
-    borderRadius: 20,
+    borderRadius: 15,
     alignItems: "center",
-    paddingHorizontal: 25,
-    paddingVertical: 20,
+    padding: 20,
+    marginVertical: 15,
   },
-  input: {
-    width: "100%",
-    borderWidth: 0,
-    borderRadius: 100,
-    height: 40,
-  },
-  inputStyle: {
-    fontSize: 15,
-    borderLeftColor: colors.primary,
-    borderLeftWidth: 1,
-    color: colors.primary,
-  },
-  calendarContainer: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  calendarSection: {
-    backgroundColor: colors.white,
-    width: "48%",
-    borderRadius: 100,
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 8,
-  },
-  textCheckDate: {
-    color: colors.primary,
-    paddingLeft: 4,
-  },
-  guestContainer: {
-    width: "100%",
-    backgroundColor: colors.white,
-    borderRadius: 5,
-    padding: 8,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  guestTotalSection: {
-    paddingHorizontal: 10,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  textGuest: {
-    color: colors.primary,
-    paddingLeft: 10,
-  },
-  arrowSection: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingRight: 4,
-  },
-  customButton: {
+  textInput: {
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: colors.white,
     borderRadius: 5,
     width: "100%",
     padding: 10,
+    marginVertical: 5,
+  },
+  datePickerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    marginVertical: 5,
+  },
+  twoRowWidth: {
+    width: "48%",
+  },
+  datePickerInput: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.white,
+    borderRadius: 5,
+    padding: 10,
+  },
+  guestContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: colors.white,
+    borderRadius: 5,
+    width: "100%",
+    padding: 10,
+    marginVertical: 5,
+  },
+  guestTotalSection: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  text: {
+    color: colors.primary,
+  },
+  arrowSection: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   icon: {
     marginRight: 10,
   },
-  buttonText: {
-    color: colors.primary,
-    fontSize: 16,
+  button: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.secondary,
+    justifyContent: "center",
+    borderRadius: 5,
+    width: "100%",
+    padding: 10,
+    marginVertical: 5,
   },
-  datepicker: {
-    color: colors.primary,
+  textButton: {
+    color: colors.white,
+    fontWeight: "bold",
   },
 });

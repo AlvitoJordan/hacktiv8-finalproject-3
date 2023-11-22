@@ -1,4 +1,10 @@
-import { ScrollView, StyleSheet, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+  StatusBar,
+  SafeAreaView,
+} from "react-native";
 import React from "react";
 import { ICLogo } from "../../assets";
 import {
@@ -11,34 +17,37 @@ import {
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <View style={styles.screen}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.container}
-      >
-        <Gap height={30} />
-        <ICLogo />
-        <Gap height={30} />
-        <SearchHotel />
-        <Gap height={30} />
-        {/* For Home*/}
-        <TopDestination />
-        <Gap height={30} />
-        <PopularDestination />
-        <Gap height={30} />
-        {/* For Searching */}
-        <Card
-          type={"hotel"}
-          onPress={() => navigation.navigate("DetailHotel")}
-        />
-      </ScrollView>
-    </View>
+    <SafeAreaView style={styles.safeContainer}>
+      <View style={styles.screen}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.container}
+        >
+          <ICLogo />
+          <SearchHotel />
+          {/* For Home*/}
+          <TopDestination />
+
+          <PopularDestination />
+
+          {/* For Searching */}
+          {/* <Card
+            type={"hotel"}
+            onPress={() => navigation.navigate("DetailHotel")}
+          /> */}
+        </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 };
 
 export default HomeScreen;
 
 const styles = StyleSheet.create({
+  safeContainer: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight,
+  },
   screen: {
     flex: 1,
   },
