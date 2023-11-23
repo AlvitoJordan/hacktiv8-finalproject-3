@@ -5,7 +5,7 @@ import {
   StatusBar,
   SafeAreaView,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { ICLogo } from "../../assets";
 import {
   Card,
@@ -15,7 +15,9 @@ import {
   TopDestination,
 } from "../../components";
 
+
 const HomeScreen = ({ navigation }) => {
+ 
   return (
     <SafeAreaView style={styles.safeContainer}>
       <View style={styles.screen}>
