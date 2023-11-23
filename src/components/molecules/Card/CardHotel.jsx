@@ -1,32 +1,66 @@
-import { ImageBackground, StyleSheet, TouchableOpacity, View } from "react-native";
-import React from "react";
+import {
+  ImageBackground,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Text,
+} from "react-native";
+import React, { useState } from "react";
 import { DUHotelManila, ICFavorite, ICRate } from "../../../assets/";
 import { colors } from "../../../utils/colors";
 import { Gap, TextCS } from "../../atoms";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
-const CardHotel = ({onPress}) => {
+const CardHotel = ({ onPress }) => {
+  const [wish, setWish] = useState(false);
+  const navigation = useNavigation();
+
+  const wishToggle = () => {
+    setWish(!wish);
+  };
   return (
     <View style={styles.container}>
-      <ImageBackground source={DUHotelManila} style={styles.image} imageStyle={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
-        <View style={styles.imageWrapper}>
-          <TouchableOpacity style={styles.favoriteIcon}>
-            <ICFavorite />
-          </TouchableOpacity>
-        </View>
-      </ImageBackground>
-      <TouchableOpacity onPress={onPress} style={styles.detailsContainer}>
-        <View>
-          <TextCS style={styles.title}>Kingfords Hotel Manila</TextCS>
-          <Gap height={5} />
-          <ICRate />
-          <Gap height={10} />
-          <TextCS>Filipina</TextCS>
-        </View>
-        <View>
-          <TextCS style={styles.price}>$ 500</TextCS>
-          <TextCS style={styles.day}>Per day</TextCS>
-        </View>
-      </TouchableOpacity>
+      <View style={styles.containerCard}>
+        <ImageBackground source={DUHotelManila} style={styles.image}>
+          <View style={styles.imageWrapper}>
+            <TouchableOpacity onPress={wishToggle} style={styles.favoriteIcon}>
+              {wish ? (
+                <MaterialIcons
+                  name="favorite"
+                  size={25}
+                  color={colors.primary}
+                />
+              ) : (
+                <MaterialIcons
+                  name="favorite-border"
+                  size={25}
+                  color={colors.primary}
+                />
+              )}
+            </TouchableOpacity>
+          </View>
+        </ImageBackground>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("DetailHotel")}
+          style={styles.detailsContainer}
+        >
+          <View style={styles.leftContainer}>
+            <Text numberOfLines={1} style={styles.titleHotel}>
+              Kingfords Hotel Manila
+            </Text>
+            <View style={styles.rating}>
+              <Ionicons name="star" size={15} color={colors.secondary} />
+              <Text>3.4</Text>
+            </View>
+            <Text style={styles.regionText}>Filipina</Text>
+          </View>
+          <View style={styles.priceStyle}>
+            <TextCS style={styles.price}>$ 500</TextCS>
+            <TextCS style={styles.day}>Per Night</TextCS>
+          </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -36,23 +70,40 @@ export default CardHotel;
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    borderRadius: 20,
-    backgroundColor: colors.white,
-    height: 300,
-    shadowColor: "#d3d3d3",
-    shadowOffset: { width: -2, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    elevation: 5,
   },
-  image: {
-    height: 180,
-    padding: 10,
+  containerCard: {
+    width: "100%",
+    borderRadius: 15,
+    backgroundColor: colors.white,
+    marginRight: 15,
+    overflow: "hidden",
+    marginVertical: 15,
   },
   imageWrapper: {
-    width: "100%",
     justifyContent: "flex-end",
+    padding: 10,
     flexDirection: "row",
+  },
+  image: {
+    width: "100%",
+    height: 150,
+    resizeMode: "cover",
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 20,
+    color: colors.primary,
+  },
+  rating: {
+    flexDirection: "row",
+    gap: 5,
+    alignItems: "center",
+    marginVertical: 5,
+  },
+  location: {
+    fontWeight: "600",
+    fontSize: 24,
+    padding: 10,
   },
   favoriteIcon: {
     width: 35,
@@ -63,20 +114,29 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   detailsContainer: {
-    padding: 20,
+    padding: 10,
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  title: {
-    fontWeight: "700",
-    fontSize: 20,
+  leftContainer: {
+    width: "75%",
+  },
+  titleHotel: {
+    fontWeight: "bold",
+    fontSize: 15,
   },
   price: {
     color: colors.primary,
-    fontWeight: "700",
-    fontSize: 20,
+    fontWeight: "bold",
+    fontSize: 15,
+  },
+  priceStyle: {
+    alignItems: "flex-end",
   },
   day: {
     color: colors.primary,
+  },
+  regionText: {
+    color: colors.secondary,
   },
 });

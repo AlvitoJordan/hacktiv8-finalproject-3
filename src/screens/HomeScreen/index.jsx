@@ -31,10 +31,10 @@ const HomeScreen = ({ navigation }) => {
           <PopularDestination />
 
           {/* For Searching */}
-          {/* <Card
+          <Card
             type={"hotel"}
             onPress={() => navigation.navigate("DetailHotel")}
-          /> */}
+          />
         </ScrollView>
       </View>
     </SafeAreaView>
