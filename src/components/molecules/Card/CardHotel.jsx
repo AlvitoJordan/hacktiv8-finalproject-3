@@ -6,38 +6,33 @@ import {
   Text,
 } from "react-native";
 import React, { useState } from "react";
-import { DUHotelManila, ICFavorite, ICRate } from "../../../assets/";
+import { DUHotelManila } from "../../../assets/";
 import { colors } from "../../../utils/colors";
-import { Gap, TextCS } from "../../atoms";
+import { TextCS } from "../../atoms";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 const CardHotel = ({ onPress }) => {
-  const [wish, setWish] = useState(false);
+  const [favorite, setFavorite] = useState(false);
   const navigation = useNavigation();
 
-  const wishToggle = () => {
-    setWish(!wish);
+  const toggleFavorite = () => {
+    setFavorite(!favorite);
   };
   return (
     <View style={styles.container}>
       <View style={styles.containerCard}>
         <ImageBackground source={DUHotelManila} style={styles.image}>
           <View style={styles.imageWrapper}>
-            <TouchableOpacity onPress={wishToggle} style={styles.favoriteIcon}>
-              {wish ? (
-                <MaterialIcons
-                  name="favorite"
-                  size={25}
-                  color={colors.primary}
-                />
-              ) : (
-                <MaterialIcons
-                  name="favorite-border"
-                  size={25}
-                  color={colors.primary}
-                />
-              )}
+            <TouchableOpacity
+              onPress={toggleFavorite}
+              style={styles.favoriteIcon}
+            >
+              <MaterialIcons
+                name={favorite ? "favorite" : "favorite-border"}
+                size={25}
+                color={colors.primary}
+              />
             </TouchableOpacity>
           </View>
         </ImageBackground>
