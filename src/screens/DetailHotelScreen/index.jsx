@@ -1,98 +1,173 @@
-import { ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
-import { DUHotelManila, ICBack, ICLocation, ICRate, ICRestourant, ICRoomService, ICSwimming, ICWifi } from "../../assets";
+import {
+  DUHotelManila,
+  ICBack,
+  ICLocation,
+  ICRate,
+  ICRestourant,
+  ICRoomService,
+  ICSwimming,
+  ICWifi,
+} from "../../assets";
 import { ButtonCS, Card, Gap, TextCS } from "../../components";
 import { colors } from "../../utils/colors";
+import { MaterialIcons, Ionicons } from "@expo/vector-icons";
 
 const DetailHotelScreen = ({ navigation }) => {
-  return (
-    <ScrollView style={styles.screen} showsVerticalScrollIndicator={false}>
-      <ImageBackground source={DUHotelManila} style={styles.imageWrapper}>
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <ICBack />
+  React.useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity>
+          <MaterialIcons
+            name="favorite-border"
+            size={25}
+            color={colors.white}
+          />
         </TouchableOpacity>
-        <View style={styles.detailContainer}>
-          <View>
-            <TextCS style={styles.title}>Hotel Word Love</TextCS>
-            <Gap height={3} />
-            <ICRate />
-            <Gap height={10} />
-            <View style={styles.locationContainer}>
-              <ICLocation />
-              <TextCS style={styles.textLocation}>Malang, Jawa Timur</TextCS>
+      ),
+    });
+  }, [navigation]);
+  return (
+    <View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View
+          style={{
+            shadowColor: "#000",
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.8,
+            shadowRadius: 4,
+            elevation: 5,
+          }}
+        >
+          <ImageBackground source={DUHotelManila} style={styles.imageWrapper}>
+            <View style={styles.detailContainer}>
+              <View style={styles.detailContent}>
+                <View>
+                  <TextCS style={styles.title}>Hotel Word Love</TextCS>
+                  <View style={styles.rowIcon}>
+                    <Ionicons name="star" size={20} color={colors.secondary} />
+                    <Text style={styles.subtitle}>3.4</Text>
+                  </View>
+                  <View style={styles.rowIcon}>
+                    <Ionicons name="location" size={20} color={colors.white} />
+                    <Text style={styles.subtitle}>Malang, Jawa Timur</Text>
+                  </View>
+                </View>
+                <View style={styles.priceContainer}>
+                  <TextCS style={styles.price}>$ 500</TextCS>
+                  <TextCS style={styles.day}>Per Night</TextCS>
+                </View>
+              </View>
             </View>
-          </View>
-          <View style={styles.priceContainer}>
-            <TextCS style={styles.price}>$ 500</TextCS>
-            <TextCS style={styles.day}>Per day</TextCS>
-          </View>
+          </ImageBackground>
         </View>
-      </ImageBackground>
-      <View style={styles.aboutContainer}>
-        <TextCS style={styles.sectionTitle}>ABOUT</TextCS>
-        <Gap height={10} />
-        <TextCS style={styles.aboutDescription}>Rencanakan trip Anda yang berikutnya, baca ulasan, serta dapatkan saran wisata dari komunitas kami tentang tempat menginap dan hal yang dapat dilakukan.</TextCS>
-      </View>
-      <View style={styles.facilitiesContainer}>
-        <TextCS style={styles.sectionTitle}>FACILITIES</TextCS>
-        <Gap height={10} />
-        <ScrollView contentContainerStyle={{ padding: 5 }} horizontal showsHorizontalScrollIndicator={false}>
-          <Card type={"facilities"} title="Wifi" icon={<ICWifi />} />
-          <Card type={"facilities"} title="Swimming" icon={<ICSwimming />} />
-          <Card type={"facilities"} title="Restourant" icon={<ICRestourant />} />
-          <Card type={"facilities"} title="Room Service" icon={<ICRoomService />} />
-          <Card type={"facilities"} title="Wifi" icon={<ICWifi />} />
-        </ScrollView>
-      </View>
-      <Gap height={20} />
-      <View style={styles.commentContainer}>
-        <View style={styles.titleContainer}>
-          <TextCS style={styles.sectionTitle}>COMMENT</TextCS>
+
+        <View style={styles.aboutContainer}>
+          <TextCS style={styles.sectionTitle}>ABOUT</TextCS>
+          <Gap height={10} />
+          <TextCS style={styles.aboutDescription}>
+            Rencanakan trip Anda yang berikutnya, baca ulasan, serta dapatkan
+            saran wisata dari komunitas kami tentang tempat menginap dan hal
+            yang dapat dilakukan.
+          </TextCS>
         </View>
-        <ScrollView contentContainerStyle={{ padding: 5 }} horizontal showsHorizontalScrollIndicator={false}>
-          <Card type={"commentar"} />
-          <Card type={"commentar"} />
-          <Card type={"commentar"} />
-          <Card type={"commentar"} />
-        </ScrollView>
-      </View>
-      <Gap height={20} />
+        <View style={styles.facilitiesContainer}>
+          <TextCS style={styles.sectionTitle}>FACILITIES</TextCS>
+          <Gap height={10} />
+          <ScrollView
+            contentContainerStyle={{ padding: 5 }}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          >
+            <Card type={"facilities"} title="Wifi" icon={<ICWifi />} />
+            <Card type={"facilities"} title="Swimming" icon={<ICSwimming />} />
+            <Card
+              type={"facilities"}
+              title="Restourant"
+              icon={<ICRestourant />}
+            />
+            <Card
+              type={"facilities"}
+              title="Room Service"
+              icon={<ICRoomService />}
+            />
+            <Card type={"facilities"} title="Wifi" icon={<ICWifi />} />
+          </ScrollView>
+        </View>
+        <Gap height={20} />
+        <View style={styles.commentContainer}>
+          <View style={styles.titleContainer}>
+            <TextCS style={styles.sectionTitle}>COMMENT</TextCS>
+          </View>
+          <ScrollView
+            contentContainerStyle={{ padding: 5 }}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          >
+            <Card type={"commentar"} />
+            <Card type={"commentar"} />
+            <Card type={"commentar"} />
+            <Card type={"commentar"} />
+          </ScrollView>
+        </View>
+        {/* <Gap height={50} /> */}
+      </ScrollView>
       <View style={styles.buttonContainer}>
-        <ButtonCS title={"Book This Hotel"} style={styles.button} onPress={() => navigation.navigate("BookingHotel")} />
+        <ButtonCS
+          title={"Book This Hotel"}
+          style={styles.button}
+          onPress={() => navigation.navigate("BookingHotel")}
+        />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
 export default DetailHotelScreen;
 
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: colors.white_2,
-    width: "100%",
-  },
   imageWrapper: {
     width: "100%",
-    height: 285,
-    justifyContent: "space-between",
-  },
-  backButton: {
-    paddingLeft: 10,
-    paddingTop: 30,
+    height: 300,
   },
   detailContainer: {
-    paddingLeft: 15,
-    justifyContent: "space-between",
+    height: 300,
     flexDirection: "row",
-    alignItems: "center",
-    paddingBottom: 20,
+    alignItems: "flex-end",
   },
-  infoContainer: {},
+  detailContent: {
+    flex: 1,
+    backgroundColor: "blue",
+    flexDirection: "row",
+    paddingVertical: 15,
+    paddingLeft: 15,
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
   title: {
     color: colors.white,
-    fontWeight: "700",
-    fontSize: 30,
+    fontWeight: "bold",
+    fontSize: 24,
+    marginVertical: 3,
+  },
+  subtitle: {
+    color: colors.white,
+    fontSize: 15,
+  },
+  rowIcon: {
+    flexDirection: "row",
+    gap: 5,
+    alignItems: "center",
+    marginVertical: 3,
   },
   locationContainer: {
     flexDirection: "row",
@@ -108,12 +183,12 @@ const styles = StyleSheet.create({
     width: 100,
     borderTopLeftRadius: 100,
     borderBottomLeftRadius: 100,
-    alignItems: "center",
+    alignItems: "flex-end",
   },
   price: {
     fontSize: 20,
     color: colors.white,
-    fontWeight: "600",
+    fontWeight: "bold",
   },
   day: {
     color: colors.white,
@@ -144,6 +219,7 @@ const styles = StyleSheet.create({
     elevation: 1,
     paddingVertical: 20,
     paddingLeft: 20,
+    marginBottom: 75,
   },
   titleContainer: {
     flexDirection: "row",
@@ -151,13 +227,10 @@ const styles = StyleSheet.create({
     paddingRight: 20,
   },
   buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    paddingRight: 20,
-    paddingBottom: 20,
-  },
-  button: {
-    width: 200,
-    borderRadius: 10,
+    position: "absolute",
+    backgroundColor: "white",
+    bottom: 0,
+    width: "100%",
+    padding: 10,
   },
 });

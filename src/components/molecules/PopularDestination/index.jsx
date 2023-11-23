@@ -52,7 +52,7 @@ const PopularDestination = () => {
             </View>
           </ImageBackground>
           <TouchableOpacity
-            onPress={() => navigation.navigate("DetailHotel")}
+            onPress={() => navigation.navigate("Detail Hotel")}
             style={styles.detailsContainer}
           >
             <View>

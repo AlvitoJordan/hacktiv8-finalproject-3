@@ -17,8 +17,12 @@ const TopDestination = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>TOP DESTINATIONS</Text>
-      <ScrollView horizontal style={styles.listDestination}>
-        <TouchableOpacity onPress={() => navigation.navigate("DetailHotel")}>
+      <ScrollView
+        horizontal
+        style={styles.listDestination}
+        showsHorizontalScrollIndicator={false}
+      >
+        <TouchableOpacity onPress={() => navigation.navigate("Detail Hotel")}>
           <View style={styles.imageContainer}>
             <ImageBackground source={DUHotelIbis} style={styles.image}>
               <View style={styles.shadows}>
@@ -27,7 +31,7 @@ const TopDestination = () => {
             </ImageBackground>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("DetailHotel")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Detail Hotel")}>
           <View style={styles.imageContainer}>
             <ImageBackground source={DUHotelIbis} style={styles.image}>
               <View style={styles.shadows}>
