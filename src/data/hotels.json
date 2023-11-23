@@ -1,12 +1,130 @@
 [
   {
     "id": 1,
-    "name": "Hotel A",
-    "url": ["Gambar 1", "Gambar 2"],
-    "location": "Sumatera Utara, Indonesia",
-    "description": "Ini adalah Hotel terbaik di Sumatera Utara",
+    "name": "Grage Hotel Cirebon",
+    "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/ca/c4/94/grage-hotel.jpg?w=1200&h=-1&s=1",
+    "location": "Cirebon, Indonesia",
+    "description": "Grage Hotel Cirebon merupakan akomodasi bintang 4 bergaya modern.Tersedia AC, Wi-Fi, TV, kamar mandi, dan perabot berkualitas di setiap kamar. Ruangan tipe Platinum dilengkapi ruang",
     "booking": 500,
     "amenities": ["Free Wi-Fi", "Spa", "Pool", "Gym", "CCTV Cameras"],
+    "rate": 4.5,
+    "room": [
+      {
+        "id": 101,
+        "type": "Standard",
+        "capacity": 1,
+        "price_per_day": 150.0,
+        "status": "available"
+      },
+      {
+        "id": 102,
+        "type": "Double",
+        "capacity": 2,
+        "price_per_day": 300.0,
+        "status": "available"
+      }
+    ],
+    "review": {
+      "facilities_rate": 5.0,
+      "food_rate": 4.5,
+      "location": 4.5,
+      "hotel_staff": 4.5,
+      "cleanliness": 4.7,
+      "user": "Adi Syaputra",
+      "address": {
+        "city": "Medan",
+        "region": "Indonesia"
+      },
+      "comment": "Hotel terbaik"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Aston Cirebon Hotel",
+    "url": "https://pix8.agoda.net/hotelImages/411739/-1/ea588a62806b23bb3b1656247d7b300a.jpg",
+    "location": "Cirebon, Indonesia",
+    "description": "In addition to the standard of Indonesia Care, all guests get free Wi-Fi in all rooms and free parking if arriving by car. Conveniently situated in the Kedawung part of Cirebon, this property puts you close to attractions and interesting dining options. Don't leave before paying a visit to the famous Waterland Ade Irma Suryani. Rated with 4 stars, this high-quality property provides guests with access to massage, restaurant and fitness center on-site.",
+    "booking": 500,
+    "amenities": ["Free Wi-Fi", "Spa", "Pool", "Gym", "CCTV Cameras"],
+    "rate": 4.6,
+    "room": [
+      {
+        "id": 101,
+        "type": "Standard",
+        "capacity": 1,
+        "price_per_day": 150.0,
+        "status": "available"
+      },
+      {
+        "id": 102,
+        "type": "Double",
+        "capacity": 2,
+        "price_per_day": 300.0,
+        "status": "available"
+      }
+    ],
+    "review": {
+      "facilities_rate": 5.0,
+      "food_rate": 4.5,
+      "location": 4.5,
+      "hotel_staff": 4.5,
+      "cleanliness": 4.7,
+      "user": "Adi Syaputra",
+      "address": {
+        "city": "Medan",
+        "region": "Indonesia"
+      },
+      "comment": "Hotel terbaik"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Atria Hotel Malang",
+    "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/be/c4/eb/atria-hotel-and-conference.jpg?w=1200&h=-1&s=1",
+    "location": ", Indonesia",
+    "description": "Atria Hotel Malang berada di Jalan Letjen. S. Parman No. 87-89. Hotel bintang 4 ini menghadirkan berbagai fasilitas modern di setiap kamar.Fasilitas pendukungnya berupa restoran,",
+    "booking": 500,
+    "amenities": ["Free Wi-Fi", "Spa", "Pool", "Gym", "CCTV Cameras"],
+    "rate": 4.5,
+    "room": [
+      {
+        "id": 101,
+        "type": "Standard",
+        "capacity": 1,
+        "price_per_day": 150.0,
+        "status": "available"
+      },
+      {
+        "id": 102,
+        "type": "Double",
+        "capacity": 2,
+        "price_per_day": 300.0,
+        "status": "available"
+      }
+    ],
+    "review": {
+      "facilities_rate": 5.0,
+      "food_rate": 4.5,
+      "location": 4.5,
+      "hotel_staff": 4.5,
+      "cleanliness": 4.7,
+      "user": "Adi Syaputra",
+      "address": {
+        "city": "Medan",
+        "region": "Indonesia"
+      },
+      "comment": "Hotel terbaik"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Favehotel Malang",
+    "url": "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/20019863-736f2427c1fb05b2ef6c0ccf50e96e18.jpeg",
+    "location": "Malang, Indonesia",
+    "description": "Bagi Anda yang menginginkan kualitas pelayanan oke dengan harga yang ramah di kantong, favehotel Malang adalah pilihan yang tepat. Karena meski murah, akomodasi ini menyediakan fasilitas memadai dan pelayanan yang tetap terjaga mutunya.",
+    "booking": 500,
+    "amenities": ["Free Wi-Fi", "Spa", "Pool", "Gym", "CCTV Cameras"],
+    "rate": 4.7,
     "room": [
       {
         "id": 101,
