@@ -7,7 +7,7 @@ import {
   View,
   Text,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Gap, TextCS } from "../../atoms";
 import { colors } from "../../../utils/colors";
 import {
@@ -22,8 +22,12 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 const PopularDestination = () => {
+  const [favorite, setFavorite] = useState(false);
   const navigation = useNavigation();
 
+  const toggleFavorite = () => {
+    setFavorite(!favorite);
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>POPULAR DESTINATIONS</Text>
@@ -35,9 +39,12 @@ const PopularDestination = () => {
         <View style={styles.containerCard}>
           <ImageBackground source={DUHotelManila} style={styles.image}>
             <View style={styles.imageWrapper}>
-              <TouchableOpacity onPress={""} style={styles.favoriteIcon}>
+              <TouchableOpacity
+                onPress={toggleFavorite}
+                style={styles.favoriteIcon}
+              >
                 <MaterialIcons
-                  name="favorite"
+                  name={favorite ? "favorite" : "favorite-border"}
                   size={25}
                   color={colors.primary}
                 />
