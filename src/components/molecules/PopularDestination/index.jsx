@@ -7,7 +7,7 @@ import {
   View,
   Text,
 } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import { Gap, TextCS } from "../../atoms";
 import { colors } from "../../../utils/colors";
 import {
@@ -22,12 +22,8 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 const PopularDestination = () => {
-  const [wish, setWish] = useState(false);
   const navigation = useNavigation();
 
-  const wishToggle = () => {
-    setWish(!wish); // Mengubah nilai state saat tombol ditekan
-  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>POPULAR DESTINATIONS</Text>
@@ -39,66 +35,12 @@ const PopularDestination = () => {
         <View style={styles.containerCard}>
           <ImageBackground source={DUHotelManila} style={styles.image}>
             <View style={styles.imageWrapper}>
-              <TouchableOpacity
-                onPress={wishToggle}
-                style={styles.favoriteIcon}
-              >
-                {wish ? (
-                  <MaterialIcons
-                    name="favorite"
-                    size={25}
-                    color={colors.primary}
-                  />
-                ) : (
-                  <MaterialIcons
-                    name="favorite-border"
-                    size={25}
-                    color={colors.primary}
-                  />
-                )}
-              </TouchableOpacity>
-            </View>
-          </ImageBackground>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("DetailHotel")}
-            style={styles.detailsContainer}
-          >
-            <View>
-              <Text numberOfLines={2} style={styles.titleHotel}>
-                Kingfords Hotel Manila
-              </Text>
-              <View style={styles.rating}>
-                <Ionicons name="star" size={15} color={colors.secondary} />
-                <Text>3.4</Text>
-              </View>
-              <Text style={styles.regionText}>Filipina</Text>
-            </View>
-            <View style={styles.priceStyle}>
-              <TextCS style={styles.price}>$ 500</TextCS>
-              <TextCS style={styles.day}>Per Night</TextCS>
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.containerCard}>
-          <ImageBackground source={DUHotelManila} style={styles.image}>
-            <View style={styles.imageWrapper}>
-              <TouchableOpacity
-                onPress={wishToggle}
-                style={styles.favoriteIcon}
-              >
-                {wish ? (
-                  <MaterialIcons
-                    name="favorite"
-                    size={25}
-                    color={colors.primary}
-                  />
-                ) : (
-                  <MaterialIcons
-                    name="favorite-border"
-                    size={25}
-                    color={colors.primary}
-                  />
-                )}
+              <TouchableOpacity onPress={""} style={styles.favoriteIcon}>
+                <MaterialIcons
+                  name="favorite"
+                  size={25}
+                  color={colors.primary}
+                />
               </TouchableOpacity>
             </View>
           </ImageBackground>
