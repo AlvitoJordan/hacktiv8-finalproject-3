@@ -19,25 +19,39 @@ const PopularDestination = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>POPULAR DESTINATIONS</Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.listDestination}>
-        {DataHotel.map((item) => (
-          <View style={styles.containerCard}>
-            <ImageBackground source={{ uri: item.url }} style={styles.image} key={item.id}>
-              <View style={styles.imageWrapper}>
-                <TouchableOpacity onPress={toggleFavorite} style={styles.favoriteIcon}>
-                  <MaterialIcons name={favorite ? "favorite" : "favorite-border"} size={25} color={colors.primary} />
-                </TouchableOpacity>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styles.listDestination}
+      >
+          {DataHotel.map((item) => (
+                  <View style={styles.containerCard}>
+          <ImageBackground source={{ uri: item.url }} style={styles.image} key={item.id}>
+            <View style={styles.imageWrapper}>
+              <TouchableOpacity
+                onPress={toggleFavorite}
+                style={styles.favoriteIcon}
+              >
+                <MaterialIcons
+                  name={favorite ? "favorite" : "favorite-border"}
+                  size={25}
+                  color={colors.primary}
+                />
+              </TouchableOpacity>
+            </View>
+          </ImageBackground>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Detail Hotel")}
+            style={styles.detailsContainer}
+          >
+            <View>
+              <Text numberOfLines={2} style={styles.titleHotel}>
+                {item.name}
+              </Text>
+              <View style={styles.rating}>
+                <Ionicons name="star" size={15} color={colors.secondary} />
+                <Text>{item.rate}</Text>
               </View>
-            </ImageBackground>
-            <TouchableOpacity onPress={() => navigation.navigate("DetailHotel")} style={styles.detailsContainer}>
-              <View>
-                <Text numberOfLines={2} style={styles.titleHotel}>
-                 {item.name}
-                </Text>
-                <View style={styles.rating}>
-                  <Ionicons name="star" size={15} color={colors.secondary} />
-                  <Text>{item.rate}</Text>
-                </View>
                 <Text style={styles.regionText}>{item.location}</Text>
               </View>
               <View style={styles.priceStyle}>
@@ -46,7 +60,7 @@ const PopularDestination = () => {
               </View>
             </TouchableOpacity>
           </View>
-        ))}
+          ))}
       </ScrollView>
     </View>
   );

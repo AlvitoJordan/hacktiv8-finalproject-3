@@ -190,7 +190,10 @@ const SearchHotel = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <Pressable style={styles.button} onPress={handleSearch}>
+      <Pressable
+        style={styles.button}
+        onPress={() => navigation.navigate("Search Result")}
+      >
         <Text style={styles.textButton}>SEARCH</Text>
       </Pressable>
     </View>

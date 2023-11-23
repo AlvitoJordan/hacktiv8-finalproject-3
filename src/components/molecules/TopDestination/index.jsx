@@ -11,7 +11,11 @@ const TopDestination = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>TOP DESTINATIONS</Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.listDestination}>
+      <ScrollView
+        horizontal
+        style={styles.listDestination}
+        showsHorizontalScrollIndicator={false}
+      >
         {DataCity.map((item) => (
           <TouchableOpacity onPress={() => navigation.navigate("DetailHotel")} key={item.id}>
             <View style={styles.imageContainer}>

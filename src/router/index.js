@@ -13,6 +13,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { BottomNavigator } from "../components";
 import SearchScreen from "../screens/SearchScreen";
 
+import React from "react";
+import SearchResult from "../screens/SearchResultScreen";
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -58,9 +61,16 @@ export const Router = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="DetailHotel"
+          name="Detail Hotel"
           component={DetailHotelScreen}
-          options={{ headerShown: false }}
+          options={{
+            headerShown: true,
+            headerTransparent: true,
+            headerTintColor: "white",
+            headerStyle: {
+              backgroundColor: "rgba(0, 0, 0, 0.1)",
+            },
+          }}
         />
         <Stack.Screen
           name="BookingHotel"
@@ -71,6 +81,11 @@ export const Router = () => {
           name="Search"
           component={SearchScreen}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Search Result"
+          component={SearchResult}
+          options={{}}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -4,8 +4,11 @@ import {
   View,
   StatusBar,
   SafeAreaView,
+  Text,
 } from "react-native";
-import React, { useEffect } from "react";
+
+import React from "react";
+
 import { ICLogo } from "../../assets";
 import {
   Card,
@@ -27,15 +30,13 @@ const HomeScreen = ({ navigation }) => {
         >
           <ICLogo />
           <SearchHotel />
-          {/* For Home*/}
-          <TopDestination />
 
+          <TopDestination />
           <PopularDestination />
 
-          {/* For Searching */}
           <Card
             type={"hotel"}
-            onPress={() => navigation.navigate("DetailHotel")}
+            onPress={() => navigation.navigate("Detail Hotel")}
           />
         </ScrollView>
       </View>
