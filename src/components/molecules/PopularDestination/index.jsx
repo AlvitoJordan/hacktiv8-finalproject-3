@@ -1,25 +1,13 @@
-import {
-  Image,
-  ImageBackground,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-  Text,
-} from "react-native";
+import { Image, ImageBackground, ScrollView, StyleSheet, TouchableOpacity, View, Text } from "react-native";
 import React, { useState } from "react";
 import { Gap, TextCS } from "../../atoms";
 import { colors } from "../../../utils/colors";
-import {
-  DUHotelIbis,
-  DUHotelManila,
-  ICFavorite,
-  ICRate,
-} from "../../../assets";
+import { DUHotelIbis, DUHotelManila, ICFavorite, ICRate } from "../../../assets";
 import CardHotel from "../Card/CardHotel";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { DataHotel } from "../../../data";
 
 const PopularDestination = () => {
   const [favorite, setFavorite] = useState(false);
@@ -36,8 +24,9 @@ const PopularDestination = () => {
         showsHorizontalScrollIndicator={false}
         style={styles.listDestination}
       >
-        <View style={styles.containerCard}>
-          <ImageBackground source={DUHotelManila} style={styles.image}>
+          {DataHotel.map((item) => (
+                  <View style={styles.containerCard}>
+          <ImageBackground source={{ uri: item.url }} style={styles.image} key={item.id}>
             <View style={styles.imageWrapper}>
               <TouchableOpacity
                 onPress={toggleFavorite}
@@ -57,20 +46,21 @@ const PopularDestination = () => {
           >
             <View>
               <Text numberOfLines={2} style={styles.titleHotel}>
-                Kingfords Hotel Manila
+                {item.name}
               </Text>
               <View style={styles.rating}>
                 <Ionicons name="star" size={15} color={colors.secondary} />
-                <Text>3.4</Text>
+                <Text>{item.rate}</Text>
               </View>
-              <Text style={styles.regionText}>Filipina</Text>
-            </View>
-            <View style={styles.priceStyle}>
-              <TextCS style={styles.price}>$ 500</TextCS>
-              <TextCS style={styles.day}>Per Night</TextCS>
-            </View>
-          </TouchableOpacity>
-        </View>
+                <Text style={styles.regionText}>{item.location}</Text>
+              </View>
+              <View style={styles.priceStyle}>
+                <TextCS style={styles.price}>$ 500</TextCS>
+                <TextCS style={styles.day}>Per Night</TextCS>
+              </View>
+            </TouchableOpacity>
+          </View>
+          ))}
       </ScrollView>
     </View>
   );
