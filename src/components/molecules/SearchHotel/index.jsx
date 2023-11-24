@@ -14,6 +14,9 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from "moment";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
+import { useSelector } from "react-redux";
+import { setSearch } from "../../../redux/searchSlice";
+
 const SearchHotel = () => {
   const [checkInDate, setCheckInDate] = useState(new Date());
   const tomorrow = new Date(checkInDate);
@@ -25,6 +28,8 @@ const SearchHotel = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const selectedItem = route.params?.selectedItem;
+
+  const { search } = useSelector((state) => state.search);
 
   const increaseGuestCount = () => {
     if (guestCount < 7) {
@@ -98,7 +103,7 @@ const SearchHotel = () => {
           style={styles.text}
           placeholder="Where Do You Want Go ?"
           placeholderTextColor={colors.primary}
-          value={selectedItem ? selectedItem.title : ""}
+          value={search}
         ></TextInput>
       </Pressable>
 

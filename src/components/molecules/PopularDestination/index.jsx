@@ -1,8 +1,21 @@
-import { Image, ImageBackground, ScrollView, StyleSheet, TouchableOpacity, View, Text } from "react-native";
+import {
+  Image,
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Text,
+} from "react-native";
 import React, { useState } from "react";
 import { Gap, TextCS } from "../../atoms";
 import { colors } from "../../../utils/colors";
-import { DUHotelIbis, DUHotelManila, ICFavorite, ICRate } from "../../../assets";
+import {
+  DUHotelIbis,
+  DUHotelManila,
+  ICFavorite,
+  ICRate,
+} from "../../../assets";
 import CardHotel from "../Card/CardHotel";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
@@ -24,34 +37,34 @@ const PopularDestination = () => {
         showsHorizontalScrollIndicator={false}
         style={styles.listDestination}
       >
-          {DataHotel.map((item) => (
-                  <View style={styles.containerCard}>
-          <ImageBackground source={{ uri: item.url }} style={styles.image} key={item.id}>
-            <View style={styles.imageWrapper}>
-              <TouchableOpacity
-                onPress={toggleFavorite}
-                style={styles.favoriteIcon}
-              >
-                <MaterialIcons
-                  name={favorite ? "favorite" : "favorite-border"}
-                  size={25}
-                  color={colors.primary}
-                />
-              </TouchableOpacity>
-            </View>
-          </ImageBackground>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Detail Hotel")}
-            style={styles.detailsContainer}
-          >
-            <View>
-              <Text numberOfLines={2} style={styles.titleHotel}>
-                {item.name}
-              </Text>
-              <View style={styles.rating}>
-                <Ionicons name="star" size={15} color={colors.secondary} />
-                <Text>{item.rate}</Text>
+        {DataHotel.map((item) => (
+          <View style={styles.containerCard} key={item.id}>
+            <ImageBackground source={{ uri: item.url }} style={styles.image}>
+              <View style={styles.imageWrapper}>
+                <TouchableOpacity
+                  onPress={toggleFavorite}
+                  style={styles.favoriteIcon}
+                >
+                  <MaterialIcons
+                    name={favorite ? "favorite" : "favorite-border"}
+                    size={25}
+                    color={colors.primary}
+                  />
+                </TouchableOpacity>
               </View>
+            </ImageBackground>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Detail Hotel")}
+              style={styles.detailsContainer}
+            >
+              <View>
+                <Text numberOfLines={2} style={styles.titleHotel}>
+                  {item.name}
+                </Text>
+                <View style={styles.rating}>
+                  <Ionicons name="star" size={15} color={colors.secondary} />
+                  <Text>{item.rate}</Text>
+                </View>
                 <Text style={styles.regionText}>{item.location}</Text>
               </View>
               <View style={styles.priceStyle}>
@@ -60,7 +73,7 @@ const PopularDestination = () => {
               </View>
             </TouchableOpacity>
           </View>
-          ))}
+        ))}
       </ScrollView>
     </View>
   );
