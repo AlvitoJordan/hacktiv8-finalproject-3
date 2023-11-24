@@ -8,12 +8,18 @@ import {
   Pressable,
   FlatList,
   Text,
+  Button,
 } from "react-native";
 import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
 import { colors } from "../../utils/colors";
 import { useNavigation } from "@react-navigation/native";
 
+import { useDispatch, useSelector } from "react-redux";
+import { setSearch } from "../../redux/searchSlice";
+
 const SearchBar = () => {
+  const dispatch = useDispatch();
+  const { search } = useSelector((state) => state.search);
   const initialData = [
     { id: "1", title: "Apple" },
     { id: "2", title: "Banana" },
@@ -38,7 +44,7 @@ const SearchBar = () => {
   };
 
   const renderItem = ({ item }) => (
-    <Pressable onPress={() => handleItemPress(item)}>
+    <Pressable onPress={() => handleItemPress(item.title)}>
       <View style={styles.list}>
         <FontAwesome5
           name="hotel"
@@ -58,8 +64,9 @@ const SearchBar = () => {
   };
 
   const handleItemPress = (item) => {
+    dispatch(setSearch(item));
     navigation.goBack();
-    navigation.navigate("Home", { selectedItem: item });
+    // navigation.navigate("Home", { selectedItem: item });
   };
 
   return (
