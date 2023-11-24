@@ -5,42 +5,41 @@ import {
   Text,
   Pressable,
   TextInput,
-  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import { colors } from "../../../utils/colors";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from "moment";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 import { useSelector } from "react-redux";
-import { setSearch } from "../../../redux/searchSlice";
+import { useDispatch } from "react-redux";
+import {
+  setCheckIn,
+  setCheckOut,
+  guestDecrement,
+  guestIncrement,
+  searchPressed,
+} from "../../../redux/searchSlice";
 
 const SearchHotel = () => {
-  const [checkInDate, setCheckInDate] = useState(new Date());
-  const tomorrow = new Date(checkInDate);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  const [checkOutDate, setCheckOutDate] = useState(tomorrow);
   const [showCheckInDatePicker, setShowCheckInDatePicker] = useState(false);
   const [showCheckOutDatePicker, setShowCheckOutDatePicker] = useState(false);
-  const [guestCount, setGuestCount] = useState(1);
   const navigation = useNavigation();
-  const route = useRoute();
-  const selectedItem = route.params?.selectedItem;
 
-  const { search } = useSelector((state) => state.search);
+  const dispatch = useDispatch();
+  const search = useSelector((state) => state.search.selectedItem);
+  const checkIn = useSelector((state) => state.search.checkIn);
+  const checkOut = useSelector((state) => state.search.checkOut);
+  const guest = useSelector((state) => state.search.guest);
 
   const increaseGuestCount = () => {
-    if (guestCount < 7) {
-      setGuestCount(guestCount + 1);
-    }
+    dispatch(guestIncrement());
   };
 
   const decreaseGuestCount = () => {
-    if (guestCount > 1) {
-      setGuestCount(guestCount - 1);
-    }
+    dispatch(guestDecrement());
   };
 
   const showDatePicker = (type) => {
@@ -62,27 +61,10 @@ const SearchHotel = () => {
   const handleDateConfirm = (type, date) => {
     if (type === "checkIn") {
       hideDatePicker(type);
-      setCheckInDate(date);
+      dispatch(setCheckIn(date));
     } else {
       hideDatePicker(type);
-      setCheckOutDate(date);
-    }
-  };
-
-  const handleSearch = () => {
-    if (!selectedItem) {
-      Alert.alert("Tempat Tidak Boleh Kosong");
-    } else {
-      Alert.alert(
-        "Search Details",
-        `Selected Item: ${
-          selectedItem ? selectedItem.title : "None"
-        }\nCheck-In Date: ${moment(checkInDate).format(
-          "YYYY-MM-DD"
-        )}\nCheck-Out Date: ${moment(checkOutDate).format(
-          "YYYY-MM-DD"
-        )}\nGuest Count: ${guestCount}`
-      );
+      dispatch(setCheckOut(date));
     }
   };
 
@@ -122,16 +104,18 @@ const SearchHotel = () => {
             <TextInput
               editable={false}
               style={styles.text}
-              value={moment(checkInDate).format("YYYY-MM-DD")}
+              value={checkIn}
             ></TextInput>
           </Pressable>
           <DateTimePickerModal
             isVisible={showCheckInDatePicker}
             display="default"
             mode="date"
-            date={checkInDate}
+            date={new Date(checkIn)}
             minimumDate={new Date()}
-            onConfirm={(date) => handleDateConfirm("checkIn", date)}
+            onConfirm={(date) =>
+              handleDateConfirm("checkIn", moment(date).format("YYYY-MM-DD"))
+            }
             onCancel={() => hideDatePicker("checkIn")}
           />
         </View>
@@ -149,16 +133,18 @@ const SearchHotel = () => {
             <TextInput
               editable={false}
               style={styles.text}
-              value={moment(checkOutDate).format("YYYY-MM-DD")}
+              value={checkOut}
             ></TextInput>
           </Pressable>
           <DateTimePickerModal
             isVisible={showCheckOutDatePicker}
             display="default"
             mode="date"
-            date={checkOutDate}
-            minimumDate={tomorrow}
-            onConfirm={(date) => handleDateConfirm("checkOut", date)}
+            date={new Date(checkOut)}
+            minimumDate={new Date(moment(checkIn).add(1, "day"))}
+            onConfirm={(date) =>
+              handleDateConfirm("checkOut", moment(date).format("YYYY-MM-DD"))
+            }
             onCancel={() => hideDatePicker("checkOut")}
           />
         </View>
@@ -175,7 +161,7 @@ const SearchHotel = () => {
           <TextInput
             editable={false}
             style={styles.text}
-            value={`${guestCount} Guest`}
+            value={`${guest} Guest`}
           ></TextInput>
         </View>
         <View style={styles.arrowSection}>
@@ -197,7 +183,7 @@ const SearchHotel = () => {
       </View>
       <Pressable
         style={styles.button}
-        onPress={() => navigation.navigate("Search Result")}
+        onPress={() => dispatch(searchPressed())}
       >
         <Text style={styles.textButton}>SEARCH</Text>
       </Pressable>

@@ -15,11 +15,11 @@ import { colors } from "../../utils/colors";
 import { useNavigation } from "@react-navigation/native";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setSearch } from "../../redux/searchSlice";
+import { setSelectedItem } from "../../redux/searchSlice";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
-  const { search } = useSelector((state) => state.search);
+  const selectedItem = useSelector((state) => state.selectedItem);
   const initialData = [
     { id: "1", title: "Apple" },
     { id: "2", title: "Banana" },
@@ -64,7 +64,7 @@ const SearchBar = () => {
   };
 
   const handleItemPress = (item) => {
-    dispatch(setSearch(item));
+    dispatch(setSelectedItem(item));
     navigation.goBack();
     // navigation.navigate("Home", { selectedItem: item });
   };
