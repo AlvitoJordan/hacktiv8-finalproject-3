@@ -40,7 +40,7 @@ const ProfileScreen = () => {
         </View>
         <Gap height={20} />
         <View style={styles.containerCart}>
-          <Card type="Profil" />
+          <Card type="favorite" />
         </View>
       </ScrollView>
     </View>
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: 'coll',
     paddingVertical: 20,
-    gap: 15,
+    gap: 10,
   },
 
 

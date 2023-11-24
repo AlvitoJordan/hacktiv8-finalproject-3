@@ -2,7 +2,7 @@ import React from "react";
 import CardHotel from "./CardHotel";
 import CardFacilities from "./CardFacilities";
 import CardCommentar from "./CardCommentar";
-import CardProfil from "./CardProfil";
+import CardFavorite from "./CardFavorite";
 
 const Card = ({ type, title, icon, onPress }) => {
   switch (type) {
@@ -12,8 +12,8 @@ const Card = ({ type, title, icon, onPress }) => {
       return <CardFacilities title={title} icon={icon} />;
     case "commentar":
       return <CardCommentar />;
-    case "Profil":
-      return <CardProfil />
+    case "favorite":
+      return <CardFavorite />
   }
 };
 
