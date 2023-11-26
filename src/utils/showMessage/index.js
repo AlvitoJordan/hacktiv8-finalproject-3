@@ -5,7 +5,7 @@ export const showError = (message) => {
   showMessage({
     message: message,
     type: "default",
-    backgroundColor: colors.error,
+    backgroundColor: "red",
     color: colors.white,
   });
 };
@@ -14,6 +14,6 @@ export const showSucces = (message) => {
     message: message,
     type: "default",
     backgroundColor: colors.primary,
-    color: colors.white,
+    color: "green"
   });
 };
