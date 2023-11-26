@@ -2,11 +2,11 @@ import { StyleSheet, TextInput, View } from "react-native";
 import React from "react";
 import { colors } from "../../../utils/colors";
 
-const InputWithIcon = ({ icon, placeholder, value, onChangeText, style,styleInput,placeholderColor }) => {
+const InputWithIcon = ({ icon, placeholder, value, onChangeText, style,styleInput,placeholderColor,secureTextEntry }) => {
   return (
     <View style={[styles.inputContainer, style]}>
       {icon}
-      <TextInput style={[styles.input,styleInput]} placeholder={placeholder} value={value} onChangeText={onChangeText} placeholderTextColor={placeholderColor} />
+      <TextInput style={[styles.input,styleInput]} placeholder={placeholder} value={value} onChangeText={onChangeText} placeholderTextColor={placeholderColor} secureTextEntry={secureTextEntry} />
     </View>
   );
 };

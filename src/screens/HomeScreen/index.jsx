@@ -1,43 +1,25 @@
-import {
-  ScrollView,
-  StyleSheet,
-  View,
-  StatusBar,
-  SafeAreaView,
-  Text,
-} from "react-native";
+import { ScrollView, StyleSheet, View, StatusBar, SafeAreaView, Text } from "react-native";
 
 import React from "react";
 
 import { ICLogo } from "../../assets";
-import {
-  Card,
-  Gap,
-  PopularDestination,
-  SearchHotel,
-  TopDestination,
-} from "../../components";
+import { Card, Gap, PopularDestination, SearchHotel, TopDestination } from "../../components";
 
 
 const HomeScreen = ({ navigation }) => {
- 
+
+
   return (
     <SafeAreaView style={styles.safeContainer}>
       <View style={styles.screen}>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.container}
-        >
+        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
           <ICLogo />
           <SearchHotel />
 
           <TopDestination />
           <PopularDestination />
 
-          <Card
-            type={"hotel"}
-            onPress={() => navigation.navigate("Detail Hotel")}
-          />
+          <Card type={"hotel"} onPress={() => navigation.navigate("Detail Hotel")} />
         </ScrollView>
       </View>
     </SafeAreaView>

@@ -4,4 +4,5 @@ import InputCS from "./InputCS";
 import Gap from "./Gap";
 import TabItems from "./TabItems";
 import ButtonCS from "./ButtonCS";
-export { HeaderCS, TextCS, InputCS, Gap, TabItems, ButtonCS };
+import LoadingCS from "./LoadingCS";
+export { HeaderCS, TextCS, InputCS, Gap, TabItems, ButtonCS ,LoadingCS};
