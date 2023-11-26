@@ -1,5 +1,26 @@
 [
-  { "id": 1, "firstName": "Syaeful", "lastName": "Annas", "email": "syaeful@gmail.com", "gender": "Pria", "password": "syaeful123" },
-  { "id": 2, "firstName": "Alvito", "lastName": "Jordan", "email": "alvito@gmail.com", "gender": "Pria", "password": "alvito123" },
-  { "id": 3, "firstName": "Reezal", "lastName": "Nur Syaifudin", "email": "reezal@gmail.com", "gender": "Pria", "password": "reezal123" }
+  {
+    "id": 1,
+    "firstName": "Syaeful",
+    "lastName": "Annas",
+    "email": "syaeful@gmail.com",
+    "gender": "Pria",
+    "password": "syaeful123"
+  },
+  {
+    "id": 2,
+    "firstName": "Alvito",
+    "lastName": "Jordan",
+    "email": "alvito@gmail.com",
+    "gender": "Pria",
+    "password": "alvito123"
+  },
+  {
+    "id": 3,
+    "firstName": "Reezal",
+    "lastName": "Nur Syaifudin",
+    "email": "rezal@gmail.com",
+    "gender": "Pria",
+    "password": "rezal123"
+  }
 ]

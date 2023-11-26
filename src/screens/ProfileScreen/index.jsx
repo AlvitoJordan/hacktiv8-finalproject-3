@@ -2,8 +2,11 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { ICLogo, ICOrang } from "../../assets";
 import { Card, Gap } from "../../components";
+import { useSelector } from "react-redux";
 
 const ProfileScreen = () => {
+  const { account } = useSelector((state) => state.auth);
+
   return (
     <View style={styles.screen}>
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
@@ -16,8 +19,8 @@ const ProfileScreen = () => {
               <ICOrang />
             </View>
             <View>
-              <Text style={styles.text_infoFirst}>Rezal Nur Syaifudin</Text>
-              <Text style={styles.text_infoSecc}>rezalnurscc@gmail.com</Text>
+              <Text style={styles.text_infoFirst}>{account.firstName} {account.lastName}</Text>
+              <Text style={styles.text_infoSecc}>{account.email}</Text>
             </View>
           </View>
           <Gap height={5} />
