@@ -23,8 +23,10 @@ import ICRestourant from "./restourant.svg";
 import ICRoomService from "./roomservice.svg";
 import ICOrang from "./orang.svg";
 import ICArrowRight from "./arrowright.svg";
+import AppLogo from "./appLogo.svg";
 
 export {
+  AppLogo,
   ICLogo,
   ICEmail,
   ICPassword,

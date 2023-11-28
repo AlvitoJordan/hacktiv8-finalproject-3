@@ -1,4 +1,11 @@
-import { ImageBackground, ScrollView, StyleSheet, TouchableOpacity, View, Text } from "react-native";
+import {
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Text,
+} from "react-native";
 import React from "react";
 import { colors } from "../../../utils/colors";
 import { Gap, TextCS } from "../../atoms";
@@ -17,9 +24,15 @@ const TopDestination = () => {
         showsHorizontalScrollIndicator={false}
       >
         {DataCity.map((item) => (
-          <TouchableOpacity onPress={() => navigation.navigate("DetailHotel")} key={item.id}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("DetailHotel")}
+            key={item.id}
+          >
             <View style={styles.imageContainer}>
-              <ImageBackground source={{uri: item.image}} style={styles.image}>
+              <ImageBackground
+                source={{ uri: item.image }}
+                style={styles.image}
+              >
                 <View style={styles.shadows}>
                   <Text style={styles.text}>{item.city}</Text>
                 </View>
@@ -37,6 +50,7 @@ export default TopDestination;
 const styles = StyleSheet.create({
   container: {
     width: "100%",
+    marginVertical: 15,
   },
   imageContainer: {
     overflow: "hidden",
@@ -44,7 +58,7 @@ const styles = StyleSheet.create({
     width: 175,
     height: 175,
     borderRadius: 15,
-    marginVertical: 15,
+    marginTop: 15,
     marginRight: 15,
   },
   title: {

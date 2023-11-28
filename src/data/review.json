@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Sabrina",
+                "comment": "Nice location, easy and direct mall access, clean and cozy room, delicious food, comfortable and nice atmosphere in the club lounge, exceptional service. Superb!",
+                "date": "2023-11-20",
+                "score" : 10.0
+            },
+            {
+                "id" : 2,
+                "username" : "John",
+                "comment": "BREAKFAST IS MOSTLY ONE OF THE MAIN THINGS I CONSIDER WHEN STAYING IN HOTELS -- YOURS WAS EXCELLENT",
+                "date": "2023-07-08",
+                "score" : 10.0
+            },
+            {
+                "id" : 3,
+                "username" : "Okamoto",
+                "comment": "breakfast good, and location nice near works office",
+                "date": "2023-06-22",
+                "score" : 10.0
+            }
+        ]
+
+    },
+    {
+        "id": 2,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Fahreza",
+                "comment": "the pool was amazing, located in strategic place. spacious.",
+                "date": "2023-04-13",
+                "score" : 8.0
+            },
+            {
+                "id" : 2,
+                "username" : "Adhi",
+                "comment": "Appartment is quite spacious and clean. Location in the complex of shopping malls and just cross the road from ITC so many restaurants to pick from.",
+                "date": "2022-01-29",
+                "score" : 7.0
+            },
+            {
+                "id" : 3,
+                "username" : "Levibi",
+                "comment": "Everything is very good, and in great condition (Set aside the interior concern). Though the interior is decent luxurious style, but it's clean, the water heater is working normal, great bathtub condition with no damage, the AC is great and chilling, the bed and pillow are comfortable (on both rooms), very quiet room, the internet is fast with some cable tv channels working great.",
+                "date": "2023-06-22",
+                "score" : 10.0
+            }
+        ]
+
+    }
+
+]
