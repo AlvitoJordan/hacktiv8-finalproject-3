@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   DUHotelManila,
   ICBack,
@@ -20,8 +20,20 @@ import {
 import { ButtonCS, Card, Gap, TextCS } from "../../components";
 import { colors } from "../../utils/colors";
 import { MaterialIcons, Ionicons } from "@expo/vector-icons";
+import hotels from "../../data/hotels.json";
 
-const DetailHotelScreen = ({ navigation }) => {
+const DetailHotelScreen = ({ navigation, route }) => {
+  const [detailHotel, setDetailHotel] = useState({});
+
+  useEffect(() => {
+    if (route.params?.id) {
+      const findHotel = hotels.find((hotel) => hotel.id === route.params?.id);
+      if (findHotel) {
+        setDetailHotel(findHotel);
+      }
+    }
+  }, [route.params?.id]);
+
   React.useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -51,7 +63,7 @@ const DetailHotelScreen = ({ navigation }) => {
             <View style={styles.detailContainer}>
               <View style={styles.detailContent}>
                 <View>
-                  <TextCS style={styles.title}>Hotel Word Love</TextCS>
+                  <TextCS style={styles.title}>{detailHotel.name}</TextCS>
                   <View style={styles.rowIcon}>
                     <Ionicons name="star" size={20} color={colors.secondary} />
                     <Text style={styles.subtitle}>3.4</Text>

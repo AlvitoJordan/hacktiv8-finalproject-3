@@ -54,7 +54,9 @@ const PopularDestination = () => {
               </View>
             </ImageBackground>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Detail Hotel")}
+              onPress={() =>
+                navigation.navigate("Detail Hotel", { id: item.id })
+              }
               style={styles.detailsContainer}
             >
               <View>
@@ -84,7 +86,7 @@ export default PopularDestination;
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    paddingBottom: 20,
+    marginVertical: 15,
   },
   containerCard: {
     width: 200,
@@ -92,7 +94,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     marginRight: 15,
     overflow: "hidden",
-    marginVertical: 15,
+    marginTop: 15,
   },
   imageWrapper: {
     justifyContent: "flex-end",

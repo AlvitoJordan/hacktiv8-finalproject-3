@@ -1,25 +1,62 @@
-import { ScrollView, StyleSheet, View, StatusBar, SafeAreaView, Text } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+  StatusBar,
+  SafeAreaView,
+  Text,
+  Pressable,
+} from "react-native";
 
 import React from "react";
 
-import { ICLogo } from "../../assets";
-import { Card, Gap, PopularDestination, SearchHotel, TopDestination } from "../../components";
-
+import { AppLogo, ICLogo, ICOrang, ILLSignIn } from "../../assets";
+import {
+  Card,
+  Gap,
+  PopularDestination,
+  SearchHotel,
+  TopDestination,
+} from "../../components";
+import { colors } from "../../utils/colors";
 
 const HomeScreen = ({ navigation }) => {
-
-
   return (
     <SafeAreaView style={styles.safeContainer}>
       <View style={styles.screen}>
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
-          <ICLogo />
-          <SearchHotel />
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.container}
+        >
+          <View style={styles.header}>
+            <View>
+              <Text style={styles.title}>Hello, Welcome!</Text>
+              <Text style={styles.name}>Alvito Jordan</Text>
+            </View>
+            <View style={styles.avatar}>
+              <ICOrang width={50} height={50} />
+            </View>
+          </View>
 
+          <SearchHotel />
+          <View style={styles.signInContainer}>
+            <View style={styles.leftContainer}>
+              <Text style={styles.name}>Get Your Dream Getaway</Text>
+              <Text style={styles.title}>
+                Log in to manage reservations, explore exclusive offers.
+              </Text>
+              <Pressable style={styles.buttons}>
+                <Text style={styles.buttonText}>SIGN IN</Text>
+              </Pressable>
+            </View>
+            <ILLSignIn />
+          </View>
           <TopDestination />
           <PopularDestination />
-
-          <Card type={"hotel"} onPress={() => navigation.navigate("Detail Hotel")} />
+          {/* <Card
+            type={"hotel"}
+            onPress={() => navigation.navigate("Detail Hotel")}
+          /> */}
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -33,12 +70,60 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: StatusBar.currentHeight,
   },
+  title: {
+    fontSize: 16,
+    color: "#810829",
+  },
+  name: {
+    fontSize: 20,
+    color: "#810829",
+    fontWeight: "bold",
+  },
   screen: {
     flex: 1,
   },
   container: {
     backgroundColor: "#f9f9f9",
+    padding: 20,
+  },
+  signInContainer: {
+    flexDirection: "row",
     alignItems: "center",
     padding: 20,
+    borderWidth: 2,
+    borderRadius: 15,
+    borderColor: colors.gray,
+    marginVertical: 15,
+  },
+  leftContainer: {
+    flex: 1,
+    marginRight: 5,
+  },
+  buttons: {
+    backgroundColor: colors.secondary,
+    width: "50%",
+    padding: 10,
+    marginTop: 10,
+    alignItems: "center",
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: colors.white,
+    fontWeight: "bold",
+  },
+  avatar: {
+    borderRadius: 50,
+    width: 50,
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    overflow: "hidden",
+  },
+  header: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 10,
   },
 });
