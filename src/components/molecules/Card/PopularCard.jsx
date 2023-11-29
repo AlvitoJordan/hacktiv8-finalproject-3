@@ -1,29 +1,16 @@
 import {
-  Image,
   ImageBackground,
-  ScrollView,
-  StyleSheet,
   TouchableOpacity,
   View,
+  StyleSheet,
   Text,
 } from "react-native";
-import React, { useState } from "react";
-import { Gap, TextCS } from "../../atoms";
-import { colors } from "../../../utils/colors";
-import {
-  DUHotelIbis,
-  DUHotelManila,
-  ICFavorite,
-  ICRate,
-} from "../../../assets";
-import CardHotel from "../Card/CardHotel";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { colors } from "../../../utils/colors";
+import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { DataHotel } from "../../../data";
-import PopularCard from "../Card/PopularCard";
 
-const PopularDestination = () => {
+const PopularCard = ({ id, image, title, rate, location, price, region }) => {
   const [favorite, setFavorite] = useState(false);
   const navigation = useNavigation();
 
@@ -31,31 +18,47 @@ const PopularDestination = () => {
     setFavorite(!favorite);
   };
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Popular Destination</Text>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={styles.listDestination}
+    <View style={styles.containerCard}>
+      <ImageBackground source={{ uri: image }} style={styles.image}>
+        <View style={styles.imageWrapper}>
+          <TouchableOpacity
+            onPress={toggleFavorite}
+            style={styles.favoriteIcon}
+          >
+            <MaterialIcons
+              name={favorite ? "favorite" : "favorite-border"}
+              size={25}
+              color={colors.primary}
+            />
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Detail Hotel", { id: id })}
+        style={styles.detailsContainer}
       >
-        {DataHotel.map((item) => (
-          <PopularCard
-            id={item.id}
-            image={item.url}
-            title={item.name}
-            rate={item.score}
-            location={item.address.city}
-            region={item.address.region}
-            price={item.price}
-            key={item.id}
-          />
-        ))}
-      </ScrollView>
+        <View>
+          <Text numberOfLines={2} style={styles.titleHotel}>
+            {title}
+          </Text>
+          <View style={styles.rating}>
+            <Ionicons name="star" size={15} color={colors.secondary} />
+            <Text>{rate}</Text>
+          </View>
+          <Text style={styles.regionText}>
+            {location}, {region}
+          </Text>
+        </View>
+        <View style={styles.priceStyle}>
+          <Text style={styles.price}>{price}</Text>
+          <Text style={styles.day}>Per Night</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
 
-export default PopularDestination;
+export default PopularCard;
 
 const styles = StyleSheet.create({
   container: {

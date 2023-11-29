@@ -8,37 +8,27 @@ import {
 } from "react-native";
 import React from "react";
 import { colors } from "../../../utils/colors";
-import { Gap, TextCS } from "../../atoms";
-import { DUHotelIbis } from "../../../assets";
 import { useNavigation } from "@react-navigation/native";
 import { DataCity } from "../../../data";
+import CityCard from "../Card/CityCard";
 
 const TopDestination = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>TOP DESTINATIONS</Text>
+      <Text style={styles.title}>Cities in Indonesia</Text>
       <ScrollView
         horizontal
         style={styles.listDestination}
         showsHorizontalScrollIndicator={false}
       >
         {DataCity.map((item) => (
-          <TouchableOpacity
-            onPress={() => navigation.navigate("DetailHotel")}
+          <CityCard
+            id={item.id}
+            image={item.image}
+            city={item.city}
             key={item.id}
-          >
-            <View style={styles.imageContainer}>
-              <ImageBackground
-                source={{ uri: item.image }}
-                style={styles.image}
-              >
-                <View style={styles.shadows}>
-                  <Text style={styles.text}>{item.city}</Text>
-                </View>
-              </ImageBackground>
-            </View>
-          </TouchableOpacity>
+          />
         ))}
       </ScrollView>
     </View>
