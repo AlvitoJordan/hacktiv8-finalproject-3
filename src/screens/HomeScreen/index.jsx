@@ -19,6 +19,8 @@ import {
   TopDestination,
 } from "../../components";
 import { colors } from "../../utils/colors";
+import WelcomeCard from "../../components/molecules/Card/WelcomeCard";
+import SignInCard from "../../components/molecules/Card/SignInCard";
 
 const HomeScreen = ({ navigation }) => {
   return (
@@ -28,35 +30,11 @@ const HomeScreen = ({ navigation }) => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.container}
         >
-          <View style={styles.header}>
-            <View>
-              <Text style={styles.title}>Hello, Welcome!</Text>
-              <Text style={styles.name}>Alvito Jordan</Text>
-            </View>
-            <View style={styles.avatar}>
-              <ICOrang width={50} height={50} />
-            </View>
-          </View>
-
+          <WelcomeCard name="Alvito Jordan" />
           <SearchHotel />
-          <View style={styles.signInContainer}>
-            <View style={styles.leftContainer}>
-              <Text style={styles.name}>Get Your Dream Getaway</Text>
-              <Text style={styles.title}>
-                Log in to manage reservations, explore exclusive offers.
-              </Text>
-              <Pressable style={styles.buttons}>
-                <Text style={styles.buttonText}>SIGN IN</Text>
-              </Pressable>
-            </View>
-            <ILLSignIn />
-          </View>
+          <SignInCard />
           <TopDestination />
           <PopularDestination />
-          {/* <Card
-            type={"hotel"}
-            onPress={() => navigation.navigate("Detail Hotel")}
-          /> */}
         </ScrollView>
       </View>
     </SafeAreaView>
