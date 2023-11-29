@@ -38,11 +38,11 @@
       "city" : "Jakarta",
       "region" : "Indonesia"
     },
-    "price": "Rp1.257.000",
+    "price": "Rp993.000",
     "description": "Located 4 miles from Pondok Indah Mall, Azana Suites Hotel Antasari offers 4-star accommodations in Jakarta and has a terrace, a restaurant and a bar. The property is around 4.9 miles from Pacific Place, 5.1 miles from Ragunan Zoo and 5.2 miles from Plaza Senayan. The hotel has an outdoor swimming pool and room service and free WiFi throughout the property.",
     "amenities": ["Free WiFi", "Outdoor Swimming Pool", "Free Parking", "Non-smoking rooms","Airport shuttle"],
-    "rating": 9.0,
-    "star" : 5
+    "rating": 8.0,
+    "star" : 4
   },
   {
     "id": 4,
@@ -56,7 +56,7 @@
     "price": "Rp713.000",
     "description": "A 15-minute drive from Mall Taman Anggrek, Menara Peninsula Hotel features an outdoor pool, 4 dining options and free WiFi access. In-room dining service is available 24 hours. Guests who drive park for free. Menara Peninsula Hotel is a 20-minute drive from Sudirman area and a 30-minute drive from Senayan City and Plaza Senayan Shopping Mall. Soekarno-Hatta International Airport is 45 minutes drive away from the property. Airport transfers can be arranged at a charge.",
     "amenities": ["Free WiFi", "Outdoor Swimming Pool", "Airport shuttle", "Free Parking", "Spa"],
-    "rating": 9.1,
+    "rating": 7.1,
     "star" : 4
   },
   {
@@ -86,8 +86,8 @@
     "price": "Rp780.000",
     "description": "Located in Cirebon, The Luxton Cirebon Hotel and Convention offers a spa center, sauna and an outdoor pool. Guests can enjoy a la carte menu at the restaurant or a drink at the bar. Free private parking is available on site. Every room at this hotel is air conditioned and features a flat-screen TV. Enjoy a cup of tea while looking out at the sea or mountains. Every room is equipped with a private bathroom with a shower. Extras include slippers and free toiletries.",
     "amenities": ["Spa","Outdoor Swimming Pool","Free Parking","Restaurant","Free WiFi"],
-    "rating": 9.1,
-    "star": 5
+    "rating": 8.1,
+    "star": 4
   },
   {    
     "id": 7,
@@ -101,8 +101,8 @@
     "price": "Rp160.000",
     "description": "Hotel Rajawali RedPartner is located in Cirebon, within 2.6 miles of Cirebon Waterland and 1.5 miles of Kasepuhan Palace. The 2-star hotel has air-conditioned rooms with a private bathroom and free WiFi. Sunyaragi Cave is 1.7 miles from the hotel and Kanoman Palace is 2.4 miles away.",
     "amenities": ["Spa","Non-smoking rooms","Free Parking","Restaurant","Free WiFi"],
-    "rating": 3.8,
-    "star" : 3
+    "rating": 7.8,
+    "star" : 2
   },
   {    
     "id": 8,
@@ -131,7 +131,7 @@
     "price": "Rp250.000",
     "description": "Located within 1.5 miles of Cirebon Waterland and 1.1 miles of Kanoman Palace, Hotel Sampurna Cirebon has rooms in Cirebon. With a terrace, the 1-star hotel has air-conditioned rooms with free WiFi, each with a private bathroom. The property provides room service and a 24-hour front desk for guests.",
     "amenities": ["Room service","Non-smoking rooms","Free WiFi","Free Parking","Restaurant"],
-    "rating": 8.7,
+    "rating": 7.7,
     "star" : 3
   },
   {    
@@ -146,7 +146,7 @@
     "price": "Rp811.000",
     "description": "Located in Cirebon, 1.9 miles from Cirebon Waterland, Star House has air-conditioned accommodations and a terrace. This 2-star hotel offers a 24-hour front desk. Sunyaragi Cave is 2.2 miles away and Mount Cereme is 31 miles from the hotel.",
     "amenities": ["Airport shuttle", "family rooms", "Free WiFi", "Free Parking", "Room service"],
-    "rating": 7.6,
+    "rating": 8.9,
     "star" : 4
   },
   {
@@ -176,8 +176,8 @@
     "price": "Rp480.000",
     "description": " Flyover Arjosari Hotel provides free WiFi throughout the property and rooms with air conditioning in Malang. The property is around 2.4 miles from Araya Golf & Family Club, 2.7 miles from Museum Mpu Purwa and 3.6 miles from Taman Rekreasi Senaputra. Alun-alun Tugu is 4 miles away and Taman Rekreasi Kota is 4 miles from the hotel.",
     "amenities": ["Airport shuttle", "family rooms", "Free WiFi", "Free Parking", "Room service"],
-    "rating": 7.6,
-    "star" : 4
+    "rating": 6.6,
+    "star" : 3
   },
   {
     "id": 13,
@@ -218,7 +218,7 @@
       "city" : "Malang",
       "region" : "Indonesia"
     },
-    "price": "Rp346.500",
+    "price": "Rp423.500",
     "description": "Lux Tychi Hotel features an outdoor swimming pool and spacious, air-conditioned rooms with private bathrooms and seating areas. It offers a 24-hour coffee shop, a karaoke room and free wireless hotspots. The rooms are simple, featuring elegant furniture and crisp linen. Some rooms have dining areas and additional facilities like a mini-bar, coffee/tea making facilities and a bathroom with a bathtub.",
     "amenities": ["Restaurant", "Outdoor Swimming Pool", "Free WiFi", "Free Parking", "Room service"],
     "rating": 6.0,
@@ -250,7 +250,7 @@
     },
     "price": "Rp396.000",
     "description": "Prime Plaza Kualanamu-Medan is set in Kampungbesar. This property also houses a restaurant, a fitness center, a business center and an outdoor pool with kids area. Spacious free parking is available on site. All rooms at the hotel are fitted with a seating area. The private bathroom is equipped with standing shower and complete amenities. At Prime Plaza Kualanamu-Medan rooms are fitted with air conditioning and LED TV, fridge, and personal safe.",
-    "amenities": ["Restaurant", "Outdoor Swimming Pool", "Free WiFi", "Free Parking", "Room service"],
+    "amenities": ["Restaurant", "Outdoor Swimming Pool", "Free WiFi", "Free Parking", "Airport shuttle"],
     "rating": 8.2,
     "star": 4
   },
@@ -310,7 +310,7 @@
     },
     "price": "Rp1.032.000",
     "description": "Paradiso is located at the south of Kuta Beach, a 10-minute drive from Bali International Airport. The hotel offers free-form outdoor pools and 6 dining options. Families with children can make use of the kids corner and playground. Free WiFi is accessible in all areas and free scheduled airport shuttle is provided.",
-    "amenities": ["family rooms", "Airport shuttle", "Free WiFi", "Non-smoking rooms", "Spa"],
+    "amenities": ["Outdoor Swimming Pool", "Airport shuttle", "Free WiFi", "Room service", "Spa"],
     "rating": 7.5,
     "star": 5
   },
@@ -339,7 +339,7 @@
       "region" : "Indonesia"
     },
     "price": "Rp1.193.000",
-    "description": "Located a few minutes' away from central Ubud, Bisma Eight - CHSE Certified offers spacious contemporary rooms with traditional Japanese soaking tub. It also features an outdoor temperature-controlled pool and free WiFi access throughout.",
+    "description": "Located a few minutes' away from central Ubud, Bisma Eight offers spacious contemporary rooms with traditional Japanese soaking tub. It also features an outdoor temperature-controlled pool and free WiFi access throughout.",
     "amenities": ["Outdoor Swimming Pool", "Airport shuttle", "Free WiFi", "Room service", "Spa"],
     "rating": 9.2,
     "star": 5
@@ -370,7 +370,7 @@
     },
     "price": "Rp608.000",
     "description": "Located 5 minutes walk from Bali Galeria Shopping Center, The Kana Kuta Hotel offers an outdoor swimming pool. Free WiFi access is available throughout the property. Air-conditioned rooms here will provide guests with a flat-screen satellite TV, seating area and a dining area with an electric kettle. The private bathroom comes with shower facilities, free toiletries, dental kit and slippers on request.",
-    "amenities": ["Restaurant", "Room service", "Free WiFi", "Non-smoking rooms", "Spa"],
+    "amenities": ["Restaurant", "Room service", "Free WiFi", "Outdoor Swimming Pool", "Spa"],
     "rating": 8.6,
     "star": 4
   }
