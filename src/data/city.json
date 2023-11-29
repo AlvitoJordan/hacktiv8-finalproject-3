@@ -1,12 +1,27 @@
 [
   {
     "id": 1,
-    "city": "Cirebon",
-    "image": "https://static.republika.co.id/uploads/images/inpicture_slide/dinas-pariwisata-dan-kebudayaan-disparbud-jawa-barat-mencatat-rata-rata_210405201108-886.jpeg"
+    "city": "Kuta",
+    "image": "https://cf.bstatic.com/xdata/images/city/square250/688062.webp?k=1262974dc7e10bba90ada2c6630958862b2a7fdd480f4309032b8f9df1c2bb81&o="
   },
   {
     "id": 2,
+    "city": "Jakarta",
+    "image": "https://www.indonesia.travel/content/dam/indtravelrevamp/en/destinations/java/dki-jakarta/Image1.jpg"
+  },
+  {
+    "id": 3,
     "city": "Malang",
     "image": "https://geotimes.id/wp-content/uploads/2017/08/malang.jpg"
+  },
+  {
+    "id": 4,
+    "city": "Medan",
+    "image": "https://blog.tiket.com/wp-content/uploads/2022/01/Dekat-dengan-Tempat-Wisata-Alam-yang-Indah.jpg"
+  },
+  {
+    "id": 5,
+    "city": "Cirebon",
+    "image": "https://static.republika.co.id/uploads/images/inpicture_slide/dinas-pariwisata-dan-kebudayaan-disparbud-jawa-barat-mencatat-rata-rata_210405201108-886.jpeg"
   }
 ]

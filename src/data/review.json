@@ -5,14 +5,14 @@
             {
                 "id" : 1,
                 "username" : "Sabrina",
-                "comment": "Nice location, easy and direct mall access, clean and cozy room, delicious food, comfortable and nice atmosphere in the club lounge, exceptional service. Superb!",
+                "comment": "Nice location, easy and direct mall access, clean and cozy room, delicious food, comfortable and nice atmosphere in the club lounge, exceptional service.",
                 "date": "2023-11-20",
                 "score" : 10.0
             },
             {
                 "id" : 2,
                 "username" : "John",
-                "comment": "BREAKFAST IS MOSTLY ONE OF THE MAIN THINGS I CONSIDER WHEN STAYING IN HOTELS -- YOURS WAS EXCELLENT",
+                "comment": "BREAKFAST IS MOSTLY ONE OF THE MAIN THINGS I CONSIDER WHEN STAYING IN HOTELS",
                 "date": "2023-07-08",
                 "score" : 10.0
             },
@@ -46,12 +46,609 @@
             {
                 "id" : 3,
                 "username" : "Levibi",
-                "comment": "Everything is very good, and in great condition (Set aside the interior concern). Though the interior is decent luxurious style, but it's clean, the water heater is working normal, great bathtub condition with no damage, the AC is great and chilling, the bed and pillow are comfortable (on both rooms), very quiet room, the internet is fast with some cable tv channels working great.",
+                "comment": "Everything is very good, and in great condition (Set aside the interior concern).",
                 "date": "2023-06-22",
                 "score" : 10.0
             }
         ]
 
+    },
+    {
+        "id": 3,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Geni",
+                "comment": "I love the staff. They were attentive and professional",
+                "date": "2023-06-15",
+                "score" : 9.0
+            },
+            {
+                "id" : 2,
+                "username" : "Scott",
+                "comment": "The room was clean and the bed was very comfortable. Staff was helpful and polite.",
+                "date": "2023-06-22",
+                "score" : 8.0
+            },
+            {
+                "id" : 3,
+                "username" : "Amry",
+                "comment": "Everything is very good",
+                "date": "2023-03-22",
+                "score" : 10.0
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Ronald",
+                "comment": "Good location, good value",
+                "date": "2023-05-05",
+                "score" : 6.0
+            },
+            {
+                "id" : 2,
+                "username" : "Belmeier",
+                "comment": "It has a strategic location and easy to reach. The parking lot are free and spacious.",
+                "date": "2023-04-05",
+                "score" : 8.0
+            },
+            {
+                "id" : 3,
+                "username" : "Amry",
+                "comment": "the place is comfortable, clean and in the city center so it's comfortable to stay here",
+                "date": "2023-03-06",
+                "score" : 7.0
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Trevor",
+                "comment": "Very Good",
+                "date": "2023-10-05",
+                "score" : 8.0
+            },
+            {
+                "id" : 2,
+                "username" : "Christ",
+                "comment": "Worst stay ever, not even deserve a 2 star rating hotel.",
+                "date": "2023-08-18",
+                "score" : 1.0
+            },
+            {
+                "id" : 3,
+                "username" : "Gree",
+                "comment": "All right, nothing special",
+                "date": "2023-06-12",
+                "score" : 7.0
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Erni",
+                "comment": "the have kids club..! my toddler loved it. room spacious, breakfast delicious",
+                "date": "2023-08-11",
+                "score" : 9.0
+            },
+            {
+                "id" : 2,
+                "username" : "Lisa",
+                "comment": "The room, the breakfast is very good",
+                "date": "2023-06-16",
+                "score" : 9.0
+            },
+            {
+                "id" : 3,
+                "username" : "Liana",
+                "comment": "We feel comfortable stay in this hotel",
+                "date": "2023-06-01",
+                "score" : 7.0
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Dendi",
+                "comment": "The room, the breakfast is ok",
+                "date": "2023-10-11",
+                "score" : 7.0
+            },
+            {
+                "id" : 2,
+                "username" : "Mita",
+                "comment": "Everything is very good",
+                "date": "2023-10-08",
+                "score" : 10.0
+            },
+            {
+                "id" : 3,
+                "username" : "Paiman",
+                "comment": "I love the staff. They were professional",
+                "date": "2023-09-05",
+                "score" : 8.0
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Eko",
+                "comment": "The pillow was too thick for me and uncomfortable",
+                "date": "2023-09-15",
+                "score" : 7.0
+            },
+            {
+                "id" : 2,
+                "username" : "Mali",
+                "comment": " It is at the center of the city. Easy for us to get to anywhere",
+                "date": "2023-08-28",
+                "score" : 10.0
+            },
+            {
+                "id" : 3,
+                "username" : "Arif",
+                "comment": "Convenience of the place.",
+                "date": "2023-07-07",
+                "score" : 8.0
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Daniel",
+                "comment": "Very Good",
+                "date": "2023-09-14",
+                "score" : 9.0
+            },
+            {
+                "id" : 2,
+                "username" : "Debby",
+                "comment": "All right, nothing special",
+                "date": "2023-08-27",
+                "score" : 8.0
+            },
+            {
+                "id" : 3,
+                "username" : "Christiana",
+                "comment": "Convenience of the place.",
+                "date": "2023-07-01",
+                "score" : 8.0
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Igcanio",
+                "comment": "Very nice views and comfortable room, but No breakfast ",
+                "date": "2023-05-14",
+                "score" : 8.5
+            },
+            {
+                "id" : 2,
+                "username" : "Emily",
+                "comment": "Lovely View",
+                "date": "2023-02-01",
+                "score" : 10.0
+            },
+            {
+                "id" : 3,
+                "username" : "Chris",
+                "comment": "Great Place",
+                "date": "2023-01-27",
+                "score" : 9.0
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Stuart",
+                "comment": "Nice location, easy and direct mall access",
+                "date": "2023-11-11",
+                "score" : 8.5
+            },
+            {
+                "id" : 2,
+                "username" : "Mika",
+                "comment": "Best Hotel in Malang",
+                "date": "2023-06-07",
+                "score" : 9.0
+            },
+            {
+                "id" : 3,
+                "username" : "Noelle",
+                "comment": "Everything is very good",
+                "date": "2023-05-25",
+                "score" : 8.0
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Eka",
+                "comment": "the facilities are lacking",
+                "date": "2023-10-15",
+                "score" : 7.0
+            },
+            {
+                "id" : 2,
+                "username" : "Erina",
+                "comment": "Many water hoses are leaking",
+                "date": "2023-06-07",
+                "score" : 7.0
+            },
+            {
+                "id" : 3,
+                "username" : "Justin",
+                "comment": "All right, nothing special",
+                "date": "2023-05-15",
+                "score" : 8.0
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Dimas",
+                "comment": "Good location, good value",
+                "date": "2023-09-25",
+                "score" : 8.0
+            },
+            {
+                "id" : 2,
+                "username" : "Arnoldy",
+                "comment": "staff atitude is bad",
+                "date": "2023-07-19",
+                "score" : 5.0
+            },
+            {
+                "id" : 3,
+                "username" : "Jason",
+                "comment": "The room is uncomfortable",
+                "date": "2023-07-16",
+                "score" : 6.0
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Dimas",
+                "comment": "Good location, good value",
+                "date": "2023-09-25",
+                "score" : 8.0
+            },
+            {
+                "id" : 2,
+                "username" : "Arnoldy",
+                "comment": "staff atitude is bad",
+                "date": "2023-07-19",
+                "score" : 5.0
+            },
+            {
+                "id" : 3,
+                "username" : "Jason",
+                "comment": "The room is uncomfortable",
+                "date": "2023-07-16",
+                "score" : 6.0
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Mario",
+                "comment": "The location was very convenient. But the bathroom had rust everywhere and the shower could no longer be closed.",
+                "date": "2023-07-30",
+                "score" : 7.0
+            },
+            {
+                "id" : 2,
+                "username" : "Adi",
+                "comment": "Common areas upstairs and room in dire need of refurbishment",
+                "date": "2023-07-20",
+                "score" : 4.0
+            },
+            {
+                "id" : 3,
+                "username" : "Suparman",
+                "comment": "Bathroom is too old",
+                "date": "2023-07-05",
+                "score" : 6.0
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Richard",
+                "comment": "A classic style hotel but very well maintain and also clean",
+                "date": "2023-11-17",
+                "score" : 10.0
+            },
+            {
+                "id" : 2,
+                "username" : "Olivia",
+                "comment": "Very nice hotel in central location in Medan.",
+                "date": "2023-10-30",
+                "score" : 9.0
+            },
+            {
+                "id" : 3,
+                "username" : "Benardo",
+                "comment": "the staff very kind and always ready to help you",
+                "date": "2023-05-07",
+                "score" : 9.5
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Elizabeth",
+                "comment": "Our meals in the restaurant were pretty good. Staff was very gracious and helpful",
+                "date": "2023-08-08",
+                "score" : 10.0
+            },
+            {
+                "id" : 2,
+                "username" : "Arnold",
+                "comment": "The chef is very talented",
+                "date": "2023-08-07",
+                "score" : 8.5
+            },
+            {
+                "id" : 3,
+                "username" : "Sarah",
+                "comment": "Airport transportation is free, our breakfast so delicious",
+                "date": "2023-05-07",
+                "score" : 9.0
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Darma",
+                "comment": "Cheap stay close to the Train to the Airport, clean, nice staff.",
+                "date": "2023-07-30",
+                "score" : 9.0
+            },
+            {
+                "id" : 2,
+                "username" : "Mail",
+                "comment": "Excellent facilities. Pleasant staff",
+                "date": "2023-08-07",
+                "score" : 8.0
+            },
+            {
+                "id" : 3,
+                "username" : "Judo",
+                "comment": "Convenient location",
+                "date": "2023-05-07",
+                "score" : 9.0
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Abdul",
+                "comment": "Great service in all the way especially the front desk staff.",
+                "date": "2023-08-25",
+                "score" : 10.0
+            },
+            {
+                "id" : 2,
+                "username" : "Armanda",
+                "comment": "The location, the friendly and helpful staff, and the cleanliness",
+                "date": "2023-08-07",
+                "score" : 9.0
+            },
+            {
+                "id" : 3,
+                "username" : "Samsudin",
+                "comment": "Customer service was excellent!",
+                "date": "2023-05-07",
+                "score" : 9.0
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Dato",
+                "comment": "Very good, food delicious and gd service,very clean",
+                "date": "2023-08-25",
+                "score" : 9.0
+            },
+            {
+                "id" : 2,
+                "username" : "Fred",
+                "comment": "Great room, good breakfast",
+                "date": "2023-08-07",
+                "score" : 7.5
+            },
+            {
+                "id" : 3,
+                "username" : "Cyntia",
+                "comment": "Prices are quite cheap",
+                "date": "2023-05-24",
+                "score" : 8.0
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Michelle",
+                "comment": "Comfortable room, massive pool, close to all that activity of Kuta and delicious room service.",
+                "date": "2023-01-25",
+                "score" : 9.0
+            },
+            {
+                "id" : 2,
+                "username" : "Leon",
+                "comment": "Location and pool area was great. But no restaurant",
+                "date": "2022-12-31",
+                "score" : 7.0
+            },
+            {
+                "id" : 3,
+                "username" : "Ricky",
+                "comment": "Everything from the booking to the end was amazing. Second time staying and was just as amazing.",
+                "date": "2022-11-30",
+                "score" : 9.0
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "George",
+                "comment": "The staff are incredibly friendly.",
+                "date": "2023-07-09",
+                "score" : 10.0
+            },
+            {
+                "id" : 2,
+                "username" : "Jess",
+                "comment": "Nice room with balcony, breakfast was fine, staff frriendly",
+                "date": "2023-06-24",
+                "score" : 9.0
+            },
+            {
+                "id" : 3,
+                "username" : "Lisa",
+                "comment": "Great atmosphere. Staff were lovely, great rooms",
+                "date": "2023-05-11",
+                "score" : 10.0
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Clint",
+                "comment": "The pool and the breakfast. Close to local restaurants and shops.",
+                "date": "2023-10-18",
+                "score" : 9.0
+            },
+            {
+                "id" : 2,
+                "username" : "Lina",
+                "comment": "We feel comfortable stay in this hotel",
+                "date": "2023-10-01",
+                "score" : 10.0
+            },
+            {
+                "id" : 3,
+                "username" : "Mathias",
+                "comment": "We will come again, thank you to the whole Bisma team- you made our stay so enjoyable!",
+                "date": "2023-09-12",
+                "score" : 9.0
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Nick",
+                "comment": "Great place to stay in Lovina",
+                "date": "2023-10-09",
+                "score" : 10.0
+            },
+            {
+                "id" : 2,
+                "username" : "Kevin",
+                "comment": "Restaurant was also really good.",
+                "date": "2023-09-24",
+                "score" : 8.0
+            },
+            {
+                "id" : 3,
+                "username" : "Steven",
+                "comment": "Loved staying here, would definitely recommend.",
+                "date": "2023-09-15",
+                "score" : 9.0
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "review" : [
+            {
+                "id" : 1,
+                "username" : "Anton",
+                "comment": "Very good clean rooms, pool clean nice people",
+                "date": "2023-10-15",
+                "score" : 10.0
+            },
+            {
+                "id" : 2,
+                "username" : "Debora",
+                "comment": "Great hotel to stay with friend",
+                "date": "2023-09-01",
+                "score" : 8.0
+            },
+            {
+                "id" : 3,
+                "username" : "Mark",
+                "comment": "The wonderful staff, excellent breakfast and pool area",
+                "date": "2023-01-01",
+                "score" : 9.0
+            }
+        ]
     }
-
 ]
