@@ -15,7 +15,7 @@ export default InputWithIcon;
 
 const styles = StyleSheet.create({
   inputContainer: {
-    width: 390,
+    width: 350,
     height: 60,
     backgroundColor: "white",
     padding: 10,

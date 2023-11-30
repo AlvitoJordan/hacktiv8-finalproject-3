@@ -9,20 +9,43 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { colors } from "../../../utils/colors";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, unFavorite } from "../../../redux/favoriteSlice";
+import { showError } from "../../../utils/showMessage";
 
-const PopularCard = ({ id, image, title, rate, location, price, region }) => {
-  const [favorite, setFavorite] = useState(false);
+const PopularCard = ({
+  clickedData,
+  image,
+  title,
+  rate,
+  location,
+  price,
+  region,
+  data,
+}) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const { favorites } = useSelector((state) => state.favorite);
+  const favorite = favorites.some((item) => item.id === data.id);
 
-  const toggleFavorite = () => {
-    setFavorite(!favorite);
+  const toggleFavorite = (data) => {
+    try {
+      const isAlreadyFavorite = favorites.some((item) => item.id === data.id);
+      if (isAlreadyFavorite) {
+        dispatch(unFavorite(data));
+      } else {
+        dispatch(addFavorite(data));
+      }
+    } catch (error) {
+      showError(error);
+    }
   };
   return (
     <View style={styles.containerCard}>
       <ImageBackground source={{ uri: image }} style={styles.image}>
         <View style={styles.imageWrapper}>
           <TouchableOpacity
-            onPress={toggleFavorite}
+            onPress={() => toggleFavorite(data)}
             style={styles.favoriteIcon}
           >
             <MaterialIcons
@@ -34,7 +57,7 @@ const PopularCard = ({ id, image, title, rate, location, price, region }) => {
         </View>
       </ImageBackground>
       <TouchableOpacity
-        onPress={() => navigation.navigate("Detail Hotel", { id: id })}
+        onPress={() => navigation.navigate("Detail Hotel", clickedData)}
         style={styles.detailsContainer}
       >
         <View>

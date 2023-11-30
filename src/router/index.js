@@ -51,15 +51,15 @@ export const Router = () => {
   const isLoading = useSelector((state) => state.toggle.isLoading);
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="MainApp">
-        <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{ headerShown: false }}
-        />
+      <Stack.Navigator>
         <Stack.Screen
           name="MainApp"
           component={MainApp}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen

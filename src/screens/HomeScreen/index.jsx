@@ -8,7 +8,7 @@ import {
   Pressable,
 } from "react-native";
 
-import React from "react";
+import React, { useEffect } from "react";
 
 import { AppLogo, ICLogo, ICOrang, ILLSignIn } from "../../assets";
 import {
@@ -21,8 +21,15 @@ import {
 import { colors } from "../../utils/colors";
 import WelcomeCard from "../../components/molecules/Card/WelcomeCard";
 import SignInCard from "../../components/molecules/Card/SignInCard";
+import { useSelector } from "react-redux";
 
 const HomeScreen = ({ navigation }) => {
+  const { isLogin, account } = useSelector((state) => state.auth);
+  useEffect(() => {
+    // Dijalankan setiap kali komponen di-mount atau `isLogin` berubah
+    // Lakukan pengecekan kondisi login di sini dan perbarui state jika diperlukan
+  }, [isLogin]);
+
   return (
     <SafeAreaView style={styles.safeContainer}>
       <View style={styles.screen}>
@@ -30,9 +37,11 @@ const HomeScreen = ({ navigation }) => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.container}
         >
-          <WelcomeCard name="Alvito Jordan" />
+          <WelcomeCard name={account.firstName || "Guest"} />
           <SearchHotel />
-          <SignInCard />
+          {isLogin ? null : (
+            <SignInCard onPress={() => navigation.navigate("Login")} />
+          )}
           <TopDestination />
           <PopularDestination />
         </ScrollView>

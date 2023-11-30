@@ -62,6 +62,7 @@ const DetailHotelScreen = ({ navigation, route }) => {
   return (
     <View>
       <ScrollView showsVerticalScrollIndicator={false}>
+
         <View>
           <ImageBackground
             source={{ uri: detailHotel.url }}
@@ -69,8 +70,8 @@ const DetailHotelScreen = ({ navigation, route }) => {
           >
             <View style={styles.detailContainer}>
               <View style={styles.detailContent}>
-                <View>
-                  <TextCS style={styles.title}>{detailHotel.name}</TextCS>
+                <View style={styles.info}>
+                  <TextCS style={styles.title}>{hotel.name}</TextCS>
                   <View style={styles.rowIcon}>
                     <View style={{ flexDirection: "row" }}>{ratingStar}</View>
                     <Text style={styles.subtitle}>
@@ -96,6 +97,7 @@ const DetailHotelScreen = ({ navigation, route }) => {
         <View style={styles.aboutContainer}>
           <TextCS style={styles.sectionTitle}>ABOUT</TextCS>
           <Gap height={10} />
+
           <TextCS style={styles.aboutDescription}>
             {detailHotel.description}
           </TextCS>
@@ -162,21 +164,29 @@ const styles = StyleSheet.create({
     height: 300,
     flexDirection: "row",
     alignItems: "flex-end",
+    width: "100%",
+  },
+  info: {
+    width: "50%",
+  },
+  infoPrice: {
+    width: "50%",
+    flexDirection: "row",
+    justifyContent: "flex-end",
   },
   detailContent: {
-    flex: 1,
-    backgroundColor: "blue",
     flexDirection: "row",
-    paddingVertical: 15,
     paddingLeft: 15,
+    paddingVertical: 10,
     alignItems: "center",
     justifyContent: "space-between",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
+    width: "100%",
   },
   title: {
     color: colors.white,
     fontWeight: "bold",
-    fontSize: 24,
+    fontSize: 20,
     marginVertical: 3,
   },
   subtitle: {
@@ -206,12 +216,13 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   price: {
-    fontSize: 20,
+    fontSize: 14,
     color: colors.white,
     fontWeight: "bold",
   },
   day: {
     color: colors.white,
+    fontSize:13
   },
   aboutContainer: {
     padding: 20,
