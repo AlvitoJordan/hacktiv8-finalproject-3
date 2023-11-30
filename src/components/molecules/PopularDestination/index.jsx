@@ -1,8 +1,21 @@
-import { Image, ImageBackground, ScrollView, StyleSheet, TouchableOpacity, View, Text } from "react-native";
+import {
+  Image,
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Text,
+} from "react-native";
 import React, { useState } from "react";
 import { Gap, TextCS } from "../../atoms";
 import { colors } from "../../../utils/colors";
-import { DUHotelIbis, DUHotelManila, ICFavorite, ICRate } from "../../../assets";
+import {
+  DUHotelIbis,
+  DUHotelManila,
+  ICFavorite,
+  ICRate,
+} from "../../../assets";
 import CardHotel from "../Card/CardHotel";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
@@ -20,9 +33,23 @@ const PopularDestination = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Popular Destination</Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.listDestination}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styles.listDestination}
+      >
         {DataHotel.map((item) => (
-          <PopularCard id={item.id} image={item.url} title={item.name} rate={item.score} location={item.address.city} region={item.address.region} price={item.price} data={item} key={item.id} />
+          <PopularCard
+            clickedData={item}
+            image={item.url}
+            title={item.name}
+            rate={item.score}
+            location={item.address.city}
+            region={item.address.region}
+            price={item.price}
+            data={item}
+            key={item.id}
+          />
         ))}
       </ScrollView>
     </View>
