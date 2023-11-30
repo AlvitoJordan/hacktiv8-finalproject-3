@@ -62,7 +62,6 @@ const DetailHotelScreen = ({ navigation, route }) => {
   return (
     <View>
       <ScrollView showsVerticalScrollIndicator={false}>
-
         <View>
           <ImageBackground
             source={{ uri: detailHotel.url }}
@@ -71,7 +70,7 @@ const DetailHotelScreen = ({ navigation, route }) => {
             <View style={styles.detailContainer}>
               <View style={styles.detailContent}>
                 <View style={styles.info}>
-                  <TextCS style={styles.title}>{hotel.name}</TextCS>
+                  <TextCS style={styles.title}>{detailHotel.name}</TextCS>
                   <View style={styles.rowIcon}>
                     <View style={{ flexDirection: "row" }}>{ratingStar}</View>
                     <Text style={styles.subtitle}>
@@ -222,7 +221,7 @@ const styles = StyleSheet.create({
   },
   day: {
     color: colors.white,
-    fontSize:13
+    fontSize: 13,
   },
   aboutContainer: {
     padding: 20,
