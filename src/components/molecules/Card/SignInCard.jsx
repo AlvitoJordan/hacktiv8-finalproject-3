@@ -2,7 +2,7 @@ import { Pressable, Text, View, StyleSheet } from "react-native";
 import { ILLSignIn } from "../../../assets";
 import { colors } from "../../../utils/colors";
 
-const SignInCard = () => {
+const SignInCard = ({onPress}) => {
   return (
     <View style={styles.signInContainer}>
       <View style={styles.leftContainer}>
@@ -10,7 +10,7 @@ const SignInCard = () => {
         <Text style={styles.name}>
           Log in to manage reservations, explore exclusive offers.
         </Text>
-        <Pressable style={styles.buttons}>
+        <Pressable style={styles.buttons} onPress={onPress}>
           <Text style={styles.buttonText}>SIGN IN</Text>
         </Pressable>
       </View>

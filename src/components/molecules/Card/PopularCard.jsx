@@ -14,7 +14,7 @@ import { addFavorite, unFavorite } from "../../../redux/favoriteSlice";
 import { showError } from "../../../utils/showMessage";
 
 const PopularCard = ({
-  id,
+  clickedData,
   image,
   title,
   rate,
@@ -57,7 +57,7 @@ const PopularCard = ({
         </View>
       </ImageBackground>
       <TouchableOpacity
-        onPress={() => navigation.navigate("Detail Hotel", { id: id })}
+        onPress={() => navigation.navigate("Detail Hotel", clickedData)}
         style={styles.detailsContainer}
       >
         <View>

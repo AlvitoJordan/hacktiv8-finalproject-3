@@ -23,16 +23,8 @@ import { MaterialIcons, Ionicons } from "@expo/vector-icons";
 import hotels from "../../data/hotels.json";
 
 const DetailHotelScreen = ({ navigation, route }) => {
-  const [detailHotel, setDetailHotel] = useState({});
-
-  useEffect(() => {
-    if (route.params?.id) {
-      const findHotel = hotels.find((hotel) => hotel.id === route.params?.id);
-      if (findHotel) {
-        setDetailHotel(findHotel);
-      }
-    }
-  }, [route.params?.id]);
+  const hotel = route.params;
+  console.log(hotel);
 
   React.useEffect(() => {
     navigation.setOptions({
@@ -59,23 +51,28 @@ const DetailHotelScreen = ({ navigation, route }) => {
             elevation: 5,
           }}
         >
-          <ImageBackground source={DUHotelManila} style={styles.imageWrapper}>
+          <ImageBackground
+            source={{ uri: hotel.url }}
+            style={styles.imageWrapper}
+          >
             <View style={styles.detailContainer}>
               <View style={styles.detailContent}>
-                <View>
-                  <TextCS style={styles.title}>{detailHotel.name}</TextCS>
+                <View style={styles.info}>
+                  <TextCS style={styles.title}>{hotel.name}</TextCS>
                   <View style={styles.rowIcon}>
                     <Ionicons name="star" size={20} color={colors.secondary} />
-                    <Text style={styles.subtitle}>3.4</Text>
+                    <Text style={styles.subtitle}>{hotel.rating}</Text>
                   </View>
                   <View style={styles.rowIcon}>
                     <Ionicons name="location" size={20} color={colors.white} />
-                    <Text style={styles.subtitle}>Malang, Jawa Timur</Text>
+                    <Text style={styles.subtitle}>{hotel.address.city}, {hotel.address.region}</Text>
                   </View>
                 </View>
-                <View style={styles.priceContainer}>
-                  <TextCS style={styles.price}>$ 500</TextCS>
-                  <TextCS style={styles.day}>Per Night</TextCS>
+                <View style={styles.infoPrice}>
+                  <View style={styles.priceContainer}>
+                    <TextCS style={styles.price}>{hotel.price}</TextCS>
+                    <TextCS style={styles.day}>Per Night</TextCS>
+                  </View>
                 </View>
               </View>
             </View>
@@ -85,11 +82,7 @@ const DetailHotelScreen = ({ navigation, route }) => {
         <View style={styles.aboutContainer}>
           <TextCS style={styles.sectionTitle}>ABOUT</TextCS>
           <Gap height={10} />
-          <TextCS style={styles.aboutDescription}>
-            Rencanakan trip Anda yang berikutnya, baca ulasan, serta dapatkan
-            saran wisata dari komunitas kami tentang tempat menginap dan hal
-            yang dapat dilakukan.
-          </TextCS>
+          <TextCS style={styles.aboutDescription}>{hotel.description}</TextCS>
         </View>
         <View style={styles.facilitiesContainer}>
           <TextCS style={styles.sectionTitle}>FACILITIES</TextCS>
@@ -154,21 +147,29 @@ const styles = StyleSheet.create({
     height: 300,
     flexDirection: "row",
     alignItems: "flex-end",
+    width: "100%",
+  },
+  info: {
+    width: "50%",
+  },
+  infoPrice: {
+    width: "50%",
+    flexDirection: "row",
+    justifyContent: "flex-end",
   },
   detailContent: {
-    flex: 1,
-    backgroundColor: "blue",
     flexDirection: "row",
-    paddingVertical: 15,
     paddingLeft: 15,
+    paddingVertical: 10,
     alignItems: "center",
     justifyContent: "space-between",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
+    width: "100%",
   },
   title: {
     color: colors.white,
     fontWeight: "bold",
-    fontSize: 24,
+    fontSize: 20,
     marginVertical: 3,
   },
   subtitle: {
@@ -198,12 +199,13 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   price: {
-    fontSize: 20,
+    fontSize: 14,
     color: colors.white,
     fontWeight: "bold",
   },
   day: {
     color: colors.white,
+    fontSize:13
   },
   aboutContainer: {
     padding: 20,
