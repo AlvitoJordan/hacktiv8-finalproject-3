@@ -6,12 +6,12 @@ import {
   Text,
 } from "react-native";
 import { colors } from "../../../utils/colors";
+import { useNavigation } from "@react-navigation/native";
 
-const CityCard = ({ id, image, city }) => {
+const CityCard = ({ image, city, onPress }) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity
-      onPress={() => navigation.navigate("DetailHotel", { id: id })}
-    >
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.imageContainer}>
         <ImageBackground source={{ uri: image }} style={styles.image}>
           <View style={styles.shadows}>

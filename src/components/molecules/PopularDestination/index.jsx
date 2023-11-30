@@ -20,8 +20,8 @@ import CardHotel from "../Card/CardHotel";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { DataHotel } from "../../../data";
-import PopularCard from "../Card/PopularCard";
+import { DataPopular } from "../../../data";
+import CityCard from "../Card/CityCard";
 
 const PopularDestination = () => {
   const [favorite, setFavorite] = useState(false);
@@ -38,18 +38,26 @@ const PopularDestination = () => {
         showsHorizontalScrollIndicator={false}
         style={styles.listDestination}
       >
-        {DataHotel.map((item) => (
-          <PopularCard
-            clickedData={item}
-            image={item.url}
-            title={item.name}
-            rate={item.score}
-            location={item.address.city}
-            region={item.address.region}
-            price={item.price}
-            data={item}
+        {DataPopular.map((item) => (
+          <CityCard
+            onPress={() =>
+              navigation.navigate("Popular Result", { place: item.place })
+            }
+            image={item.image}
+            city={item.place}
             key={item.id}
           />
+
+          // <PopularCard
+          //   id={item.id}
+          //   image={item.url}
+          //   title={item.name}
+          //   rate={item.score}
+          //   location={item.address.city}
+          //   region={item.address.region}
+          //   price={item.price}
+          //   key={item.id}
+          // />
         ))}
       </ScrollView>
     </View>

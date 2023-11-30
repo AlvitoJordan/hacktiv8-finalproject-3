@@ -24,6 +24,9 @@ const TopDestination = () => {
       >
         {DataCity.map((item) => (
           <CityCard
+            onPress={() =>
+              navigation.navigate("City Result", { city: item.city })
+            }
             id={item.id}
             image={item.image}
             city={item.city}

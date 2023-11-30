@@ -12,17 +12,33 @@ import { TextCS } from "../../atoms";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-const CardHotel = ({ onPress }) => {
+const CardHotel = ({
+  id,
+  onPress,
+  image,
+  name,
+  score,
+  city,
+  place,
+  region,
+  price,
+  rate,
+}) => {
   const [favorite, setFavorite] = useState(false);
   const navigation = useNavigation();
 
   const toggleFavorite = () => {
     setFavorite(!favorite);
   };
+
+  const ratingStar = Array.from({ length: rate }, (_, index) => (
+    <Ionicons key={index} name="star" size={15} color={colors.secondary} />
+  ));
+
   return (
     <View style={styles.container}>
       <View style={styles.containerCard}>
-        <ImageBackground source={DUHotelManila} style={styles.image}>
+        <ImageBackground source={{ uri: image }} style={styles.image}>
           <View style={styles.imageWrapper}>
             <TouchableOpacity
               onPress={toggleFavorite}
@@ -37,21 +53,23 @@ const CardHotel = ({ onPress }) => {
           </View>
         </ImageBackground>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Detail Hotel")}
+          onPress={() => navigation.navigate("Detail Hotel", { id: id })}
           style={styles.detailsContainer}
         >
           <View style={styles.leftContainer}>
             <Text numberOfLines={1} style={styles.titleHotel}>
-              Kingfords Hotel Manila
+              {name}
             </Text>
             <View style={styles.rating}>
-              <Ionicons name="star" size={15} color={colors.secondary} />
-              <Text>3.4</Text>
+              <View style={{ flexDirection: "row" }}>{ratingStar}</View>
+              <Text>{score}</Text>
             </View>
-            <Text style={styles.regionText}>Filipina</Text>
+            <Text style={styles.regionText}>
+              {city}, {place}, {region}
+            </Text>
           </View>
           <View style={styles.priceStyle}>
-            <TextCS style={styles.price}>$ 500</TextCS>
+            <TextCS style={styles.price}>{price}</TextCS>
             <TextCS style={styles.day}>Per Night</TextCS>
           </View>
         </TouchableOpacity>

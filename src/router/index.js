@@ -13,8 +13,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { BottomNavigator, Loading, LoadingCS } from "../components";
 import SearchScreen from "../screens/SearchScreen";
 import React from "react";
-import SearchResult from "../screens/SearchResultScreen";
+import CityResult from "../screens/SearchResultScreen/CityResult";
 import { useSelector } from "react-redux";
+import PopularResult from "../screens/SearchResultScreen/PopularResult";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -83,9 +84,10 @@ export const Router = () => {
           component={SearchScreen}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name="City Result" component={CityResult} options={{}} />
         <Stack.Screen
-          name="Search Result"
-          component={SearchResult}
+          name="Popular Result"
+          component={PopularResult}
           options={{}}
         />
       </Stack.Navigator>

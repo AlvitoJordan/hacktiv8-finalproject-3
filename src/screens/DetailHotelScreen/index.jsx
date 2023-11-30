@@ -21,10 +21,30 @@ import { ButtonCS, Card, Gap, TextCS } from "../../components";
 import { colors } from "../../utils/colors";
 import { MaterialIcons, Ionicons } from "@expo/vector-icons";
 import hotels from "../../data/hotels.json";
+import reviews from "../../data/review.json";
+import CardFacilities from "../../components/molecules/Card/CardFacilities";
+import CardCommentar from "../../components/molecules/Card/CardCommentar";
 
 const DetailHotelScreen = ({ navigation, route }) => {
-  const hotel = route.params;
-  console.log(hotel);
+  const [detailHotel, setDetailHotel] = useState({});
+  const [review, setReview] = useState([]);
+
+  useEffect(() => {
+    if (route.params?.id) {
+      const findHotel = hotels.find((hotel) => hotel.id === route.params?.id);
+      if (findHotel) {
+        setDetailHotel(findHotel);
+        const filteredReview = reviews.filter(
+          (review) => review.id === route.params?.id
+        );
+        setReview(filteredReview);
+      }
+    }
+  }, [route.params?.id]);
+
+  const ratingStar = Array.from({ length: detailHotel.star }, (_, index) => (
+    <Ionicons key={index} name="star" size={15} color={colors.secondary} />
+  ));
 
   React.useEffect(() => {
     navigation.setOptions({
@@ -42,17 +62,10 @@ const DetailHotelScreen = ({ navigation, route }) => {
   return (
     <View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View
-          style={{
-            shadowColor: "#000",
-            shadowOffset: { width: 0, height: 2 },
-            shadowOpacity: 0.8,
-            shadowRadius: 4,
-            elevation: 5,
-          }}
-        >
+
+        <View>
           <ImageBackground
-            source={{ uri: hotel.url }}
+            source={{ uri: detailHotel.url }}
             style={styles.imageWrapper}
           >
             <View style={styles.detailContainer}>
@@ -60,19 +73,21 @@ const DetailHotelScreen = ({ navigation, route }) => {
                 <View style={styles.info}>
                   <TextCS style={styles.title}>{hotel.name}</TextCS>
                   <View style={styles.rowIcon}>
-                    <Ionicons name="star" size={20} color={colors.secondary} />
-                    <Text style={styles.subtitle}>{hotel.rating}</Text>
+                    <View style={{ flexDirection: "row" }}>{ratingStar}</View>
+                    <Text style={styles.subtitle}>
+                      {parseFloat(detailHotel.rating).toFixed(1)}
+                    </Text>
                   </View>
                   <View style={styles.rowIcon}>
                     <Ionicons name="location" size={20} color={colors.white} />
-                    <Text style={styles.subtitle}>{hotel.address.city}, {hotel.address.region}</Text>
+                    <Text style={styles.subtitle}>
+                      {detailHotel.address?.fullAddress}
+                    </Text>
                   </View>
                 </View>
-                <View style={styles.infoPrice}>
-                  <View style={styles.priceContainer}>
-                    <TextCS style={styles.price}>{hotel.price}</TextCS>
-                    <TextCS style={styles.day}>Per Night</TextCS>
-                  </View>
+                <View style={styles.priceContainer}>
+                  <TextCS style={styles.price}>{detailHotel.price}</TextCS>
+                  <TextCS style={styles.day}>Per Night</TextCS>
                 </View>
               </View>
             </View>
@@ -82,7 +97,10 @@ const DetailHotelScreen = ({ navigation, route }) => {
         <View style={styles.aboutContainer}>
           <TextCS style={styles.sectionTitle}>ABOUT</TextCS>
           <Gap height={10} />
-          <TextCS style={styles.aboutDescription}>{hotel.description}</TextCS>
+
+          <TextCS style={styles.aboutDescription}>
+            {detailHotel.description}
+          </TextCS>
         </View>
         <View style={styles.facilitiesContainer}>
           <TextCS style={styles.sectionTitle}>FACILITIES</TextCS>
@@ -92,19 +110,10 @@ const DetailHotelScreen = ({ navigation, route }) => {
             horizontal
             showsHorizontalScrollIndicator={false}
           >
-            <Card type={"facilities"} title="Wifi" icon={<ICWifi />} />
-            <Card type={"facilities"} title="Swimming" icon={<ICSwimming />} />
-            <Card
-              type={"facilities"}
-              title="Restourant"
-              icon={<ICRestourant />}
-            />
-            <Card
-              type={"facilities"}
-              title="Room Service"
-              icon={<ICRoomService />}
-            />
-            <Card type={"facilities"} title="Wifi" icon={<ICWifi />} />
+            {detailHotel.amenities &&
+              detailHotel.amenities.map((amenity, index) => (
+                <CardFacilities type={amenity} key={index} />
+              ))}
           </ScrollView>
         </View>
         <Gap height={20} />
@@ -117,10 +126,18 @@ const DetailHotelScreen = ({ navigation, route }) => {
             horizontal
             showsHorizontalScrollIndicator={false}
           >
-            <Card type={"commentar"} />
-            <Card type={"commentar"} />
-            <Card type={"commentar"} />
-            <Card type={"commentar"} />
+            {review.map((value, index) =>
+              value.review.map((e, i) => {
+                return (
+                  <CardCommentar
+                    key={i}
+                    name={e.username}
+                    comment={e.comment}
+                    date={e.date}
+                  />
+                );
+              })
+            )}
           </ScrollView>
         </View>
         {/* <Gap height={50} /> */}

@@ -1,0 +1,28 @@
+[
+    {
+      "id": 1,
+      "place": "Bali",
+      "image": "https://cf.bstatic.com/xdata/images/region/square250/50938.webp?k=61fc24194f6d6fdff9623c2e065d21de10c9d775ff7bb91aa8bf84440397572c&o="
+    },
+    {
+      "id": 2,
+      "place": "Batam",
+      "image": "https://www.indonesia.travel/content/dam/indtravelrevamp/en/destinations/revisi-2020/batam3.jpg"
+    },
+    {
+      "id": 3,
+      "place": "Bintan",
+      "image": "https://a.cdn-hotels.com/gdcs/production112/d106/4c32934d-1fd6-43cb-b7b1-97bd9370d494.jpg?impolicy=fcrop&w=800&h=533&q=medium"
+    },
+    {
+      "id": 4,
+      "place": "Lombok",
+      "image": "https://lp-cms-production.imgix.net/2020-11/13b1724dbf68dcafb7af35072ebeb875-pantai-mawan.jpg?auto=format&fit=crop&ar=1:1&q=75"
+    },
+    {
+      "id": 5,
+      "place": "Yogyakarta",
+      "image": "https://cf.bstatic.com/xdata/images/region/square250/64804.webp?k=6d76726da727105069cc49410eba8e41f4361e4c5ec614e3fe31bebcd3d30382&o="
+    }
+  ]
+  
