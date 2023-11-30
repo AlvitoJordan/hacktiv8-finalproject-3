@@ -4,18 +4,18 @@ import { Gap, TextCS } from "../../atoms";
 import { ICRate } from "../../../assets";
 import { colors } from "../../../utils/colors";
 
-const CardCommentar = () => {
+const CardCommentar = ({ name, date, comment }) => {
   return (
     <View style={styles.container}>
       <View style={styles.userContainer}>
         <View style={styles.roundedProfile} />
         <View>
-          <TextCS style={styles.nameUser}>Syaeful Annas</TextCS>
-          <ICRate />
+          <TextCS style={styles.nameUser}>{name}</TextCS>
+          <Text>{date}</Text>
         </View>
       </View>
       <Gap height={10} />
-      <Text style={styles.comment}>Rencanakan trip Anda yang berikutnya, baca ulasan, serta dapatkan saran wisata dari komunitas.</Text>
+      <Text style={styles.comment}>{comment}</Text>
     </View>
   );
 };
