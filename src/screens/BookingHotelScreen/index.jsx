@@ -3,8 +3,51 @@ import React from "react";
 import { ButtonCS, Gap, List, TextCS } from "../../components";
 import { ICBack } from "../../assets";
 import { colors } from "../../utils/colors";
+import { useDispatch, useSelector } from "react-redux";
+import { showError, showSucces } from "../../utils/showMessage";
+import { setLoading } from "../../redux/loadingSlice";
+import { bookingHotel } from "../../redux/bookingSlice";
 
-const BookingHotelScreen = ({ navigation }) => {
+const BookingHotelScreen = ({ navigation, route }) => {
+  const { detailHotel, bookingInformation } = route.params;
+  const { checkIn, checkOut, guest } = bookingInformation;
+  const { account, isLogin } = useSelector((state) => state.auth);
+  const fullName = account?.firstName
+    ? account.firstName + " " + (account.lastName ?? "Guest")
+    : "Guest";
+  const { booked } = useSelector((state) => state.booked);
+  console.log(booked);
+  const startDate = new Date(checkIn);
+  const endDate = new Date(checkOut);
+
+  const timeDifference = endDate.getTime() - startDate.getTime();
+
+  const daysDifference = timeDifference / (1000 * 3600 * 24);
+
+  const dispatch = useDispatch();
+
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(price);
+  };
+
+  const totalPrice = detailHotel.price * parseInt(daysDifference) * guest;
+
+  const handleCheckin = (data) => {
+    if (isLogin) {
+      dispatch(setLoading(true));
+      setTimeout(() => {
+        showSucces("Anda telah berhasil memesan");
+        dispatch(bookingHotel(data));
+        dispatch(setLoading(false));
+      }, 2000);
+    } else {
+      showError("Silahkan login terlebih dahulu");
+    }
+  };
+
   return (
     <View style={styles.screen}>
       <View style={styles.header}>
@@ -23,12 +66,14 @@ const BookingHotelScreen = ({ navigation }) => {
               <TextCS style={styles.sectionTitle}>CONTACT INFORMATIONS</TextCS>
               <Gap height={20} />
               <View style={styles.information}>
-                <TextCS style={styles.informationTitle}>Syaeful Annas</TextCS>
+                <TextCS style={styles.informationTitle}>
+                  {fullName || "Guest"}
+                </TextCS>
               </View>
               <Gap height={10} />
               <View style={styles.information}>
                 <TextCS style={styles.informationTitle}>
-                  syaefulannas33@gmail.com
+                  {account.email || "Not login yet"}
                 </TextCS>
               </View>
               <Gap height={10} />
@@ -49,17 +94,19 @@ const BookingHotelScreen = ({ navigation }) => {
               <TextCS style={styles.sectionTitle}>PRICE SUMMARY</TextCS>
               <Gap height={10} />
               <TextCS style={styles.informationTitle}>
-                3 Days, 1 Room, 2 Guest
+                {daysDifference} Days, 1 Room, {guest} Guest
               </TextCS>
               <Gap height={20} />
-              <List label={"Total"} title={"$ 500"} />
+              <List label={"Total"} title={formatPrice(totalPrice)} />
               <Gap height={10} />
-              <List label={"Payable Now"} title={"$ 1500"} />
             </View>
           </View>
         </View>
         <View style={styles.container}>
-          <ButtonCS title={"Continue"} />
+          <ButtonCS
+            title={"Check In"}
+            onPress={() => handleCheckin(detailHotel)}
+          />
         </View>
       </View>
     </View>

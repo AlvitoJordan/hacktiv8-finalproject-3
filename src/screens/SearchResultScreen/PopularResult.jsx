@@ -71,6 +71,7 @@ const PopularResult = ({ navigation, route }) => {
           price={hotel.price}
           rate={hotel.star}
           data={hotel}
+          detailHotel={hotel}
         />
       ))}
     </ScrollView>

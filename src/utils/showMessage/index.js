@@ -13,7 +13,7 @@ export const showSucces = (message) => {
   showMessage({
     message: message,
     type: "default",
-    backgroundColor: colors.primary,
-    color: "green"
+    backgroundColor: "green",
+    color: colors.white,
   });
 };

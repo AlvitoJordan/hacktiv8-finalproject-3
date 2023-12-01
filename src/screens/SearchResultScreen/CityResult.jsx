@@ -46,6 +46,7 @@ const CityResult = ({ navigation, route }) => {
     });
   }, [navigation]);
 
+
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
@@ -62,7 +63,6 @@ const CityResult = ({ navigation, route }) => {
       {filteredCity.map((hotel, index) => (
         <CardHotel
           key={index}
-          id={hotel.id}
           type={"hotel"}
           name={hotel.name}
           image={hotel.url}
@@ -73,6 +73,7 @@ const CityResult = ({ navigation, route }) => {
           price={hotel.price}
           rate={hotel.star}
           data={hotel}
+          detailHotel={hotel}
         />
       ))}
     </ScrollView>

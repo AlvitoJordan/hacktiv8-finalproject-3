@@ -2,12 +2,37 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { ICLogo, ICOrang } from "../../assets";
 import { Card, Gap } from "../../components";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, unFavorite } from "../../redux/favoriteSlice";
+import { showError } from "../../utils/showMessage";
 
 const ProfileScreen = () => {
   const { account } = useSelector((state) => state.auth);
   const { favorites } = useSelector((state) => state.favorite);
-
+  const { booked } = useSelector((state) => state.booked);
+  const dispatch = useDispatch();
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(price);
+  };
+  const toggleFavorite = (data) => {
+    try {
+      const isAlreadyFavorite = favorites.some((item) => item.id === data.id);
+      if (isLogin) {
+        if (isAlreadyFavorite) {
+          dispatch(unFavorite(data));
+        } else {
+          dispatch(addFavorite(data));
+        }
+      } else {
+        showError("Silahkan login terlebih dahulu");
+      }
+    } catch (error) {
+      showError(error);
+    }
+  };
   return (
     <View style={styles.screen}>
       <ScrollView
@@ -35,12 +60,12 @@ const ProfileScreen = () => {
           <View style={styles.wrapp_info}>
             <View style={styles.wrapp_row}>
               <Text> Bookings </Text>
-              <Text style={styles.text_infoValue}> 225 </Text>
+              <Text style={styles.text_infoValue}>{booked.length}</Text>
             </View>
 
             <View style={styles.wrapp_row}>
               <Text> Reviews </Text>
-              <Text style={styles.text_infoValue}> 35 </Text>
+              <Text style={styles.text_infoValue}>35</Text>
             </View>
 
             <View style={styles.wrapp_row}>
@@ -51,7 +76,17 @@ const ProfileScreen = () => {
         </View>
         <Gap height={20} />
         <View style={styles.containerCart}>
-          <Card type="favorite" />
+          {booked.map((hotel) => (
+            <Card
+              type="favorite"
+              key={hotel.id}
+              name={hotel.name}
+              price={formatPrice(hotel.price)}
+              image={hotel.url}
+              city={hotel.address.city}
+              onFavorite={() => toggleFavorite(hotel)}
+            />
+          ))}
         </View>
       </ScrollView>
     </View>

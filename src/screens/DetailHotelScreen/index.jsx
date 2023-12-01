@@ -16,21 +16,27 @@ import CardFacilities from "../../components/molecules/Card/CardFacilities";
 import CardCommentar from "../../components/molecules/Card/CardCommentar";
 
 const DetailHotelScreen = ({ navigation, route }) => {
-  const [detailHotel, setDetailHotel] = useState({});
   const [review, setReview] = useState([]);
+  const { detailHotel, bookingInformation } = route.params;
 
   useEffect(() => {
-    if (route.params?.id) {
-      const findHotel = hotels.find((hotel) => hotel.id === route.params?.id);
+    if (detailHotel?.id) {
+      const findHotel = hotels.find((hotel) => hotel.id === detailHotel.id);
       if (findHotel) {
-        setDetailHotel(findHotel);
         const filteredReview = reviews.filter(
-          (review) => review.id === route.params?.id
+          (review) => review.id === detailHotel.id
         );
         setReview(filteredReview);
       }
     }
-  }, [route.params?.id]);
+  }, [detailHotel.id]);
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(price);
+  };
+
 
   const ratingStar = Array.from({ length: detailHotel.star }, (_, index) => (
     <Ionicons key={index} name="star" size={15} color={colors.secondary} />
@@ -75,7 +81,9 @@ const DetailHotelScreen = ({ navigation, route }) => {
                   </View>
                 </View>
                 <View style={styles.priceContainer}>
-                  <TextCS style={styles.price}>{detailHotel.price}</TextCS>
+                  <TextCS style={styles.price}>
+                    {formatPrice(detailHotel.price)}
+                  </TextCS>
                   <TextCS style={styles.day}>Per Night</TextCS>
                 </View>
               </View>
@@ -135,7 +143,12 @@ const DetailHotelScreen = ({ navigation, route }) => {
         <ButtonCS
           title={"Book This Hotel"}
           style={styles.button}
-          onPress={() => navigation.navigate("BookingHotel")}
+          onPress={() =>
+            navigation.navigate("BookingHotel", {
+              detailHotel,
+              bookingInformation,
+            })
+          }
         />
       </View>
     </View>
@@ -199,7 +212,7 @@ const styles = StyleSheet.create({
   priceContainer: {
     backgroundColor: colors.primary,
     padding: 10,
-    width: 100,
+    width: 130,
     borderTopLeftRadius: 100,
     borderBottomLeftRadius: 100,
     alignItems: "flex-end",

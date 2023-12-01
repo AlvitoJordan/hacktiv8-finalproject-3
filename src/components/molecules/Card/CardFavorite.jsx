@@ -25,6 +25,7 @@ const CardFavorite = ({
   favorite,
   onPress,
   data,
+  onFavorite,
 }) => {
   const navigation = useNavigation();
 
@@ -40,18 +41,18 @@ const CardFavorite = ({
             style={styles.wrappImage}
           ></ImageBackground>
           <View>
-            <Text style={styles.textStyle_title}> {name}</Text>
+            <Text style={styles.textStyle_title}>{name}</Text>
             <ICRate />
             <Gap height={15} />
             <View style={styles.location_style}>
               <ICLocation height={10} />
-              <Text style={styles.textStyle_default}> {city} </Text>
+              <Text style={styles.textStyle_default}>{city}</Text>
             </View>
           </View>
         </View>
         <View style={styles.wrapp_cardPrice}>
           <View style={styles.borderFavorite}>
-            <TouchableOpacity onPress={onPress} style={styles.favoriteIcon}>
+            <TouchableOpacity onPress={onFavorite} style={styles.favoriteIcon}>
               <MaterialIcons
                 name={favorite ? "favorite" : "favorite-border"}
                 size={25}
@@ -60,7 +61,7 @@ const CardFavorite = ({
             </TouchableOpacity>
           </View>
           <Gap height={15} />
-          <Text style={styles.textStyle_price}> {price}</Text>
+          <Text style={styles.textStyle_price}>{price}</Text>
           <Text style={styles.textStyle_default}> Per Day </Text>
         </View>
       </TouchableOpacity>

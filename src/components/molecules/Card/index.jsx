@@ -15,6 +15,7 @@ const Card = ({
   image,
   favorite,
   data,
+  onFavorite,
 }) => {
   switch (type) {
     case "hotel":
@@ -33,6 +34,7 @@ const Card = ({
           favorite={favorite}
           onPress={onPress}
           data={data}
+          onFavorite={onFavorite}
         />
       );
   }
