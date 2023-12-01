@@ -13,22 +13,14 @@ import {
 import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
 import { colors } from "../../utils/colors";
 import { useNavigation } from "@react-navigation/native";
+import hotels from "../../data/hotels.json";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setSearch } from "../../redux/searchSlice";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
-  const searchValue = useSelector((state) => state.search);
-  const initialData = [
-    { id: "1", title: "Apple" },
-    { id: "2", title: "Banana" },
-    { id: "3", title: "Orange" },
-    { id: "4", title: "Grapes" },
-    { id: "5", title: "Watermelon" },
-  ];
-
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState(hotels);
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (text) => {
@@ -37,14 +29,14 @@ const SearchBar = () => {
   };
 
   const filterData = (text) => {
-    const filteredData = initialData.filter((item) =>
-      item.title.toLowerCase().includes(text.toLowerCase())
+    const filteredData = hotels.filter((item) =>
+      item.name.toLowerCase().includes(text.toLowerCase())
     );
     setData(filteredData);
   };
 
   const renderItem = ({ item }) => (
-    <Pressable onPress={() => handleItemPress(item.title)}>
+    <Pressable onPress={() => handleItemPress(item.name)}>
       <View style={styles.list}>
         <FontAwesome5
           name="hotel"
@@ -52,7 +44,7 @@ const SearchBar = () => {
           color={colors.secondary}
           style={styles.icons}
         />
-        <Text style={styles.text}>{item.title}</Text>
+        <Text style={styles.text}>{item.name}</Text>
       </View>
     </Pressable>
   );
@@ -66,7 +58,6 @@ const SearchBar = () => {
   const handleItemPress = (item) => {
     dispatch(setSearch({ selectedItem: item }));
     navigation.goBack();
-    // navigation.navigate("Home", { selectedItem: item });
   };
 
   return (

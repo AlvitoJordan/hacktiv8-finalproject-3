@@ -11,9 +11,17 @@ import { colors } from "../../../utils/colors";
 import { useNavigation } from "@react-navigation/native";
 import { DataCity } from "../../../data";
 import CityCard from "../Card/CityCard";
+import { useDispatch } from "react-redux";
+import { setSearch } from "../../../redux/searchSlice";
 
 const TopDestination = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  const handleCity = (item) => {
+    dispatch(setSearch({ selectedItem: item.city }));
+    navigation.navigate("City Result", { city: item.city });
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Cities in Indonesia</Text>
@@ -24,9 +32,7 @@ const TopDestination = () => {
       >
         {DataCity.map((item) => (
           <CityCard
-            onPress={() =>
-              navigation.navigate("City Result", { city: item.city })
-            }
+            onPress={() => handleCity(item)}
             id={item.id}
             image={item.image}
             city={item.city}

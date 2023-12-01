@@ -1,15 +1,17 @@
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Card, SearchHotel } from "../../components";
+import { Card, SearchHotel, TextCS } from "../../components";
 import hotels from "../../data/hotels.json";
 import CardHotel from "../../components/molecules/Card/CardHotel";
-import { useSelector, useDispatch } from "react-redux";
-import { clearSearch } from "../../redux/searchSlice";
+import { Ionicons } from "@expo/vector-icons";
 import { HeaderBackButton } from "@react-navigation/elements";
 
-const PopularResult = ({ navigation, route }) => {
-  const [filteredPlace, setFilteredPlace] = useState([]);
+import { useSelector, useDispatch } from "react-redux";
+import { setSearch, clearSearch } from "../../redux/searchSlice";
+
+const SearchResult = ({ navigation, route }) => {
   const dispatch = useDispatch();
+  const [filteredHotel, setFilteredHotel] = useState([]);
   const { search } = useSelector((state) => state.search);
 
   const handleBack = () => {
@@ -19,32 +21,29 @@ const PopularResult = ({ navigation, route }) => {
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      headerTitle: route.params?.place,
       headerLeft: () => (
         <HeaderBackButton label="back" onPress={() => handleBack()} />
       ),
     });
   }, [navigation]);
 
+  useEffect(() => {
+    const filtered = hotels.filter(
+      (hotel) => hotel.name === search.selectedItem
+    );
+    if (filtered) {
+      setFilteredHotel(filtered);
+    }
+  }, []);
+
   handleFilter = () => {
     const filtered = hotels.filter(
       (hotel) => hotel.name === search.selectedItem
     );
     if (filtered) {
-      setFilteredPlace(filtered);
+      setFilteredHotel(filtered);
     }
   };
-
-  useEffect(() => {
-    if (route.params?.place) {
-      const filteredHotel = hotels.filter(
-        (hotel) => hotel.address.place === route.params?.place
-      );
-      if (filteredHotel) {
-        setFilteredPlace(filteredHotel);
-      }
-    }
-  }, [route.params?.place]);
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
@@ -57,7 +56,8 @@ const PopularResult = ({ navigation, route }) => {
         guest={search.guest}
         onPress={() => handleFilter()}
       />
-      {filteredPlace.map((hotel, index) => (
+
+      {filteredHotel.map((hotel, index) => (
         <CardHotel
           key={index}
           id={hotel.id}
@@ -77,7 +77,7 @@ const PopularResult = ({ navigation, route }) => {
   );
 };
 
-export default PopularResult;
+export default SearchResult;
 
 const styles = StyleSheet.create({
   screen: { flex: 1 },

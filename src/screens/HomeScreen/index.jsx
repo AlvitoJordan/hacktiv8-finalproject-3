@@ -21,12 +21,23 @@ import {
 import { colors } from "../../utils/colors";
 import WelcomeCard from "../../components/molecules/Card/WelcomeCard";
 import SignInCard from "../../components/molecules/Card/SignInCard";
-import { useSelector } from "react-redux";
+
+import { useSelector, useDispatch } from "react-redux";
+import { setSearch } from "../../redux/searchSlice";
+import moment from "moment";
 
 const HomeScreen = ({ navigation }) => {
   const { isLogin, account } = useSelector((state) => state.auth);
   useEffect(() => {}, [isLogin]);
 
+  const dispatch = useDispatch();
+  const { search } = useSelector((state) => state.search);
+  const today = moment().format("YYYY-MM-DD");
+  const tomorrow = moment(today).add(1, "day").format("YYYY-MM-DD");
+
+  const handleSearch = () => {
+    navigation.navigate("Search Result");
+  };
   return (
     <SafeAreaView style={styles.safeContainer}>
       <View style={styles.screen}>
@@ -35,7 +46,14 @@ const HomeScreen = ({ navigation }) => {
           contentContainerStyle={styles.container}
         >
           <WelcomeCard name={account.firstName || "Guest"} />
-          <SearchHotel />
+
+          <SearchHotel
+            selectedItem={search.selectedItem}
+            checkIn={search.checkIn}
+            checkOut={search.checkOut}
+            guest={search.guest}
+            onPress={() => handleSearch()}
+          />
           {isLogin ? null : (
             <SignInCard onPress={() => navigation.navigate("Login")} />
           )}

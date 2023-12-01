@@ -22,13 +22,21 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { DataPopular } from "../../../data";
 import CityCard from "../Card/CityCard";
+import { useDispatch } from "react-redux";
+import { setSearch } from "../../../redux/searchSlice";
 
 const PopularDestination = () => {
   const [favorite, setFavorite] = useState(false);
+  const dispatch = useDispatch();
   const navigation = useNavigation();
 
   const toggleFavorite = () => {
     setFavorite(!favorite);
+  };
+
+  const handlePopular = (item) => {
+    dispatch(setSearch({ selectedItem: item.place }));
+    navigation.navigate("Popular Result", { place: item.place });
   };
   return (
     <View style={styles.container}>
@@ -40,9 +48,7 @@ const PopularDestination = () => {
       >
         {DataPopular.map((item) => (
           <CityCard
-            onPress={() =>
-              navigation.navigate("Popular Result", { place: item.place })
-            }
+            onPress={() => handlePopular(item)}
             image={item.image}
             city={item.place}
             key={item.id}

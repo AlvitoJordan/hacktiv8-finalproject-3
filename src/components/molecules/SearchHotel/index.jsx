@@ -16,36 +16,34 @@ import { useNavigation } from "@react-navigation/native";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearch } from "../../../redux/searchSlice";
 
-const SearchHotel = () => {
+const SearchHotel = ({ selectedItem, checkIn, checkOut, guest, onPress }) => {
   const [showCheckInDatePicker, setShowCheckInDatePicker] = useState(false);
   const [showCheckOutDatePicker, setShowCheckOutDatePicker] = useState(false);
   const navigation = useNavigation();
 
   const dispatch = useDispatch();
-  const { search } = useSelector((state) => state.search);
-  const today = moment().format("YYYY-MM-DD");
-  const tomorrow = moment(today).add(1, "day").format("YYYY-MM-DD");
-
   const [searchForm, setSearchForm] = useState({
-    selectedItem: search.selectedItem,
-    checkIn: today,
-    checkOut: tomorrow,
-    guest: 1,
+    selectedItem: selectedItem,
+    checkIn: checkIn,
+    checkOut: checkOut,
+    guest: guest,
   });
 
-  useEffect(() => {
-    setSearchForm({ ...searchForm, selectedItem: search.selectedItem });
-  }, [search.selectedItem]);
+  // useEffect(() => {
+  //   setSearchForm({ ...searchForm, selectedItem: selectedItem });
+  // }, [selectedItem]);
 
   const increaseGuestCount = () => {
     if (searchForm.guest < 7) {
       setSearchForm({ ...searchForm, guest: searchForm.guest + 1 });
+      dispatch(setSearch({ guest: guest + 1 }));
     }
   };
 
   const decreaseGuestCount = () => {
-    if (searchForm.guest > 1) {
+    if (guest > 1) {
       setSearchForm({ ...searchForm, guest: searchForm.guest - 1 });
+      dispatch(setSearch({ guest: guest - 1 }));
     }
   };
 
@@ -72,13 +70,24 @@ const SearchHotel = () => {
         ...searchForm,
         checkIn: moment(date).format("YYYY-MM-DD"),
       });
+      dispatch(setSearch({ checkIn: moment(date).format("YYYY-MM-DD") }));
     } else {
       hideDatePicker(type);
       setSearchForm({
         ...searchForm,
         checkOut: moment(date).format("YYYY-MM-DD"),
       });
+      dispatch(
+        setSearch({
+          checkOut: moment(date).format("YYYY-MM-DD"),
+        })
+      );
     }
+  };
+
+  const handleSearch = () => {
+    dispatch(setSearch(searchForm));
+    navigation.navigate("Search Result");
   };
 
   return (
@@ -98,7 +107,7 @@ const SearchHotel = () => {
           style={styles.text}
           placeholder="Where Do You Want Go ?"
           placeholderTextColor={colors.primary}
-          value={searchForm.selectedItem}
+          value={selectedItem}
         ></TextInput>
       </Pressable>
 
@@ -172,7 +181,7 @@ const SearchHotel = () => {
           <TextInput
             editable={false}
             style={styles.text}
-            value={`${searchForm.guest} Guest`}
+            value={`${guest} Guest`}
           ></TextInput>
         </View>
         <View style={styles.arrowSection}>
@@ -192,10 +201,7 @@ const SearchHotel = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <Pressable
-        style={styles.button}
-        onPress={() => dispatch(setSearch({ searchForm }))}
-      >
+      <Pressable style={styles.button} onPress={onPress}>
         <Text style={styles.textButton}>SEARCH</Text>
       </Pressable>
     </View>
