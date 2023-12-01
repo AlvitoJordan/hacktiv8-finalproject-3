@@ -16,6 +16,7 @@ import React from "react";
 import CityResult from "../screens/SearchResultScreen/CityResult";
 import { useSelector } from "react-redux";
 import PopularResult from "../screens/SearchResultScreen/PopularResult";
+import SearchResult from "../screens/SearchResultScreen/SearchResult";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -90,7 +91,13 @@ export const Router = () => {
           component={PopularResult}
           options={{}}
         />
+        <Stack.Screen
+          name="Search Result"
+          component={SearchResult}
+          options={{}}
+        />
       </Stack.Navigator>
+
       {isLoading && <LoadingCS />}
     </NavigationContainer>
   );

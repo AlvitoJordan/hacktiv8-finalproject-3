@@ -3,9 +3,24 @@ import React, { useEffect, useState } from "react";
 import { SearchHotel } from "../../components";
 import hotels from "../../data/hotels.json";
 import CardHotel from "../../components/molecules/Card/CardHotel";
+import { useSelector, useDispatch } from "react-redux";
 
-const CityResult = ({ route }) => {
+import { HeaderBackButton } from "@react-navigation/elements";
+import { clearSearch } from "../../redux/searchSlice";
+
+const CityResult = ({ navigation, route }) => {
   const [filteredCity, setFilteredCity] = useState([]);
+  const dispatch = useDispatch();
+  const { search } = useSelector((state) => state.search);
+
+  handleFilter = () => {
+    const filtered = hotels.filter(
+      (hotel) => hotel.name === search.selectedItem
+    );
+    if (filtered) {
+      setFilteredCity(filtered);
+    }
+  };
 
   useEffect(() => {
     if (route.params?.city) {
@@ -17,12 +32,32 @@ const CityResult = ({ route }) => {
       }
     }
   }, [route.params?.city]);
+  const handleBack = () => {
+    dispatch(clearSearch());
+    navigation.goBack();
+  };
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: route.params?.city,
+      headerLeft: () => (
+        <HeaderBackButton label="back" onPress={() => handleBack()} />
+      ),
+    });
+  }, [navigation]);
+
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.container}
     >
-      <SearchHotel />
+      <SearchHotel
+        selectedItem={search.selectedItem}
+        checkIn={search.checkIn}
+        checkOut={search.checkOut}
+        guest={search.guest}
+        onPress={() => handleFilter()}
+      />
 
       {filteredCity.map((hotel, index) => (
         <CardHotel
