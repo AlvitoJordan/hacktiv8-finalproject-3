@@ -5,8 +5,6 @@ import {
   View,
   Text,
 } from "react-native";
-import React, { useState } from "react";
-import { DUHotelManila } from "../../../assets/";
 import { colors } from "../../../utils/colors";
 import { TextCS } from "../../atoms";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
@@ -16,7 +14,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 const CardHotel = ({
   id,
-  onPress,
   image,
   name,
   score,

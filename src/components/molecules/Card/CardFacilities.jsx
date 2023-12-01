@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
-import { Gap, TextCS } from "../../atoms";
+import { TextCS } from "../../atoms";
 import { colors } from "../../../utils/colors";
 import { MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
 

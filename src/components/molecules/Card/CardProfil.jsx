@@ -1,7 +1,13 @@
 import { StyleSheet, ImageBackground, Text, View } from "react-native";
 import React from "react";
-import { Gap, TextCS } from "../../atoms";
-import { ICRate, ICLocation, ICFavorite, DUHotelManila, DUHotelIbis } from "../../../assets";
+import { Gap } from "../../atoms";
+import {
+  ICRate,
+  ICLocation,
+  ICFavorite,
+  DUHotelManila,
+  DUHotelIbis,
+} from "../../../assets";
 import { colors } from "../../../utils/colors";
 
 const CardProfil = () => {
@@ -9,8 +15,10 @@ const CardProfil = () => {
     <>
       <View style={styles.wrapp_card}>
         <View style={styles.wrapp_rowCart}>
-          <ImageBackground source={DUHotelManila} style={styles.wrappImage}>
-          </ImageBackground>
+          <ImageBackground
+            source={DUHotelManila}
+            style={styles.wrappImage}
+          ></ImageBackground>
           <View>
             <Text style={styles.textStyle_title}> Hotel Indah Lestari </Text>
             <ICRate />
@@ -24,15 +32,17 @@ const CardProfil = () => {
         <View style={styles.wrapp_cardPrice}>
           <ICFavorite />
           <Gap height={15} />
-          <Text style={styles.textStyle_title} > $ 1200 </Text>
+          <Text style={styles.textStyle_title}> $ 1200 </Text>
           <Text style={styles.textStyle_default}> Per Day </Text>
         </View>
       </View>
 
       <View style={styles.wrapp_card}>
         <View style={styles.wrapp_rowCart}>
-          <ImageBackground source={DUHotelIbis} style={styles.wrappImage}>
-          </ImageBackground>
+          <ImageBackground
+            source={DUHotelIbis}
+            style={styles.wrappImage}
+          ></ImageBackground>
           <View>
             <Text style={styles.textStyle_title}> Hotel Indah Lestari </Text>
             <ICRate />
@@ -46,12 +56,11 @@ const CardProfil = () => {
         <View style={styles.wrapp_cardPrice}>
           <ICFavorite />
           <Gap height={15} />
-          <Text style={styles.textStyle_title} > $ 1200 </Text>
+          <Text style={styles.textStyle_title}> $ 1200 </Text>
           <Text style={styles.textStyle_default}> Per Day </Text>
         </View>
       </View>
     </>
-
   );
 };
 
@@ -65,10 +74,9 @@ const styles = StyleSheet.create({
   // =======================================
 
   containerCart: {
-
     width: "100%",
     alignItems: "center",
-    flexDirection: 'coll',
+    flexDirection: "coll",
     paddingVertical: 20,
     gap: 15,
   },
@@ -78,11 +86,11 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 12,
     alignItems: "center",
-    flexDirection: 'row',
+    flexDirection: "row",
     justifyContent: "space-around",
     paddingVertical: 20,
     gap: 10,
-    boxShadow: '0px 2px 8px 0px rgba(119, 119, 119, 0.25)',
+    boxShadow: "0px 2px 8px 0px rgba(119, 119, 119, 0.25)",
     borderWidth: 2,
     borderColor: "#F0F0F0",
   },
@@ -91,14 +99,13 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   location_style: {
-    flexDirection: 'row',
+    flexDirection: "row",
     alignItems: "center",
   },
   containerCart: {
-
     width: "100%",
     alignItems: "center",
-    flexDirection: 'coll',
+    flexDirection: "coll",
     paddingVertical: 20,
     gap: 15,
   },
@@ -124,7 +131,5 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontWeight: "300",
     fontSize: 10,
-  }
-
-
-})
+  },
+});

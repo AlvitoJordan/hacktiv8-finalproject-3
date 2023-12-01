@@ -23,7 +23,9 @@ const FormLogin = ({ navigation }) => {
         dispatch(setLoading(false));
         showError("Email dan password kurang dari 5");
       } else {
-        const user = DataAccounts.find((u) => u.email === form.email && u.password === form.password);
+        const user = DataAccounts.find(
+          (u) => u.email === form.email && u.password === form.password
+        );
 
         if (user) {
           setTimeout(() => {
@@ -48,7 +50,14 @@ const FormLogin = ({ navigation }) => {
         <Gap height={30} />
         <ICLogo />
         <Gap height={50} />
-        <InputCS typeInput="WithIcon" icon={<ICEmail />} placeholder={"Enter Your Email"} placeholderColor={colors.secondary} value={form.email} onChangeText={(value) => setForm({ ...form, email: value })} />
+        <InputCS
+          typeInput="WithIcon"
+          icon={<ICEmail />}
+          placeholder={"Enter Your Email"}
+          placeholderColor={colors.secondary}
+          value={form.email}
+          onChangeText={(value) => setForm({ ...form, email: value })}
+        />
         <Gap height={30} />
         <InputCS
           typeInput="WithIcon"
@@ -80,7 +89,7 @@ export default FormLogin;
 
 const styles = StyleSheet.create({
   container: {
-    width:"100%",
+    width: "100%",
     backgroundColor: colors.white,
     padding: 20,
     borderTopLeftRadius: 30,

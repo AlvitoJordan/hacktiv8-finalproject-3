@@ -1,4 +1,10 @@
-import { ActivityIndicator, Animated, StyleSheet, Easing, View } from "react-native";
+import {
+  ActivityIndicator,
+  Animated,
+  StyleSheet,
+  Easing,
+  View,
+} from "react-native";
 import React, { useEffect, useRef } from "react";
 import TextCS from "../TextCS";
 import { colors } from "../../../utils/colors";

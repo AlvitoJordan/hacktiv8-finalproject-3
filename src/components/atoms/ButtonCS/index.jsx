@@ -1,9 +1,9 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import TextCS from "../TextCS";
 import { colors } from "../../../utils/colors";
 
-const ButtonCS = ({ title, onPress, style, typeButton }) => {
+const ButtonCS = ({ title, onPress, style }) => {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.container, style]}>
       <TextCS style={styles.text}>{title}</TextCS>

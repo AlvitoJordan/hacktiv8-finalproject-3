@@ -47,17 +47,6 @@ const PopularDestination = () => {
             city={item.place}
             key={item.id}
           />
-
-          // <PopularCard
-          //   id={item.id}
-          //   image={item.url}
-          //   title={item.name}
-          //   rate={item.score}
-          //   location={item.address.city}
-          //   region={item.address.region}
-          //   price={item.price}
-          //   key={item.id}
-          // />
         ))}
       </ScrollView>
     </View>

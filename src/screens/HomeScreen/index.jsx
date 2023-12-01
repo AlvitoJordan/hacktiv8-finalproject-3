@@ -4,16 +4,11 @@ import {
   View,
   StatusBar,
   SafeAreaView,
-  Text,
-  Pressable,
 } from "react-native";
 
 import React, { useEffect } from "react";
 
-import { AppLogo, ICLogo, ICOrang, ILLSignIn } from "../../assets";
 import {
-  Card,
-  Gap,
   PopularDestination,
   SearchHotel,
   TopDestination,

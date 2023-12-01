@@ -17,8 +17,15 @@ import { colors } from "../../../utils/colors";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-const CardFavorite = ({ name, city, price, image,favorite,onPress,data }) => {
- ;
+const CardFavorite = ({
+  name,
+  city,
+  price,
+  image,
+  favorite,
+  onPress,
+  data,
+}) => {
   const navigation = useNavigation();
 
   return (
@@ -44,10 +51,7 @@ const CardFavorite = ({ name, city, price, image,favorite,onPress,data }) => {
         </View>
         <View style={styles.wrapp_cardPrice}>
           <View style={styles.borderFavorite}>
-            <TouchableOpacity
-              onPress={onPress}
-              style={styles.favoriteIcon}
-            >
+            <TouchableOpacity onPress={onPress} style={styles.favoriteIcon}>
               <MaterialIcons
                 name={favorite ? "favorite" : "favorite-border"}
                 size={25}

@@ -1,6 +1,5 @@
 import { Text, View, StyleSheet } from "react-native";
 import { ICOrang } from "../../../assets";
-import { colors } from "../../../utils/colors";
 
 const WelcomeCard = ({ name }) => {
   return (
