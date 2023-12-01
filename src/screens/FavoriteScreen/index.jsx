@@ -44,6 +44,7 @@ const FavoriteScreen = () => {
                   image={favorite.url}
                   favorite={favorites.some((item) => item.id === favorite.id)}
                   onPress={() => toggleFavorite(favorite)}
+                  data={favorite}
                 />
               );
             })

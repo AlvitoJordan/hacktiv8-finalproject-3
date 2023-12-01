@@ -4,7 +4,7 @@ import CardFacilities from "./CardFacilities";
 import CardCommentar from "./CardCommentar";
 import CardFavorite from "./CardFavorite";
 
-const Card = ({ type, title, icon, onPress, name, city, price, image,favorite }) => {
+const Card = ({ type, title, icon, onPress, name, city, price, image,favorite,data }) => {
   switch (type) {
     case "hotel":
       return <CardHotel onPress={onPress} />;
@@ -14,7 +14,7 @@ const Card = ({ type, title, icon, onPress, name, city, price, image,favorite })
       return <CardCommentar />;
     case "favorite":
       return (
-        <CardFavorite name={name} city={city} price={price} image={image} favorite={favorite} onPress={onPress} />
+        <CardFavorite name={name} city={city} price={price} image={image} favorite={favorite} onPress={onPress} data={data} />
       );
   }
 };

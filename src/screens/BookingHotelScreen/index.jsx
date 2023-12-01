@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: colors.white_2,
-    marginTop: 40,
+    marginTop: 30,
   },
   wrapper: {
     justifyContent: "space-between",

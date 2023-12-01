@@ -17,14 +17,14 @@ import { colors } from "../../../utils/colors";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-const CardFavorite = ({ name, city, price, image,favorite,onPress }) => {
+const CardFavorite = ({ name, city, price, image,favorite,onPress,data }) => {
  ;
   const navigation = useNavigation();
 
   return (
     <>
       <TouchableOpacity
-        onPress={() => navigation.navigate("Detail Hotel")}
+        onPress={() => navigation.navigate("Detail Hotel", data)}
         style={styles.wrapp_card}
       >
         <View style={styles.wrapp_rowCart}>
