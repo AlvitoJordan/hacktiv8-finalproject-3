@@ -1,6 +1,6 @@
 import { ScrollView, StyleSheet, View } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Card, SearchHotel } from "../../components";
+import { Card, SearchHotel, TextCS } from "../../components";
 import hotels from "../../data/hotels.json";
 import CardHotel from "../../components/molecules/Card/CardHotel";
 
@@ -23,6 +23,7 @@ const CityResult = ({ route }) => {
       contentContainerStyle={styles.container}
     >
       <SearchHotel />
+
       {filteredCity.map((hotel, index) => (
         <CardHotel
           key={index}
@@ -36,6 +37,7 @@ const CityResult = ({ route }) => {
           region={hotel.address.region}
           price={hotel.price}
           rate={hotel.star}
+          data={hotel}
         />
       ))}
     </ScrollView>

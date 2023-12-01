@@ -36,6 +36,7 @@ const PopularResult = ({ route }) => {
           region={hotel.address.region}
           price={hotel.price}
           rate={hotel.star}
+          data={hotel}
         />
       ))}
     </ScrollView>

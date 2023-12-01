@@ -6,10 +6,14 @@ import { useSelector } from "react-redux";
 
 const ProfileScreen = () => {
   const { account } = useSelector((state) => state.auth);
+  const { favorites } = useSelector((state) => state.favorite);
 
   return (
     <View style={styles.screen}>
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.container}
+      >
         <Gap height={30} />
         <ICLogo />
         <Gap height={30} />
@@ -19,8 +23,12 @@ const ProfileScreen = () => {
               <ICOrang />
             </View>
             <View>
-              <Text style={styles.text_infoFirst}>{account.firstName} {account.lastName}</Text>
-              <Text style={styles.text_infoSecc}>{account.email}</Text>
+              <Text style={styles.text_infoFirst}>
+                {account.firstName || "Guest"} {account.lastName || "Account"}
+              </Text>
+              <Text style={styles.text_infoSecc}>
+                {account.email || "You are not loggin yet"}
+              </Text>
             </View>
           </View>
           <Gap height={5} />
@@ -37,7 +45,7 @@ const ProfileScreen = () => {
 
             <View style={styles.wrapp_row}>
               <Text> Favorites </Text>
-              <Text style={styles.text_infoValue}> 55 </Text>
+              <Text style={styles.text_infoValue}>{favorites.length || 0}</Text>
             </View>
           </View>
         </View>
@@ -67,7 +75,7 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 20,
     alignItems: "center",
-    flexDirection: 'coll',
+    flexDirection: "coll",
     paddingVertical: 20,
     gap: 10,
   },
@@ -78,13 +86,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
     paddingHorizontal: 25,
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 20,
-
   },
   wrapp_img: {
     borderRadius: 11,
-    overflow: "hidden"
+    overflow: "hidden",
   },
 
   wrapp_info: {
@@ -92,15 +99,14 @@ const styles = StyleSheet.create({
     width: "90%",
     marginHorizontal: 25,
     borderRadius: 9,
-    flexDirection: 'row',
+    flexDirection: "row",
     justifyContent: "space-evenly",
-
   },
   wrapp_row: {
     width: "default",
     borderRadius: 20,
     alignItems: "center",
-    flexDirection: 'coll',
+    flexDirection: "coll",
     gap: 5,
     paddingVertical: 10,
   },
@@ -116,7 +122,6 @@ const styles = StyleSheet.create({
   },
   text_infoSecc: {
     color: "#ffffff",
-
   },
   text_infoValue: {
     color: "#D1114D",
@@ -124,13 +129,10 @@ const styles = StyleSheet.create({
   // =======================================
 
   containerCart: {
-
     width: "100%",
     alignItems: "center",
-    flexDirection: 'coll',
+    flexDirection: "coll",
     paddingVertical: 20,
     gap: 10,
   },
-
-
-})
+});

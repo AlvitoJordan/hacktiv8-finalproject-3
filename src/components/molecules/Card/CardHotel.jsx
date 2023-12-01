@@ -11,6 +11,8 @@ import { colors } from "../../../utils/colors";
 import { TextCS } from "../../atoms";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { addFavorite, unFavorite } from "../../../redux/favoriteSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const CardHotel = ({
   id,
@@ -23,12 +25,23 @@ const CardHotel = ({
   region,
   price,
   rate,
+  data,
 }) => {
-  const [favorite, setFavorite] = useState(false);
   const navigation = useNavigation();
-
-  const toggleFavorite = () => {
-    setFavorite(!favorite);
+  const { favorites } = useSelector((state) => state.favorite);
+  const favorite = favorites.some((item) => item.id === data.id);
+  const dispatch = useDispatch();
+  const toggleFavorite = (data) => {
+    try {
+      const isAlreadyFavorite = favorites.some((item) => item.id === data.id);
+      if (isAlreadyFavorite) {
+        dispatch(unFavorite(data));
+      } else {
+        dispatch(addFavorite(data));
+      }
+    } catch (error) {
+      showError(error);
+    }
   };
 
   const ratingStar = Array.from({ length: rate }, (_, index) => (
@@ -41,7 +54,7 @@ const CardHotel = ({
         <ImageBackground source={{ uri: image }} style={styles.image}>
           <View style={styles.imageWrapper}>
             <TouchableOpacity
-              onPress={toggleFavorite}
+              onPress={() => toggleFavorite(data)}
               style={styles.favoriteIcon}
             >
               <MaterialIcons
