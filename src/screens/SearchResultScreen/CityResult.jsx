@@ -1,6 +1,6 @@
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Card, SearchHotel, TextCS } from "../../components";
+import { SearchHotel } from "../../components";
 import hotels from "../../data/hotels.json";
 import CardHotel from "../../components/molecules/Card/CardHotel";
 

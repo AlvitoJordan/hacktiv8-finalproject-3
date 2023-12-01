@@ -8,7 +8,6 @@ import {
   Pressable,
   FlatList,
   Text,
-  Button,
 } from "react-native";
 import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
 import { colors } from "../../utils/colors";

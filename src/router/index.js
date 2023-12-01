@@ -10,7 +10,7 @@ import {
 } from "../screens";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { BottomNavigator, Loading, LoadingCS } from "../components";
+import { BottomNavigator, LoadingCS } from "../components";
 import SearchScreen from "../screens/SearchScreen";
 import React from "react";
 import CityResult from "../screens/SearchResultScreen/CityResult";

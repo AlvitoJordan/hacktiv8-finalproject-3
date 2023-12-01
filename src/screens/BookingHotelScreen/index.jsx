@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { ButtonCS, Gap, List, TextCS } from "../../components";
 import { ICBack } from "../../assets";
@@ -27,7 +27,9 @@ const BookingHotelScreen = ({ navigation }) => {
               </View>
               <Gap height={10} />
               <View style={styles.information}>
-                <TextCS style={styles.informationTitle}>syaefulannas33@gmail.com</TextCS>
+                <TextCS style={styles.informationTitle}>
+                  syaefulannas33@gmail.com
+                </TextCS>
               </View>
               <Gap height={10} />
               <View style={styles.informationTelephone}>
@@ -46,7 +48,9 @@ const BookingHotelScreen = ({ navigation }) => {
             <View style={styles.cardContainer}>
               <TextCS style={styles.sectionTitle}>PRICE SUMMARY</TextCS>
               <Gap height={10} />
-              <TextCS style={styles.informationTitle}>3 Days, 1 Room, 2 Guest</TextCS>
+              <TextCS style={styles.informationTitle}>
+                3 Days, 1 Room, 2 Guest
+              </TextCS>
               <Gap height={20} />
               <List label={"Total"} title={"$ 500"} />
               <Gap height={10} />
@@ -93,7 +97,13 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
   },
-  cardContainer: { width: "100%", backgroundColor: colors.white, elevation: 3, padding: 20, borderRadius: 20 },
+  cardContainer: {
+    width: "100%",
+    backgroundColor: colors.white,
+    elevation: 3,
+    padding: 20,
+    borderRadius: 20,
+  },
   sectionTitle: {
     color: colors.primary,
     fontWeight: "600",

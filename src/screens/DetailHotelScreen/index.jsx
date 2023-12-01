@@ -7,17 +7,7 @@ import {
   View,
 } from "react-native";
 import React, { useState, useEffect } from "react";
-import {
-  DUHotelManila,
-  ICBack,
-  ICLocation,
-  ICRate,
-  ICRestourant,
-  ICRoomService,
-  ICSwimming,
-  ICWifi,
-} from "../../assets";
-import { ButtonCS, Card, Gap, TextCS } from "../../components";
+import { ButtonCS, Gap, TextCS } from "../../components";
 import { colors } from "../../utils/colors";
 import { MaterialIcons, Ionicons } from "@expo/vector-icons";
 import hotels from "../../data/hotels.json";

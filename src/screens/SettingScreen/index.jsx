@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
 import { ICLogo } from "../../assets/";
 import { Gap, List, TextCS } from "../../components";
@@ -43,7 +43,13 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     padding: 20,
   },
-  cardContainer: { width: "100%", backgroundColor: colors.white, elevation: 3, padding: 20, borderRadius: 20 },
+  cardContainer: {
+    width: "100%",
+    backgroundColor: colors.white,
+    elevation: 3,
+    padding: 20,
+    borderRadius: 20,
+  },
   sectionTitle: {
     color: colors.primary,
     fontWeight: "600",

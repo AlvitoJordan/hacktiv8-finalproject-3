@@ -7,7 +7,6 @@ import {
 } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { colors } from "../../../utils/colors";
-import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, unFavorite } from "../../../redux/favoriteSlice";

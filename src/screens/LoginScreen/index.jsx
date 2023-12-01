@@ -7,7 +7,12 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.screen}>
       <View style={styles.header}>
-        <HeaderCS title={"Unlock Your Dream Getaway"} desc={"Discover seamless booking at your fingertips. Log in to manage reservations, explore exclusive offers, and make your stay unforgettable."} />
+        <HeaderCS
+          title={"Unlock Your Dream Getaway"}
+          desc={
+            "Discover seamless booking at your fingertips. Log in to manage reservations, explore exclusive offers, and make your stay unforgettable."
+          }
+        />
       </View>
       <FormLogin navigation={navigation} />
     </View>

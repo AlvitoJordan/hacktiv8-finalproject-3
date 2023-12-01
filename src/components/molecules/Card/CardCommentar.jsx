@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Gap, TextCS } from "../../atoms";
-import { ICRate } from "../../../assets";
 import { colors } from "../../../utils/colors";
 
 const CardCommentar = ({ name, date, comment }) => {
