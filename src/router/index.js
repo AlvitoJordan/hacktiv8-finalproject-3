@@ -7,6 +7,7 @@ import {
   LoginScreen,
   ProfileScreen,
   SettingScreen,
+  EditProfile
 } from "../screens";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -17,6 +18,8 @@ import CityResult from "../screens/SearchResultScreen/CityResult";
 import { useSelector } from "react-redux";
 import PopularResult from "../screens/SearchResultScreen/PopularResult";
 import SearchResult from "../screens/SearchResultScreen/SearchResult";
+import { colors } from "../utils/colors";
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -91,6 +94,13 @@ export const Router = () => {
           component={PopularResult}
           options={{}}
         />
+        <Stack.Screen name="Edit Profile" component={EditProfile} 
+          options={{
+          headerShown: true,
+          headerTransparent: false,
+          headerTintColor: colors.black,
+          headerStyle: {backgroundColor: "white"},
+        }} />
         <Stack.Screen
           name="Search Result"
           component={SearchResult}
