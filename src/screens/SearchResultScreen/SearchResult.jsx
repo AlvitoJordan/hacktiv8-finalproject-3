@@ -9,10 +9,11 @@ import { HeaderBackButton } from "@react-navigation/elements";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearch, clearSearch } from "../../redux/searchSlice";
 
-const SearchResult = ({ navigation, route }) => {
+const SearchResult = ({ navigation}) => {
   const dispatch = useDispatch();
   const [filteredHotel, setFilteredHotel] = useState([]);
   const { search } = useSelector((state) => state.search);
+ 
 
   const handleBack = () => {
     dispatch(clearSearch());
@@ -60,7 +61,6 @@ const SearchResult = ({ navigation, route }) => {
       {filteredHotel.map((hotel, index) => (
         <CardHotel
           key={index}
-          id={hotel.id}
           type={"hotel"}
           name={hotel.name}
           image={hotel.url}
@@ -71,6 +71,7 @@ const SearchResult = ({ navigation, route }) => {
           price={hotel.price}
           rate={hotel.star}
           data={hotel}
+          detailHotel={hotel}
         />
       ))}
     </ScrollView>

@@ -11,9 +11,9 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { addFavorite, unFavorite } from "../../../redux/favoriteSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { showError } from "../../../utils/showMessage";
 
 const CardHotel = ({
-  id,
   image,
   name,
   score,
@@ -23,22 +23,36 @@ const CardHotel = ({
   price,
   rate,
   data,
+  detailHotel,
 }) => {
   const navigation = useNavigation();
   const { favorites } = useSelector((state) => state.favorite);
   const favorite = favorites.some((item) => item.id === data.id);
+  const { isLogin } = useSelector((state) => state.auth);
+  const { search } = useSelector((state) => state.search);
+
   const dispatch = useDispatch();
   const toggleFavorite = (data) => {
     try {
       const isAlreadyFavorite = favorites.some((item) => item.id === data.id);
-      if (isAlreadyFavorite) {
-        dispatch(unFavorite(data));
+      if (isLogin) {
+        if (isAlreadyFavorite) {
+          dispatch(unFavorite(data));
+        } else {
+          dispatch(addFavorite(data));
+        }
       } else {
-        dispatch(addFavorite(data));
+        showError("Silahkan login terlebih dahulu");
       }
     } catch (error) {
       showError(error);
     }
+  };
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(price);
   };
 
   const ratingStar = Array.from({ length: rate }, (_, index) => (
@@ -63,11 +77,16 @@ const CardHotel = ({
           </View>
         </ImageBackground>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Detail Hotel", { id: id })}
+          onPress={() =>
+            navigation.navigate("Detail Hotel", {
+              detailHotel: detailHotel,
+              bookingInformation: search,
+            })
+          }
           style={styles.detailsContainer}
         >
           <View style={styles.leftContainer}>
-            <Text numberOfLines={1} style={styles.titleHotel}>
+            <Text numberOfLines={2} style={styles.titleHotel}>
               {name}
             </Text>
             <View style={styles.rating}>
@@ -79,7 +98,7 @@ const CardHotel = ({
             </Text>
           </View>
           <View style={styles.priceStyle}>
-            <TextCS style={styles.price}>{price}</TextCS>
+            <TextCS style={styles.price}>{formatPrice(price)}</TextCS>
             <TextCS style={styles.day}>Per Night</TextCS>
           </View>
         </TouchableOpacity>
@@ -140,9 +159,10 @@ const styles = StyleSheet.create({
     padding: 10,
     flexDirection: "row",
     justifyContent: "space-between",
+    width: "100%",
   },
   leftContainer: {
-    width: "75%",
+    width: "50%",
   },
   titleHotel: {
     fontWeight: "bold",
@@ -155,6 +175,7 @@ const styles = StyleSheet.create({
   },
   priceStyle: {
     alignItems: "flex-end",
+    width: "50%",
   },
   day: {
     color: colors.primary,

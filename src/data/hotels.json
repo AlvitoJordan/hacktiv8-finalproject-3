@@ -3,159 +3,219 @@
     "id": 1,
     "name": "Sheraton Grand Jakarta Gandaria City Hotel",
     "url": "https://a.travel-assets.com/media/meso_cm/PAPI/Images/lodging/13000000/12090000/12088000/12087971/f9b4f193_b.jpg?impolicy=resizecrop&rw=455&ra=fit",
-    "address" : {
-      "fullAddress" : "Jl. Sultan Iskandar Muda, 12240 Jakarta, Indonesia",
+    "address": {
+      "fullAddress": "Jl. Sultan Iskandar Muda, 12240 Jakarta, Indonesia",
       "place": "Jakarta",
-      "city" : "Jakarta",
-      "region" : "Indonesia"
+      "city": "Jakarta",
+      "region": "Indonesia"
     },
-    "price": "Rp2.590.000",
+    "price": 2590000,
     "description": "Sheraton Grand Jakarta Gandaria City Hotel offers accommodations in the heart of emerging commercial hub and primer residential area in South Jakarta, 1.7 mi from MRT Blok M and 1.9 mi from MRT Blok A. The hotel has an outdoor pool and views of the city, and guests can enjoy a drink at the bar. The hotel is a part of a superblock complex offering a retail shopping mall, offices and convention/exhibition facilities.",
-    "amenities": ["Free Wifi", "Outdoor Swimming Pool", "Free Parking", "Restaurant", "Airport shuttle"],
+    "amenities": [
+      "Free Wifi",
+      "Outdoor Swimming Pool",
+      "Free Parking",
+      "Restaurant",
+      "Airport shuttle"
+    ],
     "rating": 9.0,
-    "star" : 5
+    "star": 5
   },
   {
     "id": 2,
     "name": "The Bellezza Hotel Suites",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/143120936.jpg?k=70daa9fc5044fc74c87de0d1941fb7f3d88d897f5423273a7d675d854c174ab1&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl. Letjen Soepeno No.34, Alteri Permata Hijau, 12210 Jakarta, Indonesia",
+    "address": {
+      "fullAddress": "Jl. Letjen Soepeno No.34, Alteri Permata Hijau, 12210 Jakarta, Indonesia",
       "place": "Jakarta",
-      "city" : "Jakarta",
-      "region" : "Indonesia"
+      "city": "Jakarta",
+      "region": "Indonesia"
     },
-    "price": "Rp1.170.000",
+    "price": 1170000,
     "description": "Luxurious comfort awaits guests at The Bellezza Hotel Suites. Featuring an outdoor pool, indoor tennis court and a jogging track, this hotel houses a restaurant and spacious rooms overlooking the city. Free internet access is available in some rooms.",
-    "amenities": ["Free Wifi", "Outdoor Swimming Pool", "Free Parking", "Spa", "Family Rooms"],
+    "amenities": [
+      "Free Wifi",
+      "Outdoor Swimming Pool",
+      "Free Parking",
+      "Spa",
+      "Family Rooms"
+    ],
     "rating": 7.1,
-    "star" : 4
+    "star": 4
   },
   {
     "id": 3,
     "name": "Azana Suites Hotel Antasari",
     "url": "https://cf.bstatic.com/images/hotel/max1024x768/444/444156894.jpg",
-    "address" : {
-      "fullAddress" : "Jl. Pangeran Antasari No. 75, 12430 Jakarta, Indonesia ",
+    "address": {
+      "fullAddress": "Jl. Pangeran Antasari No. 75, 12430 Jakarta, Indonesia ",
       "place": "Jakarta",
-      "city" : "Jakarta",
-      "region" : "Indonesia"
+      "city": "Jakarta",
+      "region": "Indonesia"
     },
-    "price": "Rp993.000",
+    "price": 993000,
     "description": "Located 4 miles from Pondok Indah Mall, Azana Suites Hotel Antasari offers 4-star accommodations in Jakarta and has a terrace, a restaurant and a bar. The property is around 4.9 miles from Pacific Place, 5.1 miles from Ragunan Zoo and 5.2 miles from Plaza Senayan. The hotel has an outdoor swimming pool and room service and free WiFi throughout the property.",
-    "amenities": ["Free Wifi", "Outdoor Swimming Pool", "Free Parking", "Non-smoking rooms","Airport shuttle"],
+    "amenities": [
+      "Free Wifi",
+      "Outdoor Swimming Pool",
+      "Free Parking",
+      "Non-smoking rooms",
+      "Airport shuttle"
+    ],
     "rating": 8.0,
-    "star" : 4
+    "star": 4
   },
-  {    
+  {
     "id": 4,
     "name": "The Luxton Cirebon Hotel and Convention",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/292951208.jpg?k=1e055e1901990850a90eb2a1afe8ca0cdc3c6bff4d4b0461eb728a1f2b375887&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl. R. A. Kartini No. 60, 45122 Cirebon, Indonesia",
-      "place" : "Cirebon",
-      "city" : "Cirebon",
-      "region" : "Indonesia"
+    "address": {
+      "fullAddress": "Jl. R. A. Kartini No. 60, 45122 Cirebon, Indonesia",
+      "place": "Cirebon",
+      "city": "Cirebon",
+      "region": "Indonesia"
     },
-    "price": "Rp780.000",
+    "price": 780000,
     "description": "Located in Cirebon, The Luxton Cirebon Hotel and Convention offers a spa center, sauna and an outdoor pool. Guests can enjoy a la carte menu at the restaurant or a drink at the bar. Free private parking is available on site. Every room at this hotel is air conditioned and features a flat-screen TV. Enjoy a cup of tea while looking out at the sea or mountains. Every room is equipped with a private bathroom with a shower. Extras include slippers and free toiletries.",
-    "amenities": ["Spa","Outdoor Swimming Pool","Free Parking","Restaurant","Free Wifi"],
+    "amenities": [
+      "Spa",
+      "Outdoor Swimming Pool",
+      "Free Parking",
+      "Restaurant",
+      "Free Wifi"
+    ],
     "rating": 8.1,
     "star": 4
   },
-  {    
+  {
     "id": 5,
     "name": "Hotel Rajawali RedPartner",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/268712216.jpg?k=fb10028f47c26720d7bdce89ca201e52b22a5feb8ccff24de69d1689c40a1c53&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl. Rajawali Barat II No.5, Kecapi, Kec. Harjamukti, Kota Cirebon, Jawa Barat, 45142 Cirebon, Indonesia",
-      "place" : "Cirebon",
-      "city" : "Cirebon",
-      "region" : "Indonesia"
+    "address": {
+      "fullAddress": "Jl. Rajawali Barat II No.5, Kecapi, Kec. Harjamukti, Kota Cirebon, Jawa Barat, 45142 Cirebon, Indonesia",
+      "place": "Cirebon",
+      "city": "Cirebon",
+      "region": "Indonesia"
     },
-    "price": "Rp160.000",
+    "price": 160000,
     "description": "Hotel Rajawali RedPartner is located in Cirebon, within 2.6 miles of Cirebon Waterland and 1.5 miles of Kasepuhan Palace. The 2-star hotel has air-conditioned rooms with a private bathroom and free WiFi. Sunyaragi Cave is 1.7 miles from the hotel and Kanoman Palace is 2.4 miles away.",
-    "amenities": ["Spa","Non-smoking rooms","Free Parking","Restaurant","Free Wifi"],
+    "amenities": [
+      "Spa",
+      "Non-smoking rooms",
+      "Free Parking",
+      "Restaurant",
+      "Free Wifi"
+    ],
     "rating": 7.8,
-    "star" : 2
+    "star": 2
   },
-  {    
+  {
     "id": 6,
     "name": "Amaris Hotel Cirebon",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/287744694.jpg?k=c27ee1f323e63cbeabfecdf31f500a1908a52ba822289c10ff97942c72d7e133&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jalan Siliwangi No.70, 45121 Cirebon, Indonesia",
-      "place" : "Cirebon",
-      "city" : "Cirebon",
-      "region" : "Indonesia"
+    "address": {
+      "fullAddress": "Jalan Siliwangi No.70, 45121 Cirebon, Indonesia",
+      "place": "Cirebon",
+      "city": "Cirebon",
+      "region": "Indonesia"
     },
-    "price": "Rp423.000",
+    "price": 423000,
     "description": "Hotel Rajawali RedPartner is located in Cirebon, within 2.6 miles of Cirebon Waterland and 1.5 miles of Kasepuhan Palace. The 2-star hotel has air-conditioned rooms with a private bathroom and free WiFi. Sunyaragi Cave is 1.7 miles from the hotel and Kanoman Palace is 2.4 miles away.",
-    "amenities": ["Airport shuttle","Non-smoking rooms","Free Parking","Restaurant","Free Wifi"],
+    "amenities": [
+      "Airport shuttle",
+      "Non-smoking rooms",
+      "Free Parking",
+      "Restaurant",
+      "Free Wifi"
+    ],
     "rating": 8.4,
-    "star" : 3
+    "star": 3
   },
   {
     "id": 7,
     "name": "Armi Hotel Malang",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/160224409.jpg?k=a2da89e884fcb3cc16e093fab37da1dafb67bc6e254e5150967eabbd0f3ccc8d&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl. Kaliurang No.63, Lowokwaru, Klojen, 65111 Malang, Indonesia",
-      "place" : "Malang",
-      "city" : "Malang",
-      "region" : "Indonesia"
+    "address": {
+      "fullAddress": "Jl. Kaliurang No.63, Lowokwaru, Klojen, 65111 Malang, Indonesia",
+      "place": "Malang",
+      "city": "Malang",
+      "region": "Indonesia"
     },
-    "price": "Rp760.000",
+    "price": 760000,
     "description": "Located in Malang, 1.4 miles from Taman Rekreasi Senaputra, Armi Hotel Malang has accommodations with a garden, free private parking, a shared lounge and a terrace. The property is around 1.7 miles from Alun - Alun Kota Malang, 1.8 miles from Alun-alun Tugu and 1.8 miles from Taman Rekreasi Kota. The property provides a 24-hour front desk, airport transportation, room service and free WiFi.",
-    "amenities": ["Airport shuttle", "Family Rooms", "Free Wifi", "Free Parking", "Room Service"],
+    "amenities": [
+      "Airport shuttle",
+      "Family Rooms",
+      "Free Wifi",
+      "Free Parking",
+      "Room Service"
+    ],
     "rating": 8.5,
-    "star" : 4
+    "star": 4
   },
   {
     "id": 8,
     "name": "Flyover Arjosari Hotel",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/416503061.jpg?k=d5ad8c1e3d17b33de392cf6b9439d9169286404afaf00f8509eb589f30c9b741&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl. A. Yani No.10, Polowijen, Kec. Blimbing, Kota Malang, Jawa Timur, 65126 Malang, Indonesia",
-      "place" : "Malang",
-      "city" : "Malang",
-      "region" : "Indonesia"
+    "address": {
+      "fullAddress": "Jl. A. Yani No.10, Polowijen, Kec. Blimbing, Kota Malang, Jawa Timur, 65126 Malang, Indonesia",
+      "place": "Malang",
+      "city": "Malang",
+      "region": "Indonesia"
     },
-    "price": "Rp480.000",
+    "price": 480000,
     "description": " Flyover Arjosari Hotel provides free WiFi throughout the property and rooms with air conditioning in Malang. The property is around 2.4 miles from Araya Golf & Family Club, 2.7 miles from Museum Mpu Purwa and 3.6 miles from Taman Rekreasi Senaputra. Alun-alun Tugu is 4 miles away and Taman Rekreasi Kota is 4 miles from the hotel.",
-    "amenities": ["Airport shuttle", "Family Rooms", "Free Wifi", "Free Parking", "Room service"],
+    "amenities": [
+      "Airport shuttle",
+      "Family Rooms",
+      "Free Wifi",
+      "Free Parking",
+      "Room service"
+    ],
     "rating": 6.6,
-    "star" : 3
+    "star": 3
   },
   {
     "id": 9,
     "name": "The Shalimar Boutique Hotel",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/227223167.jpg?k=0eb7b3ea3f0c4c8bd9f6f4f49b8876ae1f8e0728d064e1e6f858ceb7429ed295&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jalan Cerme 16, 65112 Malang, Indonesia",
-      "place" : "Malang",
-      "city" : "Malang",
-      "region" : "Indonesia"
+    "address": {
+      "fullAddress": "Jalan Cerme 16, 65112 Malang, Indonesia",
+      "place": "Malang",
+      "city": "Malang",
+      "region": "Indonesia"
     },
-    "price": "Rp1.689.000",
+    "price": 1689000,
     "description": "Located in Malang, a 7-minute walk from Malang Library, The Shalimar Boutique Hotel has accommodations with an outdoor swimming pool, free private parking, a fitness center and a garden. Among the various facilities are a terrace and a bar. The property provides a 24-hour front desk, airport transportation, room service and free WiFi throughout the property.",
-    "amenities": ["Outdoor Swimming Pool", "Room service", "Free Wifi", "Free Parking", "Airport shuttle"],
+    "amenities": [
+      "Outdoor Swimming Pool",
+      "Room service",
+      "Free Wifi",
+      "Free Parking",
+      "Airport shuttle"
+    ],
     "rating": 8.9,
-    "star" : 5
+    "star": 5
   },
   {
     "id": 10,
     "name": "Emerald Garden International Hotel",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/443430640.jpg?k=b704819b5266337ce7d80b895b2796adfa1f2a0045b769a33c4db82f8b87826d&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl. K.L. Yos Sudarso No. 1 PO BOX 2388 , 20235 Medan, Indonesia",
-      "place" : "Medan",
-      "city" : "Medan",
-      "region" : "Indonesia"
+    "address": {
+      "fullAddress": "Jl. K.L. Yos Sudarso No. 1 PO BOX 2388 , 20235 Medan, Indonesia",
+      "place": "Medan",
+      "city": "Medan",
+      "region": "Indonesia"
     },
-    "price": "Rp718.750",
+    "price": 718.75,
     "description": "Emerald Garden International Hotel is centrally located in the business center of Medan City. It features a large outdoor swimming pool and meeting rooms. The hotel also features 2 restaurants and free WiFi in the entire property. Free shuttle to Center Point Mall and Podomoro City Deli Medan is provided.",
-    "amenities": ["Airport shuttle", "Outdoor Swimming Pool", "Free Wifi", "Free Parking", "Restaurant"],
+    "amenities": [
+      "Airport shuttle",
+      "Outdoor Swimming Pool",
+      "Free Wifi",
+      "Free Parking",
+      "Restaurant"
+    ],
     "rating": 8.1,
     "star": 4
   },
@@ -163,15 +223,21 @@
     "id": 11,
     "name": "Prime Hotel",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/228976494.jpg?k=3f42ae28c01ae49e9cdab1fa19fbd938ca9339b2093ddf04473d14fea66b7f60&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl. Arteri Kualanamu, Tumpatan Nibung, Batang Kuis, Deli Serdang, 20552 Medan, Indonesia",
-      "place" : "Medan",
-      "city" : "Medan",
-      "region" : "Indonesia"
+    "address": {
+      "fullAddress": "Jl. Arteri Kualanamu, Tumpatan Nibung, Batang Kuis, Deli Serdang, 20552 Medan, Indonesia",
+      "place": "Medan",
+      "city": "Medan",
+      "region": "Indonesia"
     },
-    "price": "Rp396.000",
+    "price": 396.0,
     "description": "Prime Plaza Kualanamu-Medan is set in Kampungbesar. This property also houses a restaurant, a fitness center, a business center and an outdoor pool with kids area. Spacious free parking is available on site. All rooms at the hotel are fitted with a seating area. The private bathroom is equipped with standing shower and complete amenities. At Prime Plaza Kualanamu-Medan rooms are fitted with air conditioning and LED TV, fridge, and personal safe.",
-    "amenities": ["Restaurant", "Outdoor Swimming Pool", "Free Wifi", "Free Parking", "Airport shuttle"],
+    "amenities": [
+      "Restaurant",
+      "Outdoor Swimming Pool",
+      "Free Wifi",
+      "Free Parking",
+      "Airport shuttle"
+    ],
     "rating": 8.2,
     "star": 4
   },
@@ -179,15 +245,21 @@
     "id": 12,
     "name": "Karibia Boutique Hotel",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/124213093.jpg?k=26624f06478cfe2633b39d60a0362303914cbc33c67b89c29b8c558d8ce4b6d7&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jln. Timor Blok J No. I-IV, 20231 Medan, Indonesia",
-      "place" : "Medan",
-      "city" : "Medan",
-      "region" : "Indonesia"
+    "address": {
+      "fullAddress": "Jln. Timor Blok J No. I-IV, 20231 Medan, Indonesia",
+      "place": "Medan",
+      "city": "Medan",
+      "region": "Indonesia"
     },
-    "price": "Rp623.000",
+    "price": 623000,
     "description": "Karibia Boutique Hotel offers luxurious, air-conditioned rooms with private bathrooms. This hotel is located right in the heart of the city and right next to the city's largest shopping mall, Center Point Mall, as well as the railway station.",
-    "amenities": ["Non-smoking rooms", "Outdoor Swimming Pool", "Free Wifi", "Free Parking", "Spa"],
+    "amenities": [
+      "Non-smoking rooms",
+      "Outdoor Swimming Pool",
+      "Free Wifi",
+      "Free Parking",
+      "Spa"
+    ],
     "rating": 8.0,
     "star": 4
   },
@@ -195,15 +267,21 @@
     "id": 13,
     "name": "Kuta Paradiso Hotel",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/412923390.jpg?k=4cf9e54e25f28c73db790076b47b2602ea05e65b158b295e37bccdc2a2dc8804&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl. Kartika Plaza, Tuban, Bali, 80361 Kuta, Indonesia",
-      "place" : "Bali",
-      "city" : "Kuta",
-      "region" : "Indonesia"
+    "address": {
+      "fullAddress": "Jl. Kartika Plaza, Tuban, Bali, 80361 Kuta, Indonesia",
+      "place": "Bali",
+      "city": "Kuta",
+      "region": "Indonesia"
     },
-    "price": "Rp1.713.000",
+    "price": 1713000,
     "description": "Paradiso is located at the south of Kuta Beach, a 10-minute drive from Bali International Airport. The hotel offers free-form outdoor pools and 6 dining options. Families with children can make use of the kids corner and playground. Free WiFi is accessible in all areas and free scheduled airport shuttle is provided.",
-    "amenities": ["Outdoor Swimming Pool", "Airport shuttle", "Free Wifi", "Room service", "Spa"],
+    "amenities": [
+      "Outdoor Swimming Pool",
+      "Airport shuttle",
+      "Free Wifi",
+      "Room service",
+      "Spa"
+    ],
     "rating": 7.5,
     "star": 5
   },
@@ -211,15 +289,21 @@
     "id": 14,
     "name": "Hard Rock Hotel",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/248442558.jpg?k=1455e3ec6d2159154a52e7d115bac0b8f3b8a867249993b7031b5a4cdbab6efc&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jalan Pantai, Banjar Pande Mas, 80361 Kuta, Indonesia",
-      "place" : "Bali",
-      "city" : "Kuta",
-      "region" : "Indonesia"
+    "address": {
+      "fullAddress": "Jalan Pantai, Banjar Pande Mas, 80361 Kuta, Indonesia",
+      "place": "Bali",
+      "city": "Kuta",
+      "region": "Indonesia"
     },
-    "price": "Rp1.915.000",
+    "price": 1915000,
     "description": "Located along Kuta Beach, Hard Rock Hotel Bali features decor inspired by rock and roll culture. It has the largest free-form outdoor pool in Bali complete with sand island, rock climbing walls, a spa, restaurants and free parking. Free WiFi is available in all areas.",
-    "amenities": ["Outdoor Swimming Pool", "Airport shuttle", "Free Wifi", "Free Parking", "Spa"],
+    "amenities": [
+      "Outdoor Swimming Pool",
+      "Airport shuttle",
+      "Free Wifi",
+      "Free Parking",
+      "Spa"
+    ],
     "rating": 8.5,
     "star": 5
   },
@@ -227,15 +311,21 @@
     "id": 15,
     "name": "Crystalkuta Hotel",
     "url": "https://cf.bstatic.com/images/hotel/max1024x768/406/406109742.jpg",
-    "address" : {
-      "fullAddress" : "Jalan Bypass Ngurah Rai Kuta No. 999, Kuta - Bali Indonesia",
+    "address": {
+      "fullAddress": "Jalan Bypass Ngurah Rai Kuta No. 999, Kuta - Bali Indonesia",
       "place": "Bali",
-      "city" : "Kuta",
-      "region" : "Indonesia"
+      "city": "Kuta",
+      "region": "Indonesia"
     },
-    "price": "Rp513.000",
+    "price": 513000,
     "description": "Crystal Kuta is a modern property with an outdoor pool and free Wi-Fi. Just 5 minutes' drive from Ngurah Rai International Airport, Kuta and Legian, it operates a 24-hour front desk. Jasmine Restaurant has a daily buffet breakfast and Indonesian dishes.",
-    "amenities": ["Outdoor Swimming Pool", "Airport shuttle", "Free Wifi", "Room service", "Spa"],
+    "amenities": [
+      "Outdoor Swimming Pool",
+      "Airport shuttle",
+      "Free Wifi",
+      "Room service",
+      "Spa"
+    ],
     "rating": 8.1,
     "star": 4
   },
@@ -243,15 +333,21 @@
     "id": 16,
     "name": "Batam Marriott Hotel Harbour Bay",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/461629511.jpg?k=975b9673e3795a4c977cfdbe8e7be90e1c057c6e4a16c7d986b77dd475647982&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Harbour Bay Downtown, Jalan Duyung, Kel Sungai Jodoh, Kec Batu Ampar, 29453",
+    "address": {
+      "fullAddress": "Harbour Bay Downtown, Jalan Duyung, Kel Sungai Jodoh, Kec Batu Ampar, 29453",
       "place": "Batam",
-      "city" : "Lubuk Baja",
-      "region" : "Indonesia"
+      "city": "Lubuk Baja",
+      "region": "Indonesia"
     },
-    "price": "Rp1.890.000",
+    "price": 1890000,
     "description": "Crystal Kuta is a modern property with an outdoor pool and free Wi-Fi. Just 5 minutes' drive from Ngurah Rai International Airport, Kuta and Legian, it operates a 24-hour front desk. Jasmine Restaurant has a daily buffet breakfast and Indonesian dishes.",
-    "amenities": ["Outdoor Swimming Pool", "Airport shuttle", "Free Wifi", "Room service", "Spa"],
+    "amenities": [
+      "Outdoor Swimming Pool",
+      "Airport shuttle",
+      "Free Wifi",
+      "Room service",
+      "Spa"
+    ],
     "rating": 8.8,
     "star": 5
   },
@@ -259,15 +355,21 @@
     "id": 17,
     "name": "Grand Eska Hotel",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/482137041.jpg?k=696ce2e4a0b5522e7f4d1664c0fce113d65e2e6c894c91691c9daf8b6a16621e&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl.Prambanan No.1 Jodoh, 29432 Nagoya, Indonesia",
+    "address": {
+      "fullAddress": "Jl.Prambanan No.1 Jodoh, 29432 Nagoya, Indonesia",
       "place": "Batam",
-      "city" : "Nagoya",
-      "region" : "Indonesia"
+      "city": "Nagoya",
+      "region": "Indonesia"
     },
-    "price": "Rp585.000",
+    "price": 585000,
     "description": "Offering generous living space for all types of guests, Grand Eska Hotel is an elegant accommodations located near the business and commercial district of Batam.",
-    "amenities": ["Outdoor Swimming Pool", "Airport shuttle", "Free Wifi", "Room service", "Spa"],
+    "amenities": [
+      "Outdoor Swimming Pool",
+      "Airport shuttle",
+      "Free Wifi",
+      "Room service",
+      "Spa"
+    ],
     "rating": 7.5,
     "star": 4
   },
@@ -275,15 +377,21 @@
     "id": 18,
     "name": "Grand Sydney Hotel",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/289985472.jpg?k=cdb8972bb3bad8dd651e4fbec45c925b92247ec2ff8b7f16b062328351719cbb&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl. Raja H. Fisabilillah, Sungai Panas, Kec. Batam Kota, Kota Batam, Kepulauan Riau",
+    "address": {
+      "fullAddress": "Jl. Raja H. Fisabilillah, Sungai Panas, Kec. Batam Kota, Kota Batam, Kepulauan Riau",
       "place": "Batam",
-      "city" : "Batam",
-      "region" : "Indonesia"
+      "city": "Batam",
+      "region": "Indonesia"
     },
-    "price": "Rp550.000",
+    "price": 550000,
     "description": "Located in Batam Center, 1.6 miles from Nagoya Hill Shopping Mall, Grand Sydney Hotel has accommodations with an outdoor swimming pool, free private parking, a fitness center and a restaurant.",
-    "amenities": ["Outdoor Swimming Pool", "Airport shuttle", "Free Wifi", "Room service", "Restaurant"],
+    "amenities": [
+      "Outdoor Swimming Pool",
+      "Airport shuttle",
+      "Free Wifi",
+      "Room service",
+      "Restaurant"
+    ],
     "rating": 7.0,
     "star": 4
   },
@@ -291,15 +399,21 @@
     "id": 19,
     "name": "Cassia Bintan Hotel",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/100346749.jpg?k=b0840fb03b55d2edbd6f964121d573797bdde15dc4987ab56e0bba3785f92601&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jalan Teluk Berembang Laguna Bintan Resorts, 29155 Lagoi, Indonesia",
+    "address": {
+      "fullAddress": "Jalan Teluk Berembang Laguna Bintan Resorts, 29155 Lagoi, Indonesia",
       "place": "Bintan",
-      "city" : "Lagoi",
-      "region" : "Indonesia"
+      "city": "Lagoi",
+      "region": "Indonesia"
     },
-    "price": "Rp2.035.000",
+    "price": 2035000,
     "description": "Boasting cozy and bright-colored living space, Cassia Bintan is located in Lagoi, 27 mi from Desaru. The property features minimalist, modern design and facilities, complete with free WiFi. Free private parking is also available on site.",
-    "amenities": ["Outdoor Swimming Pool", "Airport shuttle", "Free Wifi", "Room service", "Restaurant"],
+    "amenities": [
+      "Outdoor Swimming Pool",
+      "Airport shuttle",
+      "Free Wifi",
+      "Room service",
+      "Restaurant"
+    ],
     "rating": 8.1,
     "star": 4
   },
@@ -307,15 +421,21 @@
     "id": 20,
     "name": "Alltrue Hotel Bintan",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/498018495.jpg?k=2bb27740b88141db7f8bfbaef8050456f1f0d1779534947b47a69b8bc20af739&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl. Gudang Minyak No.2, Kemboja, Kec. Tanjungpinang Barat, Kota",
+    "address": {
+      "fullAddress": "Jl. Gudang Minyak No.2, Kemboja, Kec. Tanjungpinang Barat, Kota",
       "place": "Bintan",
-      "city" : "Tanjung Pinang",
-      "region" : "Indonesia"
+      "city": "Tanjung Pinang",
+      "region": "Indonesia"
     },
-    "price": "Rp650.000",
+    "price": 650000,
     "description": "Alltrue Hotel Bintan - Tanjungpinang is a 4-star property located in Tanjung Pinang. Among the facilities of this property are a restaurant, room service and a 24-hour front desk, along with free WiFi throughout the property.",
-    "amenities": ["Free Parking", "Airport shuttle", "Free Wifi", "Room service", "Restaurant"],
+    "amenities": [
+      "Free Parking",
+      "Airport shuttle",
+      "Free Wifi",
+      "Room service",
+      "Restaurant"
+    ],
     "rating": 9.0,
     "star": 4
   },
@@ -323,15 +443,21 @@
     "id": 21,
     "name": "Pelangi Hotel",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/117583320.jpg?k=05a7d899113cd5c6acfccf2a6921dd76ee0069ce7ed79372ec1673be2b879c67&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl. D.I. Panjaitan Km. 6, 29123 Tanjung Pinang, Indonesia",
+    "address": {
+      "fullAddress": "Jl. D.I. Panjaitan Km. 6, 29123 Tanjung Pinang, Indonesia",
       "place": "Bintan",
-      "city" : "Tanjung Pinang",
-      "region" : "Indonesia"
+      "city": "Tanjung Pinang",
+      "region": "Indonesia"
     },
-    "price": "Rp268.000",
+    "price": 268000,
     "description": "Pelangi Hotel & Resort offers an outdoor pool and restaurant, a 5-minute drive from Ramayana Department Store in Tanjung Pinang.",
-    "amenities": ["Outdoor Swimming Pool", "Free Parking", "Room service", "Restaurant", "Non-smoking rooms"],
+    "amenities": [
+      "Outdoor Swimming Pool",
+      "Free Parking",
+      "Room service",
+      "Restaurant",
+      "Non-smoking rooms"
+    ],
     "rating": 7.3,
     "star": 3
   },
@@ -339,15 +465,21 @@
     "id": 22,
     "name": "The Phoenix Hotel Yogyakarta",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/239429287.jpg?k=171da95ccc04569a444d6d9ae14d053a9e2156e4fe82af50eb5c58a3b513f8c7&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jalan Jend. Sudirman No.9, Jetis, 55233 Yogyakarta, Indonesia",
+    "address": {
+      "fullAddress": "Jalan Jend. Sudirman No.9, Jetis, 55233 Yogyakarta, Indonesia",
       "place": "Yogyakarta",
-      "city" : "Jetis",
-      "region" : "Indonesia"
+      "city": "Jetis",
+      "region": "Indonesia"
     },
-    "price": "Rp1.200.000",
+    "price": 1200000,
     "description": "Located in the heart of Yogyakarta, The Phenix Hotel Yogyakarta is luxury accommodations in a colonial landmark from 1918. The 5-star hotel offers a spa, a fine-dining restaurant and spacious rooms with free WiFi. The outdoor pool is large and open all-year.",
-    "amenities": ["Outdoor Swimming Pool", "Airport shuttle", "Free Wifi", "Spa", "Restaurant"],
+    "amenities": [
+      "Outdoor Swimming Pool",
+      "Airport shuttle",
+      "Free Wifi",
+      "Spa",
+      "Restaurant"
+    ],
     "rating": 8.4,
     "star": 5
   },
@@ -355,15 +487,21 @@
     "id": 23,
     "name": "Platinum Adisucipto Hotel",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/167036066.jpg?k=d34e884687ff9f90c5bfd2ff66c5279c3e96cca61bf8cb7dd78f58eb86818a5c&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl Solo No 28, 55282 Yogyakarta, Indonesia",
+    "address": {
+      "fullAddress": "Jl Solo No 28, 55282 Yogyakarta, Indonesia",
       "place": "Yogyakarta",
-      "city" : "Yogyakarta",
-      "region" : "Indonesia"
+      "city": "Yogyakarta",
+      "region": "Indonesia"
     },
-    "price": "Rp547.000",
+    "price": 547000,
     "description": "Platinum Adisucipto Hotel is located across the Adisucipto Airport, in the Yogyakarta Province Region. Guests can enjoy the on-site bar, as well as a spa center and fitness center. Free private parking is available on site.",
-    "amenities": ["Free Parking", "Airport shuttle", "Spa", "Outdoor Swimming Pool", "Restaurant"],
+    "amenities": [
+      "Free Parking",
+      "Airport shuttle",
+      "Spa",
+      "Outdoor Swimming Pool",
+      "Restaurant"
+    ],
     "rating": 8.5,
     "star": 4
   },
@@ -371,15 +509,21 @@
     "id": 24,
     "name": "Hotel Santika Premiere Jogja",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/163570745.jpg?k=537bc4738c7f138a35195f11b1c2e656e5caf16f964734373ac0bdb79df22718&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Jl. Jendral Sudirman No. 19, Jetis, 55233 Yogyakarta, Indonesia",
+    "address": {
+      "fullAddress": "Jl. Jendral Sudirman No. 19, Jetis, 55233 Yogyakarta, Indonesia",
       "place": "Yogyakarta",
-      "city" : "Jetis",
-      "region" : "Indonesia"
+      "city": "Jetis",
+      "region": "Indonesia"
     },
-    "price": "Rp1.100.000",
+    "price": 1100000,
     "description": "A 15-minute walk from the popular shopping area of Malioboro Street, the Hotel Santika Premiere Jogja features an outdoor pool and a 24-hour restaurant. Free Wi-Fi and free parking are provided.",
-    "amenities": ["Outdoor Swimming Pool", "Free Parking", "Free Wifi", "Restaurant", "Non-smoking rooms"],
+    "amenities": [
+      "Outdoor Swimming Pool",
+      "Free Parking",
+      "Free Wifi",
+      "Restaurant",
+      "Non-smoking rooms"
+    ],
     "rating": 7.8,
     "star": 4
   },
@@ -388,15 +532,21 @@
     "id": 25,
     "name": "Boni Beach Lombok Boutique Hotel",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/469369403.jpg?k=b4c170218c71ad20c9a666ebbeac84ed8f236234088ff967dbc6c29bb0cc3319&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Seranagan Beach, Selong Belanak, Kec. Praya Bar., Kabupaten Lombok Tengah, Nusa Tenggara Bar. 83572, 83572 Selong Belanak, Indonesia",
+    "address": {
+      "fullAddress": "Seranagan Beach, Selong Belanak, Kec. Praya Bar., Kabupaten Lombok Tengah, Nusa Tenggara Bar. 83572, 83572 Selong Belanak, Indonesia",
       "place": "Lombok",
-      "city" : "Selong Belanak",
-      "region" : "Indonesia"
+      "city": "Selong Belanak",
+      "region": "Indonesia"
     },
-    "price": "Rp1.200.000",
+    "price": 1200000,
     "description": "Located in Selong Belanak, a few steps from Serangan Beach, Boni Beach Lombok Boutique Hotel provides accommodations with an outdoor swimming pool, free private parking, a garden and a restaurant.",
-    "amenities": ["Outdoor Swimming Pool", "Free Parking", "Free Wifi", "Restaurant", "Room service"],
+    "amenities": [
+      "Outdoor Swimming Pool",
+      "Free Parking",
+      "Free Wifi",
+      "Restaurant",
+      "Room service"
+    ],
     "rating": 9.6,
     "star": 4
   },
@@ -404,15 +554,21 @@
     "id": 26,
     "name": "Sundancer Suites Lombok",
     "url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/440961436.jpg?k=33270060a6a8285641a038d6b3beb447890b708a9fde5401b4e13f5e714d1bf7&o=&hp=1",
-    "address" : {
-      "fullAddress" : "Raya Pandanan, Dusun Pandanan, Sekotong - Lombok, 83365 Sekotong, Indonesia",
+    "address": {
+      "fullAddress": "Raya Pandanan, Dusun Pandanan, Sekotong - Lombok, 83365 Sekotong, Indonesia",
       "place": "Lombok",
-      "city" : "Sekotong",
-      "region" : "Indonesia"
+      "city": "Sekotong",
+      "region": "Indonesia"
     },
-    "price": "Rp1.296.000",
+    "price": 1296000,
     "description": "Boasting a private beach and a large outdoor lagoon pool, Sundancer Suites Lombok offers relaxing stays with extensive wellness facilities. Free WiFi is accessible throughout the resort.",
-    "amenities": ["Outdoor Swimming Pool", "Free Parking", "Free Wifi", "Restaurant", "Non-smoking rooms"],
+    "amenities": [
+      "Outdoor Swimming Pool",
+      "Free Parking",
+      "Free Wifi",
+      "Restaurant",
+      "Non-smoking rooms"
+    ],
     "rating": 9.5,
     "star": 5
   },
@@ -420,15 +576,21 @@
     "id": 27,
     "name": "The Koho Air Hotel",
     "url": "https://cf.bstatic.com/images/hotel/max1024x768/357/357658725.jpg",
-    "address" : {
-      "fullAddress" : "Gili Air, Gila Indah, Pemenang,, 83352 Gili Islands, Indonesia",
+    "address": {
+      "fullAddress": "Gili Air, Gila Indah, Pemenang,, 83352 Gili Islands, Indonesia",
       "place": "Lombok",
-      "city" : "Gili Island",
-      "region" : "Indonesia"
+      "city": "Gili Island",
+      "region": "Indonesia"
     },
-    "price": "Rp980.000",
+    "price": 980000,
     "description": "Located in Gili Islands, a 2-minute walk from Gili Air Beach, The Koho Air Hotel provides accommodations with an outdoor swimming pool, free private parking, a garden and a shared lounge.",
-    "amenities": ["Family Rooms", "Free Parking", "Free Wifi", "Spa", "Outdoor Swimming Pool"],
+    "amenities": [
+      "Family Rooms",
+      "Free Parking",
+      "Free Wifi",
+      "Spa",
+      "Outdoor Swimming Pool"
+    ],
     "rating": 9.5,
     "star": 3
   }

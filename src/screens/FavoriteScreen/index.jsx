@@ -22,6 +22,12 @@ const FavoriteScreen = () => {
       showError(error);
     }
   };
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(price);
+  };
   return (
     <View style={styles.screen}>
       <ScrollView
@@ -39,7 +45,7 @@ const FavoriteScreen = () => {
                   type="favorite"
                   key={favorite.id}
                   name={favorite.name}
-                  price={favorite.price}
+                  price={formatPrice(favorite.price)}
                   city={favorite.address.city}
                   image={favorite.url}
                   favorite={favorites.some((item) => item.id === favorite.id)}

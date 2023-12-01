@@ -29,10 +29,6 @@ const SearchHotel = ({ selectedItem, checkIn, checkOut, guest, onPress }) => {
     guest: guest,
   });
 
-  // useEffect(() => {
-  //   setSearchForm({ ...searchForm, selectedItem: selectedItem });
-  // }, [selectedItem]);
-
   const increaseGuestCount = () => {
     if (searchForm.guest < 7) {
       setSearchForm({ ...searchForm, guest: searchForm.guest + 1 });
