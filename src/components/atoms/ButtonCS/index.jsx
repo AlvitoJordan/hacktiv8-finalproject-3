@@ -6,7 +6,7 @@ import { colors } from "../../../utils/colors";
 const ButtonCS = ({ title, onPress, style }) => {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.container, style]}>
-      <TextCS style={styles.text}>{title}</TextCS>
+      <TextCS style={[styles.text, style]}>{title}</TextCS>
     </TouchableOpacity>
   );
 };

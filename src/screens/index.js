@@ -5,6 +5,7 @@ import ProfileScreen from "./ProfileScreen";
 import SettingScreen from "./SettingScreen";
 import DetailHotelScreen from "./DetailHotelScreen";
 import BookingHotelScreen from "./BookingHotelScreen";
+import EditProfile from "./EditProfile";
 
 export {
   LoginScreen,
@@ -14,4 +15,5 @@ export {
   SettingScreen,
   DetailHotelScreen,
   BookingHotelScreen,
+  EditProfile,
 };
