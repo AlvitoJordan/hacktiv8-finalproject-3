@@ -25,10 +25,7 @@ import { useSelector } from "react-redux";
 
 const HomeScreen = ({ navigation }) => {
   const { isLogin, account } = useSelector((state) => state.auth);
-  useEffect(() => {
-    // Dijalankan setiap kali komponen di-mount atau `isLogin` berubah
-    // Lakukan pengecekan kondisi login di sini dan perbarui state jika diperlukan
-  }, [isLogin]);
+  useEffect(() => {}, [isLogin]);
 
   return (
     <SafeAreaView style={styles.safeContainer}>
