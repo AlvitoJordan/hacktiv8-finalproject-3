@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const SettingScreen = () => {
   const navigation = useNavigation();
-  const { account } = useSelector((state) => state.auth);
+  const { account, isLogin } = useSelector((state) => state.auth);
 
   return (
     <View style={styles.screen}>
@@ -25,7 +25,13 @@ const SettingScreen = () => {
         <List type={"WithIcon"} title={account.gender} label={"Gender"} />
         <List type={"WithIcon"} title={"English"} label={"Language"} />
 
-        <ButtonCS title="edit profil" style={styles.btn_style} onPress={() => navigation.navigate("Edit Profile")} />
+        {isLogin && (
+          <ButtonCS
+            title="Edit Profil"
+            style={styles.btn_style}
+            onPress={() => navigation.navigate("Edit Profile")}
+          />
+        )}
       </View>
       <Gap height={30} />
       <View style={styles.cardContainer}>
@@ -34,9 +40,7 @@ const SettingScreen = () => {
         <List type={"WithIcon"} label={"Search History"} />
         <List type={"WithIcon"} label={"Report & Problem"} />
         <List type={"WithIcon"} label={"Terms & Policy"} />
-        <List type={"WithIcon"} label={"Logout"} />
-        <ButtonCS title="Logout" style={styles.btn_styleLogout} />
-
+        {isLogin && <ButtonCS title="Logout" style={styles.btn_styleLogout} />}
       </View>
     </View>
   );
@@ -67,8 +71,8 @@ const styles = StyleSheet.create({
   btn_style: {
     width: 100,
     height: 30,
-    padding: 3,
-    textAlign: 'center',
+    padding: 5,
+    textAlign: "center",
     fontSize: 16,
     backgroundColor: colors.gray,
     color: colors.black,
@@ -77,10 +81,10 @@ const styles = StyleSheet.create({
   btn_styleLogout: {
     width: 100,
     height: 30,
-    padding: 3,
-    textAlign: 'center',
+    padding: 5,
+    textAlign: "center",
     fontSize: 16,
     backgroundColor: colors.primary,
     borderRadius: 8,
-  }
+  },
 });

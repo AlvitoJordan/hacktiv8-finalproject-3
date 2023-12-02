@@ -15,8 +15,7 @@ const BookingHotelScreen = ({ navigation, route }) => {
   const fullName = account?.firstName
     ? account.firstName + " " + (account.lastName ?? "Guest")
     : "Guest";
-  const { booked } = useSelector((state) => state.booked);
-  console.log(booked);
+
   const startDate = new Date(checkIn);
   const endDate = new Date(checkOut);
 
@@ -42,6 +41,7 @@ const BookingHotelScreen = ({ navigation, route }) => {
         showSucces("Anda telah berhasil memesan");
         dispatch(bookingHotel(data));
         dispatch(setLoading(false));
+        navigation.navigate("Profile");
       }, 2000);
     } else {
       showError("Silahkan login terlebih dahulu");

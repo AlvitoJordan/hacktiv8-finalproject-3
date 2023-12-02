@@ -24,15 +24,15 @@ const CardFavorite = ({
   image,
   favorite,
   onPress,
-  data,
+
   onFavorite,
 }) => {
-  const navigation = useNavigation();
+
 
   return (
     <>
       <TouchableOpacity
-        onPress={() => navigation.navigate("Detail Hotel", data)}
+        onPress={onPress}
         style={styles.wrapp_card}
       >
         <View style={styles.wrapp_rowCart}>

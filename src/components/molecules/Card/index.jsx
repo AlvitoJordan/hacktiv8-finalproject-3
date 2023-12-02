@@ -33,7 +33,6 @@ const Card = ({
           image={image}
           favorite={favorite}
           onPress={onPress}
-          data={data}
           onFavorite={onFavorite}
         />
       );
