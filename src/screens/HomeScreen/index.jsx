@@ -4,6 +4,7 @@ import {
   View,
   StatusBar,
   SafeAreaView,
+  Alert,
 } from "react-native";
 
 import React, { useEffect } from "react";
@@ -25,7 +26,19 @@ const HomeScreen = ({ navigation }) => {
   const { search } = useSelector((state) => state.search);
 
   const handleSearch = () => {
-    navigation.navigate("Search Result");
+    const checkInDate = new Date(search.checkIn);
+    const checkOutDate = new Date(search.checkOut);
+    if (search.selectedItem === "") {
+      Alert.alert("Oops", "Search bar cannot be be empty", [{ text: "OK" }]);
+    } else if (checkOutDate < checkInDate) {
+      Alert.alert(
+        "Oops",
+        "Check-out time cannot be earlier than check-in time",
+        [{ text: "OK" }]
+      );
+    } else {
+      navigation.navigate("Search Result");
+    }
   };
   return (
     <SafeAreaView style={styles.safeContainer}>

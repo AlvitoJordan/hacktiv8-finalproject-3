@@ -16,7 +16,14 @@ import { useNavigation } from "@react-navigation/native";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearch } from "../../../redux/searchSlice";
 
-const SearchHotel = ({ selectedItem, checkIn, checkOut, guest, onPress }) => {
+const SearchHotel = ({
+  type,
+  selectedItem,
+  checkIn,
+  checkOut,
+  guest,
+  onPress,
+}) => {
   const [showCheckInDatePicker, setShowCheckInDatePicker] = useState(false);
   const [showCheckOutDatePicker, setShowCheckOutDatePicker] = useState(false);
   const navigation = useNavigation();
@@ -28,6 +35,15 @@ const SearchHotel = ({ selectedItem, checkIn, checkOut, guest, onPress }) => {
     checkOut: checkOut,
     guest: guest,
   });
+
+  useEffect(() => {
+    setSearchForm({
+      selectedItem: selectedItem,
+      checkIn: checkIn,
+      checkOut: checkOut,
+      guest: guest,
+    });
+  }, [selectedItem, checkIn, checkOut, guest]);
 
   const increaseGuestCount = () => {
     if (searchForm.guest < 7) {
@@ -88,24 +104,26 @@ const SearchHotel = ({ selectedItem, checkIn, checkOut, guest, onPress }) => {
 
   return (
     <View style={styles.container}>
-      <Pressable
-        style={styles.textInput}
-        onPress={() => navigation.navigate("Search")}
-      >
-        <Ionicons
-          name="search"
-          size={15}
-          color={colors.primary}
-          style={styles.icon}
-        />
-        <TextInput
-          editable={false}
-          style={styles.text}
-          placeholder="Where Do You Want Go ?"
-          placeholderTextColor={colors.primary}
-          value={selectedItem}
-        ></TextInput>
-      </Pressable>
+      {type === "booking" ? null : (
+        <Pressable
+          style={styles.textInput}
+          onPress={() => navigation.navigate("Search")}
+        >
+          <Ionicons
+            name="search"
+            size={15}
+            color={colors.primary}
+            style={styles.icon}
+          />
+          <TextInput
+            editable={false}
+            style={styles.text}
+            placeholder="Where Do You Want Go ?"
+            placeholderTextColor={colors.primary}
+            value={selectedItem}
+          ></TextInput>
+        </Pressable>
+      )}
 
       <View style={styles.datePickerContainer}>
         <View style={styles.twoRowWidth}>
@@ -198,7 +216,9 @@ const SearchHotel = ({ selectedItem, checkIn, checkOut, guest, onPress }) => {
         </View>
       </View>
       <Pressable style={styles.button} onPress={onPress}>
-        <Text style={styles.textButton}>SEARCH</Text>
+        <Text style={styles.textButton}>
+          {type === "booking" ? "SUBMIT" : "SEARCH"}
+        </Text>
       </Pressable>
     </View>
   );

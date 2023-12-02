@@ -14,10 +14,29 @@ import hotels from "../../data/hotels.json";
 import reviews from "../../data/review.json";
 import CardFacilities from "../../components/molecules/Card/CardFacilities";
 import CardCommentar from "../../components/molecules/Card/CardCommentar";
+import { useSelector } from "react-redux";
 
 const DetailHotelScreen = ({ navigation, route }) => {
   const [review, setReview] = useState([]);
   const { detailHotel, bookingInformation } = route.params;
+  const { isLogin } = useSelector((state) => state.auth);
+
+  const handleBooking = () => {
+    if (isLogin) {
+      navigation.navigate("BookingHotel", {
+        detailHotel,
+        bookingInformation,
+      });
+    } else {
+      navigation.navigate("Login", {
+        redirectScreen: "BookingHotel",
+        params: {
+          detailHotel,
+          bookingInformation,
+        },
+      });
+    }
+  };
 
   useEffect(() => {
     if (detailHotel?.id) {
@@ -37,24 +56,10 @@ const DetailHotelScreen = ({ navigation, route }) => {
     }).format(price);
   };
 
-
   const ratingStar = Array.from({ length: detailHotel.star }, (_, index) => (
     <Ionicons key={index} name="star" size={15} color={colors.secondary} />
   ));
 
-  React.useEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <TouchableOpacity>
-          <MaterialIcons
-            name="favorite-border"
-            size={25}
-            color={colors.white}
-          />
-        </TouchableOpacity>
-      ),
-    });
-  }, [navigation]);
   return (
     <View>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -115,12 +120,12 @@ const DetailHotelScreen = ({ navigation, route }) => {
         </View>
         <Gap height={20} />
         <View style={styles.commentContainer}>
-          <View style={styles.titleContainer}>
+          <View>
             <TextCS style={styles.sectionTitle}>COMMENT</TextCS>
           </View>
           <ScrollView
             contentContainerStyle={{ padding: 5 }}
-            horizontal
+            vertical
             showsHorizontalScrollIndicator={false}
           >
             {review.map((value, index) =>
@@ -131,6 +136,7 @@ const DetailHotelScreen = ({ navigation, route }) => {
                     name={e.username}
                     comment={e.comment}
                     date={e.date}
+                    score={parseFloat(e.score).toFixed(1)}
                   />
                 );
               })
@@ -143,12 +149,7 @@ const DetailHotelScreen = ({ navigation, route }) => {
         <ButtonCS
           title={"Book This Hotel"}
           style={styles.button}
-          onPress={() =>
-            navigation.navigate("BookingHotel", {
-              detailHotel,
-              bookingInformation,
-            })
-          }
+          onPress={() => handleBooking()}
         />
       </View>
     </View>

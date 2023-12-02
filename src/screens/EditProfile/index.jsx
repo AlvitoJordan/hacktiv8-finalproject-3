@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
-import { ICLogo } from "../../assets/";
+import { AppLogo, ICLogo } from "../../assets/";
 import { ButtonCS, Gap, List, TextCS } from "../../components";
 import { colors } from "../../utils/colors";
 import { useSelector, useDispatch } from "react-redux";
@@ -24,6 +24,7 @@ const EditProfile = () => {
     email: account.email,
     gender: account.gender,
     password: account.password,
+    phoneNumber: account.phoneNumber,
     id: null,
     image: image,
   });
@@ -34,7 +35,7 @@ const EditProfile = () => {
       aspect: [4, 3],
       quality: 1,
     });
-    if (result) {
+    if (!result.canceled) {
       setValue({ ...value, image: result.assets[0].uri });
     }
   };
@@ -98,7 +99,7 @@ const EditProfile = () => {
   return (
     <View style={styles.screen}>
       <View style={styles.logoContainer}>
-        <ICLogo />
+        <AppLogo />
       </View>
       <Gap height={30} />
       <View style={styles.cardContainer}>
@@ -133,6 +134,14 @@ const EditProfile = () => {
           label={"Email"}
           value={value.email}
           onChange={(values) => setValue({ ...value, email: values })}
+        />
+        <List
+          type="TextInput"
+          title={value.phoneNumber}
+          label={"Phone Number"}
+          value={value.phoneNumber}
+          keyInput="numeric"
+          onChange={(values) => setValue({ ...value, phoneNumber: values })}
         />
         <View style={styles.checkBoxStyle}>
           <Text style={{ color: colors.black }}>Gender</Text>

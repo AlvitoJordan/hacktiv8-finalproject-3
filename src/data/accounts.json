@@ -5,7 +5,8 @@
     "lastName": "Annas",
     "email": "syaeful@gmail.com",
     "gender": "Pria",
-    "password": "syaeful123"
+    "password": "syaeful123",
+    "phoneNumber": "081212345678"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "lastName": "Jordan",
     "email": "alvito@gmail.com",
     "gender": "Pria",
-    "password": "alvito123"
+    "password": "alvito123",
+    "phoneNumber": "081212345678"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "lastName": "Nur Syaifudin",
     "email": "rezal@gmail.com",
     "gender": "Pria",
-    "password": "rezal123"
+    "password": "rezal123",
+    "phoneNumber": "081212345678"
   }
 ]

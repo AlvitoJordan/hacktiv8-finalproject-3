@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet } from "react-native";
+import { Alert, ScrollView, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SearchHotel } from "../../components";
 import hotels from "../../data/hotels.json";
@@ -14,11 +14,23 @@ const CityResult = ({ navigation, route }) => {
   const { search } = useSelector((state) => state.search);
 
   handleFilter = () => {
-    const filtered = hotels.filter(
-      (hotel) => hotel.name === search.selectedItem
-    );
-    if (filtered) {
-      setFilteredCity(filtered);
+    const checkInDate = new Date(search.checkIn);
+    const checkOutDate = new Date(search.checkOut);
+    if (search.selectedItem === "") {
+      Alert.alert("Oops", "Search bar cannot be be empty", [{ text: "OK" }]);
+    } else if (checkOutDate < checkInDate) {
+      Alert.alert(
+        "Oops",
+        "Check-out time cannot be earlier than check-in time",
+        [{ text: "OK" }]
+      );
+    } else {
+      const filtered = hotels.filter(
+        (hotel) => hotel.name === search.selectedItem
+      );
+      if (filtered) {
+        setFilteredCity(filtered);
+      }
     }
   };
 
@@ -40,12 +52,9 @@ const CityResult = ({ navigation, route }) => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerTitle: route.params?.city,
-      headerLeft: () => (
-        <HeaderBackButton label="back" onPress={() => handleBack()} />
-      ),
+      headerLeft: () => <HeaderBackButton label="back" onPress={handleBack} />,
     });
   }, [navigation]);
-
 
   return (
     <ScrollView

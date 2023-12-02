@@ -8,8 +8,6 @@ const InputCS = ({
   value,
   onChangeText,
   icon,
-  style,
-  styleInput,
   placeholderColor,
   secureTextEntry,
 }) => {
@@ -21,8 +19,6 @@ const InputCS = ({
           value={value}
           icon={icon}
           onChangeText={onChangeText}
-          style={style}
-          styleInput={styleInput}
           placeholderColor={placeholderColor}
           secureTextEntry={secureTextEntry}
         />

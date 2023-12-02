@@ -3,11 +3,12 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const signInAct = createAsyncThunk("auth/signin", (data) => {
   return data;
 });
-export const updateProfil = createAsyncThunk("update/Profil",   
-async (data) => {
+export const updateProfil = createAsyncThunk("update/Profil", async (data) => {
   return data;
-  }
-);
+});
+export const signOut = createAsyncThunk("auth/signout", async () => {
+  return {};
+});
 
 const authSlice = createSlice({
   name: "authSlice",
@@ -23,6 +24,10 @@ const authSlice = createSlice({
     });
     builder.addCase(updateProfil.fulfilled, (state, action) => {
       state.account = action.payload;
+    });
+    builder.addCase(signOut.fulfilled, (state) => {
+      state.account = {};
+      state.isLogin = false;
     });
   },
 });

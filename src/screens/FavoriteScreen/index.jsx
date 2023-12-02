@@ -1,14 +1,23 @@
-import { ScrollView, StyleSheet, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+  Text,
+  SafeAreaView,
+  StatusBar,
+} from "react-native";
 import React from "react";
 import { ICLogo } from "../../assets";
 import { Card, Gap, TextCS } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { colors } from "../../utils/colors";
 import { addFavorite, unFavorite } from "../../redux/favoriteSlice";
+import LoginRedirect from "../../components/molecules/LoginRedirect";
 
 const FavoriteScreen = ({ navigation }) => {
   const { favorites } = useSelector((state) => state.favorite);
   const { search } = useSelector((state) => state.search);
+  const { isLogin } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
   const toggleFavorite = (data) => {
@@ -30,54 +39,69 @@ const FavoriteScreen = ({ navigation }) => {
     }).format(price);
   };
   return (
-    <View style={styles.screen}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.container}
-      >
-        <Gap height={30} />
-        <ICLogo />
-        <Gap height={30} />
-        <ScrollView contentContainerStyle={styles.containerCart}>
-          {favorites.length > 0 ? (
-            favorites.map((favorite) => {
-              return (
-                <Card
-                  type="favorite"
-                  key={favorite.id}
-                  name={favorite.name}
-                  price={formatPrice(favorite.price)}
-                  city={favorite.address.city}
-                  image={favorite.url}
-                  favorite={favorites.some((item) => item.id === favorite.id)}
-                  onPress={() =>
-                    navigation.navigate("Detail Hotel", {
-                      detailHotel: favorite,
-                      bookingInformation: search,
-                    })
-                  }
-                  onFavorite={() => toggleFavorite(favorite)}
-                />
-              );
-            })
+    <SafeAreaView style={styles.safeContainer}>
+      <View style={styles.screen}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.container}
+        >
+          <Text style={styles.title}>Wishlists</Text>
+          {isLogin ? (
+            favorites.length > 0 ? (
+              favorites.map((favorite) => {
+                return (
+                  <Card
+                    type="favorite"
+                    key={favorite.id}
+                    name={favorite.name}
+                    price={formatPrice(favorite.price)}
+                    city={favorite.address.city}
+                    image={favorite.url}
+                    favorite={favorites.some((item) => item.id === favorite.id)}
+                    onPress={() =>
+                      navigation.navigate("Detail Hotel", {
+                        detailHotel: favorite,
+                        bookingInformation: search,
+                      })
+                    }
+                    onFavorite={() => toggleFavorite(favorite)}
+                    rate={favorite.star}
+                    score={favorite.rating}
+                  />
+                );
+              })
+            ) : (
+              <Text>
+                Oops, your wishlist is Empty! Explore to find what you like
+              </Text>
+            )
           ) : (
-            <TextCS>Belum ada favorite</TextCS>
+            <LoginRedirect
+              name={"wishlist"}
+              content={
+                "You can create, view, or edit wishlist once you've logged in"
+              }
+              onPress={() => navigation.navigate("Login")}
+            />
           )}
         </ScrollView>
-      </ScrollView>
-    </View>
+      </View>
+    </SafeAreaView>
   );
 };
 
 export default FavoriteScreen;
 
 const styles = StyleSheet.create({
+  safeContainer: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight,
+  },
   screen: {
     flex: 1,
+    backgroundColor: colors.white_2,
   },
   container: {
-    backgroundColor: colors.white_2,
-    alignItems: "center",
     padding: 20,
   },
 
@@ -127,5 +151,11 @@ const styles = StyleSheet.create({
     flexDirection: "coll",
     paddingVertical: 20,
     gap: 10,
+  },
+  title: {
+    color: colors.darkRed,
+    fontWeight: "bold",
+    fontSize: 28,
+    paddingBottom: 20,
   },
 });

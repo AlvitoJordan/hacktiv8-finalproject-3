@@ -42,7 +42,7 @@ const CardHotel = ({
           dispatch(addFavorite(data));
         }
       } else {
-        showError("Silahkan login terlebih dahulu");
+        navigation.navigate("Login");
       }
     } catch (error) {
       showError(error);
@@ -91,7 +91,7 @@ const CardHotel = ({
             </Text>
             <View style={styles.rating}>
               <View style={{ flexDirection: "row" }}>{ratingStar}</View>
-              <Text>{score}</Text>
+              <Text>{parseFloat(score).toFixed(1)}</Text>
             </View>
             <Text style={styles.regionText}>
               {city}, {place}, {region}
