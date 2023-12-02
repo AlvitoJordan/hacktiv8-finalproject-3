@@ -13,7 +13,7 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from "moment";
 import { useNavigation } from "@react-navigation/native";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setSearch } from "../../../redux/searchSlice";
 
 const SearchHotel = ({

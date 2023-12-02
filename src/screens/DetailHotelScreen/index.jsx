@@ -2,14 +2,13 @@ import {
   ImageBackground,
   ScrollView,
   StyleSheet,
-  Text,
-  TouchableOpacity,
   View,
+  Text,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { ButtonCS, Gap, TextCS } from "../../components";
 import { colors } from "../../utils/colors";
-import { MaterialIcons, Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import hotels from "../../data/hotels.json";
 import reviews from "../../data/review.json";
 import CardFacilities from "../../components/molecules/Card/CardFacilities";
@@ -70,21 +69,6 @@ const DetailHotelScreen = ({ navigation, route }) => {
           >
             <View style={styles.detailContainer}>
               <View style={styles.detailContent}>
-                <View style={styles.info}>
-                  <TextCS style={styles.title}>{detailHotel.name}</TextCS>
-                  <View style={styles.rowIcon}>
-                    <View style={{ flexDirection: "row" }}>{ratingStar}</View>
-                    <Text style={styles.subtitle}>
-                      {parseFloat(detailHotel.rating).toFixed(1)}
-                    </Text>
-                  </View>
-                  <View style={styles.rowIcon}>
-                    <Ionicons name="location" size={20} color={colors.white} />
-                    <Text style={styles.subtitle}>
-                      {detailHotel.address?.fullAddress}
-                    </Text>
-                  </View>
-                </View>
                 <View style={styles.priceContainer}>
                   <TextCS style={styles.price}>
                     {formatPrice(detailHotel.price)}
@@ -95,7 +79,27 @@ const DetailHotelScreen = ({ navigation, route }) => {
             </View>
           </ImageBackground>
         </View>
+        <View style={styles.aboutContainer}>
+          <TextCS style={styles.sectionTitle}>INFORMATION</TextCS>
+          <Gap height={10} />
 
+          <View style={styles.info}>
+            <TextCS style={styles.title}>{detailHotel.name}</TextCS>
+            <View style={styles.rowIcon}>
+              <View style={{ flexDirection: "row" }}>{ratingStar}</View>
+              <Text style={styles.subtitle}>
+                {parseFloat(detailHotel.rating).toFixed(1)}
+              </Text>
+            </View>
+            <View style={styles.rowIcon}>
+              <Ionicons name="location" size={20} color={colors.black} />
+              <Text style={styles.subtitle}>
+                {detailHotel.address?.fullAddress}
+              </Text>
+            </View>
+          </View>
+        </View>
+        <Gap height={10} />
         <View style={styles.aboutContainer}>
           <TextCS style={styles.sectionTitle}>ABOUT</TextCS>
           <Gap height={10} />
@@ -145,6 +149,7 @@ const DetailHotelScreen = ({ navigation, route }) => {
         </View>
         {/* <Gap height={50} /> */}
       </ScrollView>
+
       <View style={styles.buttonContainer}>
         <ButtonCS
           title={"Book This Hotel"}
@@ -170,30 +175,30 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   info: {
-    width: "50%",
+    width: "100%",
   },
   infoPrice: {
-    width: "50%",
+    width: "100%",
     flexDirection: "row",
     justifyContent: "flex-end",
   },
   detailContent: {
-    flexDirection: "row",
     paddingLeft: 15,
     paddingVertical: 10,
-    alignItems: "center",
-    justifyContent: "space-between",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     width: "100%",
+    justifyContent: "flex-end",
+    flexDirection: "row",
   },
   title: {
-    color: colors.white,
+    color: colors.black,
     fontWeight: "bold",
     fontSize: 20,
     marginVertical: 3,
+    width: "100%",
   },
   subtitle: {
-    color: colors.white,
+    color: colors.black,
     fontSize: 15,
   },
   rowIcon: {

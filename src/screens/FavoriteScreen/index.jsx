@@ -7,8 +7,7 @@ import {
   StatusBar,
 } from "react-native";
 import React from "react";
-import { ICLogo } from "../../assets";
-import { Card, Gap, TextCS } from "../../components";
+import { Card } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { colors } from "../../utils/colors";
 import { addFavorite, unFavorite } from "../../redux/favoriteSlice";

@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#D1114D"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -19,7 +21,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.syfl.ans.hacktiv8finalproject3"
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
@@ -31,6 +37,11 @@
           "photosPermission": "The app accesses your photos to let you share them with your friends."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "6b387218-1441-442b-ba3e-d4693308c91a"
+      }
+    }
   }
 }

@@ -14,7 +14,7 @@ import { colors } from "../../utils/colors";
 import { useNavigation } from "@react-navigation/native";
 import hotels from "../../data/hotels.json";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setSearch } from "../../redux/searchSlice";
 
 const SearchBar = () => {

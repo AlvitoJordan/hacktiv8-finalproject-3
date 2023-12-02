@@ -1,14 +1,6 @@
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { ButtonCS, Gap, List, TextCS } from "../../components";
-import { ICBack } from "../../assets";
 import { colors } from "../../utils/colors";
 import { useDispatch, useSelector } from "react-redux";
 import { showError, showSucces } from "../../utils/showMessage";
@@ -88,7 +80,7 @@ const BookingHotelScreen = ({ navigation, route }) => {
         dispatch(setLoading(false));
         dispatch(clearSearch());
         navigation.navigate("Profile");
-      }, 2000);
+      }, 700);
     } else {
       showError("Silahkan login terlebih dahulu");
     }
