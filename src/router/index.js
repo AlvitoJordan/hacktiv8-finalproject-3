@@ -21,6 +21,7 @@ import SearchResult from "../screens/SearchResultScreen/SearchResult";
 import { colors } from "../utils/colors";
 import EditDetailScreen from "../screens/EditDetail";
 
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
