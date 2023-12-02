@@ -17,18 +17,12 @@ import { colors } from "../../utils/colors";
 import WelcomeCard from "../../components/molecules/Card/WelcomeCard";
 import SignInCard from "../../components/molecules/Card/SignInCard";
 
-import { useSelector, useDispatch } from "react-redux";
-import { setSearch } from "../../redux/searchSlice";
-import moment from "moment";
+import { useSelector } from "react-redux";
 
 const HomeScreen = ({ navigation }) => {
   const { isLogin, account } = useSelector((state) => state.auth);
   useEffect(() => {}, [isLogin]);
-
-  const dispatch = useDispatch();
   const { search } = useSelector((state) => state.search);
-  const today = moment().format("YYYY-MM-DD");
-  const tomorrow = moment(today).add(1, "day").format("YYYY-MM-DD");
 
   const handleSearch = () => {
     navigation.navigate("Search Result");

@@ -6,8 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { colors } from "../../utils/colors";
 import { addFavorite, unFavorite } from "../../redux/favoriteSlice";
 
-const FavoriteScreen = () => {
+const FavoriteScreen = ({ navigation }) => {
   const { favorites } = useSelector((state) => state.favorite);
+  const { search } = useSelector((state) => state.search);
 
   const dispatch = useDispatch();
   const toggleFavorite = (data) => {
@@ -49,8 +50,13 @@ const FavoriteScreen = () => {
                   city={favorite.address.city}
                   image={favorite.url}
                   favorite={favorites.some((item) => item.id === favorite.id)}
-                  onPress={() => toggleFavorite(favorite)}
-                  data={favorite}
+                  onPress={() =>
+                    navigation.navigate("Detail Hotel", {
+                      detailHotel: favorite,
+                      bookingInformation: search,
+                    })
+                  }
+                  onFavorite={() => toggleFavorite(favorite)}
                 />
               );
             })

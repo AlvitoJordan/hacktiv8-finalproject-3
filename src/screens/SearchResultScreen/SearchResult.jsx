@@ -9,11 +9,10 @@ import { HeaderBackButton } from "@react-navigation/elements";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearch, clearSearch } from "../../redux/searchSlice";
 
-const SearchResult = ({ navigation}) => {
+const SearchResult = ({ navigation }) => {
   const dispatch = useDispatch();
   const [filteredHotel, setFilteredHotel] = useState([]);
   const { search } = useSelector((state) => state.search);
- 
 
   const handleBack = () => {
     dispatch(clearSearch());

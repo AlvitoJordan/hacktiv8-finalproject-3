@@ -1,15 +1,19 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { ICLogo, ICOrang } from "../../assets";
+import { ICLogo } from "../../assets";
 import { Card, Gap } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, unFavorite } from "../../redux/favoriteSlice";
 import { showError } from "../../utils/showMessage";
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation }) => {
   const { account } = useSelector((state) => state.auth);
   const { favorites } = useSelector((state) => state.favorite);
+  const { search } = useSelector((state) => state.search);
   const { booked } = useSelector((state) => state.booked);
+  const { isLogin } = useSelector((state) => state.auth);
+  const { image } = account;
+
   const dispatch = useDispatch();
   const formatPrice = (price) => {
     return new Intl.NumberFormat("id-ID", {
@@ -33,6 +37,8 @@ const ProfileScreen = () => {
       showError(error);
     }
   };
+  const dummyProfile =
+    "https://www.its.ac.id/it/wp-content/uploads/sites/46/2021/06/blank-profile-picture-973460_1280.png";
   return (
     <View style={styles.screen}>
       <ScrollView
@@ -44,9 +50,11 @@ const ProfileScreen = () => {
         <Gap height={30} />
         <View style={styles.wrapp_View}>
           <View style={styles.container_View}>
-            <View style={styles.wrapp_img}>
-              <ICOrang />
-            </View>
+            <Image
+              source={{ uri: image || dummyProfile }}
+              style={styles.wrapp_img}
+            />
+
             <View>
               <Text style={styles.text_infoFirst}>
                 {account.firstName || "Guest"} {account.lastName || "Account"}
@@ -65,7 +73,7 @@ const ProfileScreen = () => {
 
             <View style={styles.wrapp_row}>
               <Text> Reviews </Text>
-              <Text style={styles.text_infoValue}>35</Text>
+              <Text style={styles.text_infoValue}>0</Text>
             </View>
 
             <View style={styles.wrapp_row}>
@@ -85,6 +93,14 @@ const ProfileScreen = () => {
               image={hotel.url}
               city={hotel.address.city}
               onFavorite={() => toggleFavorite(hotel)}
+              data={hotel}
+              onPress={() =>
+                navigation.navigate("Detail Hotel", {
+                  detailHotel: hotel,
+                  bookingInformation: search,
+                })
+              }
+              favorite={favorites.some((item) => item.id === hotel.id)}
             />
           ))}
         </View>
@@ -125,7 +141,11 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   wrapp_img: {
-    borderRadius: 11,
+    borderRadius: 50,
+    width: 60,
+    height: 60,
+    justifyContent: "center",
+    alignItems: "center",
     overflow: "hidden",
   },
 

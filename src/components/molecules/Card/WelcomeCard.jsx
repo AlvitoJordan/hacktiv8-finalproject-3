@@ -1,15 +1,24 @@
-import { Text, View, StyleSheet } from "react-native";
-import { ICOrang } from "../../../assets";
+import { Text, View, StyleSheet, Image } from "react-native";
+import { useSelector } from "react-redux";
 
 const WelcomeCard = ({ name }) => {
+  const dummyProfile =
+    "https://www.its.ac.id/it/wp-content/uploads/sites/46/2021/06/blank-profile-picture-973460_1280.png";
+  const { account } = useSelector((state) => state.auth);
+  const { image } = account;
   return (
     <View style={styles.card}>
       <View>
         <Text style={styles.greeting}>Hello, Welcome!</Text>
         <Text style={styles.name}>{name}</Text>
       </View>
-      <View style={styles.avatar}>
-        <ICOrang width={50} height={50} />
+      <View>
+        <Image
+          source={{
+            uri: image || dummyProfile,
+          }}
+          style={styles.avatar}
+        />
       </View>
     </View>
   );
