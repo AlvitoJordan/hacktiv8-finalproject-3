@@ -7,7 +7,6 @@ import {
 } from "react-native";
 import { colors } from "../../../utils/colors";
 
-
 const CityCard = ({ image, city, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress}>

@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
-import { AppLogo, ICLogo } from "../../assets/";
+import { AppLogo } from "../../assets/";
 import { ButtonCS, Gap, List, TextCS } from "../../components";
 import { colors } from "../../utils/colors";
 import { useSelector, useDispatch } from "react-redux";
@@ -89,7 +89,7 @@ const EditProfile = () => {
           dispatch(setLoading(false));
           dispatch(updateProfil(value));
           navigation.replace("MainApp");
-        }, 2000);
+        }, 1000);
       }
     } catch (error) {
       showError(error);

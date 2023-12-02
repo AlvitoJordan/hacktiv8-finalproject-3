@@ -7,18 +7,7 @@ import {
   View,
   Text,
 } from "react-native";
-import React, { useState } from "react";
-import { Gap, TextCS } from "../../atoms";
 import { colors } from "../../../utils/colors";
-import {
-  DUHotelIbis,
-  DUHotelManila,
-  ICFavorite,
-  ICRate,
-} from "../../../assets";
-import CardHotel from "../Card/CardHotel";
-import { Colors } from "react-native/Libraries/NewAppScreen";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { DataPopular } from "../../../data";
 import CityCard from "../Card/CityCard";
@@ -26,13 +15,8 @@ import { useDispatch } from "react-redux";
 import { setSearch } from "../../../redux/searchSlice";
 
 const PopularDestination = () => {
-  const [favorite, setFavorite] = useState(false);
   const dispatch = useDispatch();
   const navigation = useNavigation();
-
-  const toggleFavorite = () => {
-    setFavorite(!favorite);
-  };
 
   const handlePopular = (item) => {
     dispatch(setSearch({ selectedItem: item.place }));

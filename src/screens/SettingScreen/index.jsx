@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   btn_style: {
     width: 100,
     height: 30,
-    padding: 3,
+    padding: 5,
     textAlign: "center",
     fontSize: 16,
     backgroundColor: colors.gray,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   btn_styleLogout: {
     width: 100,
     height: 30,
-    padding: 3,
+    padding: 5,
     textAlign: "center",
     fontSize: 16,
     backgroundColor: colors.primary,

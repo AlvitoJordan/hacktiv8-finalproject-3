@@ -1,11 +1,4 @@
-import {
-  ImageBackground,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-  Text,
-} from "react-native";
+import { ScrollView, StyleSheet, View, Text } from "react-native";
 import React from "react";
 import { colors } from "../../../utils/colors";
 import { useNavigation } from "@react-navigation/native";

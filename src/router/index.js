@@ -21,6 +21,7 @@ import SearchResult from "../screens/SearchResultScreen/SearchResult";
 import { colors } from "../utils/colors";
 import EditDetailScreen from "../screens/EditDetail";
 
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -72,9 +73,9 @@ export const Router = () => {
           options={{
             headerShown: true,
             headerTransparent: true,
-            headerTintColor: "white",
+            headerTintColor: colors.white,
             headerStyle: {
-              backgroundColor: "rgba(0, 0, 0, 0.1)",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
             },
           }}
         />

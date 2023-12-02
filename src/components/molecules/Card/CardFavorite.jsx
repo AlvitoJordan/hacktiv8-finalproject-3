@@ -5,17 +5,8 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-import React, { useState } from "react";
-import { Gap } from "../../atoms";
-import {
-  ICRate,
-  ICLocation,
-  DUHotelManila,
-  DUHotelIbis,
-} from "../../../assets";
 import { colors } from "../../../utils/colors";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
 
 const CardFavorite = ({
   name,
