@@ -3,11 +3,17 @@ import React from "react";
 import { TextCS } from "../../atoms";
 import { colors } from "../../../utils/colors";
 
-const ListDefault = ({ label, title, onChange }) => {
+const ListDefault = ({ label, title, onChange, keyInput }) => {
   return (
     <View style={styles.container}>
       <TextCS style={styles.label}>{label}</TextCS>
-      <TextInput style={styles.title} onChangeText={onChange}>{title}</TextInput>
+      <TextInput
+        style={styles.title}
+        onChangeText={onChange}
+        keyboardType={keyInput}
+      >
+        {title}
+      </TextInput>
     </View>
   );
 };

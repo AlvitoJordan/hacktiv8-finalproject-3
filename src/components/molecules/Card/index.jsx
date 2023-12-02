@@ -14,7 +14,8 @@ const Card = ({
   price,
   image,
   favorite,
-  data,
+  rate,
+  score,
   onFavorite,
 }) => {
   switch (type) {
@@ -34,6 +35,8 @@ const Card = ({
           favorite={favorite}
           onPress={onPress}
           onFavorite={onFavorite}
+          rate={rate}
+          score={score}
         />
       );
   }

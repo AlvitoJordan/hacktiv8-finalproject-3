@@ -1,17 +1,26 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  SafeAreaView,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+} from "react-native";
 import React from "react";
-import { ICLogo } from "../../assets";
+// import { ICLogo } from "../../assets";
 import { Card, Gap } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, unFavorite } from "../../redux/favoriteSlice";
 import { showError } from "../../utils/showMessage";
+import { colors } from "../../utils/colors";
+import LoginRedirect from "../../components/molecules/LoginRedirect";
 
 const ProfileScreen = ({ navigation }) => {
-  const { account } = useSelector((state) => state.auth);
+  const { isLogin, account } = useSelector((state) => state.auth);
   const { favorites } = useSelector((state) => state.favorite);
   const { search } = useSelector((state) => state.search);
   const { booked } = useSelector((state) => state.booked);
-  const { isLogin } = useSelector((state) => state.auth);
   const { image } = account;
 
   const dispatch = useDispatch();
@@ -40,84 +49,92 @@ const ProfileScreen = ({ navigation }) => {
   const dummyProfile =
     "https://www.its.ac.id/it/wp-content/uploads/sites/46/2021/06/blank-profile-picture-973460_1280.png";
   return (
-    <View style={styles.screen}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.container}
-      >
-        <Gap height={30} />
-        <ICLogo />
-        <Gap height={30} />
-        <View style={styles.wrapp_View}>
-          <View style={styles.container_View}>
-            <Image
-              source={{ uri: image || dummyProfile }}
-              style={styles.wrapp_img}
-            />
+    <SafeAreaView style={styles.safeContainer}>
+      <View style={styles.screen}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.container}
+        >
+          <Text style={styles.title}>Booking History</Text>
+          {isLogin ? (
+            <>
+              <View style={styles.wrapp_View}>
+                <View style={styles.container_View}>
+                  <Image
+                    source={{ uri: image || dummyProfile }}
+                    style={styles.wrapp_img}
+                  />
 
-            <View>
-              <Text style={styles.text_infoFirst}>
-                {account.firstName || "Guest"} {account.lastName || "Account"}
-              </Text>
-              <Text style={styles.text_infoSecc}>
-                {account.email || "You are not loggin yet"}
-              </Text>
-            </View>
-          </View>
-          <Gap height={5} />
-          <View style={styles.wrapp_info}>
-            <View style={styles.wrapp_row}>
-              <Text> Bookings </Text>
-              <Text style={styles.text_infoValue}>{booked.length}</Text>
-            </View>
-
-            <View style={styles.wrapp_row}>
-              <Text> Reviews </Text>
-              <Text style={styles.text_infoValue}>0</Text>
-            </View>
-
-            <View style={styles.wrapp_row}>
-              <Text> Favorites </Text>
-              <Text style={styles.text_infoValue}>{favorites.length || 0}</Text>
-            </View>
-          </View>
-        </View>
-        <Gap height={20} />
-        <View style={styles.containerCart}>
-          {booked.map((hotel) => (
-            <Card
-              type="favorite"
-              key={hotel.id}
-              name={hotel.name}
-              price={formatPrice(hotel.price)}
-              image={hotel.url}
-              city={hotel.address.city}
-              onFavorite={() => toggleFavorite(hotel)}
-              data={hotel}
-              onPress={() =>
-                navigation.navigate("Detail Hotel", {
-                  detailHotel: hotel,
-                  bookingInformation: search,
-                })
+                  <View>
+                    <Text style={styles.text_infoFirst}>
+                      {account.firstName} {account.lastName}
+                    </Text>
+                    <Text style={styles.text_infoSecc}>{account.email}</Text>
+                  </View>
+                </View>
+                <Gap height={5} />
+                <View style={styles.wrapp_info}>
+                  <View style={styles.wrapp_row}>
+                    <Text> Bookings </Text>
+                    <Text style={styles.text_infoValue}>{booked.length}</Text>
+                  </View>
+                  <View style={styles.wrapp_row}>
+                    <Text> Favorites </Text>
+                    <Text style={styles.text_infoValue}>
+                      {favorites.length || 0}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <Gap height={20} />
+              {booked.map((hotel) => (
+                <Card
+                  type="favorite"
+                  key={hotel.id}
+                  name={hotel.name}
+                  price={formatPrice(hotel.price)}
+                  image={hotel.url}
+                  city={hotel.address.city}
+                  onFavorite={() => toggleFavorite(hotel)}
+                  onPress={() =>
+                    navigation.navigate("Detail Hotel", {
+                      detailHotel: hotel,
+                      bookingInformation: search,
+                    })
+                  }
+                  favorite={favorites.some((item) => item.id === hotel.id)}
+                  rate={hotel.star}
+                  score={hotel.rating}
+                />
+              ))}
+            </>
+          ) : (
+            <LoginRedirect
+              name={"booking history"}
+              content={
+                "You can create and view booking history once you've logged in"
               }
-              favorite={favorites.some((item) => item.id === hotel.id)}
+              onPress={() => navigation.navigate("Login")}
             />
-          ))}
-        </View>
-      </ScrollView>
-    </View>
+          )}
+        </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 };
 
 export default ProfileScreen;
 
 const styles = StyleSheet.create({
+  safeContainer: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight,
+  },
   screen: {
     flex: 1,
+    backgroundColor: colors.white_2,
   },
   container: {
-    backgroundColor: "#f9f9f9",
-    alignItems: "center",
     padding: 20,
   },
 
@@ -165,29 +182,34 @@ const styles = StyleSheet.create({
     gap: 5,
     paddingVertical: 10,
   },
-  border_info: {
-    height: "90%",
-    width: "5px",
-    backgroundColor: "#DEDEDE",
-  },
+  // border_info: {
+  //   height: "90%",
+  //   width: "5px",
+  //   backgroundColor: "#DEDEDE",
+  // },
   text_infoFirst: {
-    color: "#ffffff",
+    color: colors.white,
     fontSize: 15,
     fontWeight: "bold",
   },
   text_infoSecc: {
-    color: "#ffffff",
+    color: colors.white,
   },
   text_infoValue: {
     color: "#D1114D",
   },
   // =======================================
 
-  containerCart: {
-    width: "100%",
-    alignItems: "center",
-    flexDirection: "coll",
-    paddingVertical: 20,
-    gap: 10,
+  // containerCart: {
+  //   width: "100%",
+  //   alignItems: "center",
+  //   flexDirection: "coll",
+  //   paddingVertical: 20,
+  // },
+  title: {
+    color: colors.darkRed,
+    fontWeight: "bold",
+    fontSize: 28,
+    paddingBottom: 20,
   },
 });

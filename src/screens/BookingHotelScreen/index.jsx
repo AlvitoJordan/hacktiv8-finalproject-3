@@ -1,29 +1,56 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import React from "react";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import React, { useEffect, useState } from "react";
 import { ButtonCS, Gap, List, TextCS } from "../../components";
 import { ICBack } from "../../assets";
 import { colors } from "../../utils/colors";
 import { useDispatch, useSelector } from "react-redux";
 import { showError, showSucces } from "../../utils/showMessage";
+import { clearSearch } from "../../redux/searchSlice";
 import { setLoading } from "../../redux/loadingSlice";
 import { bookingHotel } from "../../redux/bookingSlice";
+import { updateProfil } from "../../redux/authSlice";
 
 const BookingHotelScreen = ({ navigation, route }) => {
-  const { detailHotel, bookingInformation } = route.params;
-  const { checkIn, checkOut, guest } = bookingInformation;
+  const { detailHotel } = route.params;
   const { account, isLogin } = useSelector((state) => state.auth);
-  const fullName = account?.firstName
-    ? account.firstName + " " + (account.lastName ?? "Guest")
-    : "Guest";
+  const { search } = useSelector((state) => state.search);
 
-  const startDate = new Date(checkIn);
-  const endDate = new Date(checkOut);
+  const [userData, setUserData] = useState({
+    firstName: account?.firstName,
+    lastName: account?.lastName,
+    phoneNumber: account?.phoneNumber,
+    email: account?.email,
+    gender: account?.gender,
+  });
+
+  useEffect(() => {
+    setUserData({
+      firstName: account?.firstName,
+      lastName: account?.lastName,
+      phoneNumber: account?.phoneNumber,
+    });
+  }, [account]);
+
+  const startDate = new Date(search.checkIn);
+  const endDate = new Date(search.checkOut);
 
   const timeDifference = endDate.getTime() - startDate.getTime();
 
   const daysDifference = timeDifference / (1000 * 3600 * 24);
 
   const dispatch = useDispatch();
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: "Booking",
+    });
+  }, [navigation]);
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat("id-ID", {
@@ -32,7 +59,25 @@ const BookingHotelScreen = ({ navigation, route }) => {
     }).format(price);
   };
 
-  const totalPrice = detailHotel.price * parseInt(daysDifference) * guest;
+  const totalPrice =
+    detailHotel.price * parseInt(daysDifference) * search.guest;
+
+  const handleChange = (type, text) => {
+    setUserData((prev) => {
+      if (type === "First Name") {
+        return { ...prev, firstName: text };
+      } else if (type === "Last Name") {
+        return { ...prev, lastName: text };
+      } else if (type === "Phone Number") {
+        return { ...prev, phoneNumber: text };
+      }
+      return prev;
+    });
+  };
+
+  const handleSubmit = () => {
+    dispatch(updateProfil());
+  };
 
   const handleCheckin = (data) => {
     if (isLogin) {
@@ -41,6 +86,7 @@ const BookingHotelScreen = ({ navigation, route }) => {
         showSucces("Anda telah berhasil memesan");
         dispatch(bookingHotel(data));
         dispatch(setLoading(false));
+        dispatch(clearSearch());
         navigation.navigate("Profile");
       }, 2000);
     } else {
@@ -50,40 +96,52 @@ const BookingHotelScreen = ({ navigation, route }) => {
 
   return (
     <View style={styles.screen}>
-      <View style={styles.header}>
-        <View style={styles.headerSection}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <ICBack />
-          </TouchableOpacity>
-          <TextCS style={styles.headerTitle}>Book Now</TextCS>
-        </View>
-      </View>
-      <Gap height={30} />
       <View style={styles.wrapper}>
         <View>
           <View style={styles.container}>
             <View style={styles.cardContainer}>
               <TextCS style={styles.sectionTitle}>CONTACT INFORMATIONS</TextCS>
               <Gap height={20} />
+              <Text>First Name</Text>
               <View style={styles.information}>
-                <TextCS style={styles.informationTitle}>
-                  {fullName || "Guest"}
-                </TextCS>
+                <TextInput
+                  placeholder="First"
+                  value={userData.firstName}
+                  onChangeText={(text) => handleChange("First Name", text)}
+                  onSubmitEditing={handleSubmit}
+                ></TextInput>
               </View>
               <Gap height={10} />
+              <Text>Last Name</Text>
               <View style={styles.information}>
-                <TextCS style={styles.informationTitle}>
-                  {account.email || "Not login yet"}
-                </TextCS>
+                <TextInput
+                  placeholder="LastName"
+                  value={userData.lastName}
+                  onChangeText={(text) => handleChange("Last Name", text)}
+                  onSubmitEditing={handleSubmit}
+                ></TextInput>
               </View>
               <Gap height={10} />
+              <Text>Phone Number</Text>
               <View style={styles.informationTelephone}>
                 <View style={styles.information}>
-                  <TextCS style={styles.informationTitle}>+62</TextCS>
+                  <TextInput
+                    value="+62"
+                    editable={false}
+                    style={{
+                      color: colors.black,
+                    }}
+                  ></TextInput>
                 </View>
                 <Gap width={10} />
                 <View style={styles.information}>
-                  <TextCS style={styles.informationTitle}>83827618820</TextCS>
+                  <TextInput
+                    placeholder="Phone Number"
+                    value={userData.phoneNumber}
+                    onChangeText={(text) => handleChange("Phone Number", text)}
+                    onSubmitEditing={handleSubmit}
+                    keyboardType="numeric"
+                  ></TextInput>
                 </View>
               </View>
             </View>
@@ -93,9 +151,11 @@ const BookingHotelScreen = ({ navigation, route }) => {
             <View style={styles.cardContainer}>
               <TextCS style={styles.sectionTitle}>PRICE SUMMARY</TextCS>
               <Gap height={10} />
-              <TextCS style={styles.informationTitle}>
-                {daysDifference} Days, 1 Room, {guest} Guest
-              </TextCS>
+              <Pressable onPress={() => navigation.navigate("EditDetail")}>
+                <TextCS style={styles.informationTitle}>
+                  {daysDifference} Days, 1 Room, {search.guest} Guest
+                </TextCS>
+              </Pressable>
               <Gap height={20} />
               <List label={"Total"} title={formatPrice(totalPrice)} />
               <Gap height={10} />

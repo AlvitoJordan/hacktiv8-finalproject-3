@@ -1,22 +1,26 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
 import React, { useState } from "react";
 import { Gap, InputCS, TextCS } from "../../atoms";
 import { colors } from "../../../utils/colors";
-import { ICEmail, ICLogo, ICPassword } from "../../../assets/";
 import { showError } from "../../../utils/showMessage";
 import { useDispatch } from "react-redux";
 import { DataAccounts } from "../../../data";
 import { signInAct } from "../../../redux/authSlice";
 import { setLoading } from "../../../redux/loadingSlice";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
-const FormLogin = ({ navigation }) => {
+const FormLogin = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const route = useRoute();
 
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
   const handleSignin = () => {
+    const redirectScreen = route.params?.redirectScreen;
+    const params = route.params?.params;
     try {
       dispatch(setLoading(true));
       if (form.email.length < 5 || form.password.length < 5) {
@@ -31,7 +35,11 @@ const FormLogin = ({ navigation }) => {
           setTimeout(() => {
             dispatch(setLoading(false));
             dispatch(signInAct(user));
-            navigation.replace("MainApp");
+            if (redirectScreen && params) {
+              navigation.replace(redirectScreen, params);
+            } else {
+              navigation.goBack();
+            }
           }, 2000);
         } else {
           setTimeout(() => {
@@ -47,12 +55,11 @@ const FormLogin = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
-        <Gap height={30} />
-        <ICLogo />
-        <Gap height={50} />
+        <Text style={styles.title}>Login</Text>
+        <Gap height={20} />
         <InputCS
           typeInput="WithIcon"
-          icon={<ICEmail />}
+          icon={"mail"}
           placeholder={"Enter Your Email"}
           placeholderColor={colors.secondary}
           value={form.email}
@@ -61,21 +68,13 @@ const FormLogin = ({ navigation }) => {
         <Gap height={30} />
         <InputCS
           typeInput="WithIcon"
-          icon={<ICPassword />}
+          icon={"lock-open"}
           placeholder={"Enter Your Password"}
           placeholderColor={colors.secondary}
           value={form.password}
           onChangeText={(value) => setForm({ ...form, password: value })}
           secureTextEntry={true}
         />
-        <Gap height={30} />
-        <View style={styles.textContainer}>
-          <View style={styles.rememberContainer}>
-            <View style={styles.checkbox} />
-            <TextCS>Remember Me</TextCS>
-          </View>
-          <TextCS style={styles.forgot}>Forgot Password ?</TextCS>
-        </View>
         <Gap height={30} />
         <TouchableOpacity style={styles.button} onPress={handleSignin}>
           <TextCS style={styles.textButton}>Sign In</TextCS>
@@ -89,37 +88,15 @@ export default FormLogin;
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
     backgroundColor: colors.white,
-    padding: 20,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
+    padding: 15,
     flex: 1,
   },
   wrapper: {
     display: "flex",
     alignItems: "center",
-    width: "100%",
-  },
-  textContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    width: "100%",
-  },
-  rememberContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  checkbox: {
-    width: 15,
-    height: 15,
-    borderWidth: 2,
-    borderColor: colors.secondary,
-    marginRight: 5,
-  },
-  forgot: {
-    color: colors.primary,
   },
   button: {
     backgroundColor: colors.primary,
@@ -130,7 +107,13 @@ const styles = StyleSheet.create({
   },
   textButton: {
     color: colors.white,
-    fontWeight: "700",
+    fontWeight: "bold",
     fontSize: 32,
+  },
+  title: {
+    color: colors.darkRed,
+    fontWeight: "bold",
+    fontSize: 28,
+    paddingBottom: 20,
   },
 });

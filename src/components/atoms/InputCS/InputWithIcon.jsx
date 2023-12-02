@@ -1,22 +1,21 @@
 import { StyleSheet, TextInput, View } from "react-native";
 import React from "react";
 import { colors } from "../../../utils/colors";
+import { Ionicons } from "@expo/vector-icons";
 
 const InputWithIcon = ({
   icon,
   placeholder,
   value,
   onChangeText,
-  style,
-  styleInput,
   placeholderColor,
   secureTextEntry,
 }) => {
   return (
-    <View style={[styles.inputContainer, style]}>
-      {icon}
+    <View style={styles.inputContainer}>
+      <Ionicons name={icon} size={20} color="black" style={styles.icon} />
       <TextInput
-        style={[styles.input, styleInput]}
+        style={styles.input}
         placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}
@@ -31,23 +30,24 @@ export default InputWithIcon;
 
 const styles = StyleSheet.create({
   inputContainer: {
-    width: 350,
-    height: 60,
-    backgroundColor: "white",
+    width: "100%",
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 5,
     borderColor: colors.secondary,
-    borderWidth: 3,
+    borderWidth: 2,
     alignItems: "center",
     flexDirection: "row",
   },
   input: {
-    width: "100%",
-    height: "100%",
     borderLeftColor: colors.secondary,
-    borderLeftWidth: 3,
+    color: colors.secondary,
+    borderLeftWidth: 2,
     marginLeft: 10,
-    paddingHorizontal: 20,
-    fontSize: 20,
+    fontSize: 18,
+    fontWeight: "bold",
+    paddingHorizontal: 15,
+  },
+  icon: {
+    color: colors.secondary,
   },
 });

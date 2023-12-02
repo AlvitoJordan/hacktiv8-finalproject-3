@@ -37,11 +37,23 @@ const SearchResult = ({ navigation }) => {
   }, []);
 
   handleFilter = () => {
-    const filtered = hotels.filter(
-      (hotel) => hotel.name === search.selectedItem
-    );
-    if (filtered) {
-      setFilteredHotel(filtered);
+    const checkInDate = new Date(search.checkIn);
+    const checkOutDate = new Date(search.checkOut);
+    if (search.selectedItem === "") {
+      Alert.alert("Oops", "Search bar cannot be be empty", [{ text: "OK" }]);
+    } else if (checkOutDate < checkInDate) {
+      Alert.alert(
+        "Oops",
+        "Check-out time cannot be earlier than check-in time",
+        [{ text: "OK" }]
+      );
+    } else {
+      const filtered = hotels.filter(
+        (hotel) => hotel.name === search.selectedItem
+      );
+      if (filtered) {
+        setFilteredHotel(filtered);
+      }
     }
   };
   return (

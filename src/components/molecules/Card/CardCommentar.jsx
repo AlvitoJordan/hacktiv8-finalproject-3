@@ -2,19 +2,25 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Gap, TextCS } from "../../atoms";
 import { colors } from "../../../utils/colors";
+import { ICOrang } from "../../../assets";
 
-const CardCommentar = ({ name, date, comment }) => {
+const CardCommentar = ({ name, date, comment, score }) => {
   return (
     <View style={styles.container}>
       <View style={styles.userContainer}>
-        <View style={styles.roundedProfile} />
-        <View>
+        <View style={styles.roundedProfile}>
+          <ICOrang width={40} height={40} />
+        </View>
+        <View style={styles.content}>
           <TextCS style={styles.nameUser}>{name}</TextCS>
-          <Text>{date}</Text>
+          <Text style={styles.date}>{date}</Text>
+          <Gap height={10} />
+          <Text style={styles.comment}>{comment}</Text>
         </View>
       </View>
-      <Gap height={10} />
-      <Text style={styles.comment}>{comment}</Text>
+      <View style={styles.scoreContainer}>
+        <Text style={styles.scoreText}>{score}</Text>
+      </View>
     </View>
   );
 };
@@ -23,34 +29,48 @@ export default CardCommentar;
 
 const styles = StyleSheet.create({
   container: {
-    width: 280,
-    height: 130,
+    width: "100%",
     backgroundColor: colors.white,
-    elevation: 3,
-    borderRadius: 20,
-    paddingLeft: 20,
     paddingVertical: 20,
-    paddingRight: 9,
-    marginRight: 20,
+    borderBottomWidth: 1,
+    borderColor: colors.gray,
   },
   userContainer: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   roundedProfile: {
-    width: 30,
-    height: 30,
-    borderRadius: 200,
+    width: 40,
+    height: 40,
+    borderRadius: 50,
     backgroundColor: colors.gray,
     borderWidth: 1,
     borderColor: colors.secondary,
-    marginRight: 5,
+    marginRight: 15,
+    justifyContent: "center",
+    alignItems: "center",
+    overflow: "hidden",
   },
+  content: { flex: 1 },
   nameUser: {
-    fontWeight: "600",
-    fontSize: 17,
+    fontWeight: "bold",
+    fontSize: 16,
   },
-  comment: {
-    fontWeight: "500",
+  date: {
+    color: colors.darkRed,
+  },
+  scoreContainer: {
+    position: "absolute",
+    top: 20,
+    right: 10,
+    backgroundColor: colors.primary,
+    padding: 5,
+    width: 45,
+    alignItems: "center",
+    borderRadius: 5,
+  },
+  scoreText: {
+    color: "white",
+    fontWeight: "bold",
   },
 });
