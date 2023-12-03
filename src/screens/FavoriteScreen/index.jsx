@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
   safeContainer: {
     flex: 1,
     marginTop: StatusBar.currentHeight,
+    backgroundColor: colors.white_2,
   },
   screen: {
     flex: 1,

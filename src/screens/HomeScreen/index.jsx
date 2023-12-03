@@ -47,7 +47,7 @@ const HomeScreen = ({ navigation }) => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.container}
         >
-          <WelcomeCard name={account.firstName || "Guest"} />
+          <WelcomeCard name={account?.firstName || "Guest"} />
 
           <SearchHotel
             selectedItem={search.selectedItem}
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
   safeContainer: {
     flex: 1,
     marginTop: StatusBar.currentHeight,
+    backgroundColor: colors.white,
   },
   title: {
     fontSize: 16,

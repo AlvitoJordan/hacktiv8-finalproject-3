@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   leftContainer: {
-    width: "50%",
+    width: "40%",
   },
   titleHotel: {
     fontWeight: "bold",

@@ -12,14 +12,8 @@ Anggota :
 
 ## Auth (User)
 
-email : alvito@gmail.com
-password : alvito123
-
-email : syaeful@gmail.com
-password : syaeful123
-
-email : rezal@gmail.com
-password : rezal123
+email : user@gmail.com\n
+password : user123
 
 ## Installation
 
