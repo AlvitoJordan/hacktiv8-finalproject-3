@@ -7,19 +7,36 @@ import {
   Text,
   Image,
 } from "react-native";
-import React from "react";
-import { ButtonCS, Gap, List, TextCS } from "../../components";
+import React, { useEffect, useState } from "react";
+import { ButtonCS, Gap, List, TextCS, LoginRedirect } from "../../components";
 import { colors } from "../../utils/colors";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
-import { signOut } from "../../redux/authSlice";
-import LoginRedirect from "../../components/molecules/LoginRedirect";
+import { signOut, updateProfil } from "../../redux/authSlice";
 
 const SettingScreen = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const { isLogin, account } = useSelector((state) => state.auth);
   const { image } = account;
+
+  const [userData, setUserData] = useState({
+    firstName: account?.firstName,
+    lastName: account?.lastName,
+    phoneNumber: account?.phoneNumber,
+    email: account?.email,
+    gender: account?.gender,
+  });
+
+  useEffect(() => {
+    setUserData({
+      firstName: account?.firstName,
+      lastName: account?.lastName,
+      phoneNumber: account?.phoneNumber,
+      email: account?.email,
+      gender: account?.gender,
+    });
+  }, [account]);
 
   const handleLogOut = () => {
     dispatch(signOut());
@@ -44,11 +61,11 @@ const SettingScreen = () => {
                     style={styles.wrapp_img}
                   />
                 </View>
-                <List title={account.firstName} label={"First Name"} />
-                <List title={account.lastName} label={"Last Name"} />
-                <List title={account.email} label={"Email"} />
-                <List title={account.phoneNumber} label={"Phone Number"} />
-                <List title={account.gender} label={"Gender"} />
+                <List title={userData.firstName} label={"First Name"} />
+                <List title={userData.lastName} label={"Last Name"} />
+                <List title={userData.email} label={"Email"} />
+                <List title={userData.phoneNumber} label={"Phone Number"} />
+                <List title={userData.gender} label={"Gender"} />
 
                 <ButtonCS
                   title="Edit Profile"
@@ -91,6 +108,7 @@ const styles = StyleSheet.create({
   safeContainer: {
     flex: 1,
     marginTop: StatusBar.currentHeight,
+    backgroundColor: colors.white_2,
   },
   screen: { flex: 1, backgroundColor: colors.white_2 },
   container: {

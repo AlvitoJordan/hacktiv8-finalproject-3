@@ -128,6 +128,7 @@ const styles = StyleSheet.create({
   safeContainer: {
     flex: 1,
     marginTop: StatusBar.currentHeight,
+    backgroundColor: colors.white,
   },
   screen: {
     flex: 1,
@@ -181,11 +182,6 @@ const styles = StyleSheet.create({
     gap: 5,
     paddingVertical: 10,
   },
-  // border_info: {
-  //   height: "90%",
-  //   width: "5px",
-  //   backgroundColor: "#DEDEDE",
-  // },
   text_infoFirst: {
     color: colors.white,
     fontSize: 15,
@@ -197,14 +193,6 @@ const styles = StyleSheet.create({
   text_infoValue: {
     color: "#D1114D",
   },
-  // =======================================
-
-  // containerCart: {
-  //   width: "100%",
-  //   alignItems: "center",
-  //   flexDirection: "coll",
-  //   paddingVertical: 20,
-  // },
   title: {
     color: colors.darkRed,
     fontWeight: "bold",

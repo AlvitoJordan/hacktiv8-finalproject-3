@@ -27,6 +27,8 @@ const BookingHotelScreen = ({ navigation, route }) => {
       firstName: account?.firstName,
       lastName: account?.lastName,
       phoneNumber: account?.phoneNumber,
+      email: account?.email,
+      gender: account?.gender,
     });
   }, [account]);
 
@@ -68,7 +70,7 @@ const BookingHotelScreen = ({ navigation, route }) => {
   };
 
   const handleSubmit = () => {
-    dispatch(updateProfil());
+    dispatch(updateProfil(userData));
   };
 
   const handleCheckin = (data) => {

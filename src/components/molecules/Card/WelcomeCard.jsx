@@ -5,7 +5,8 @@ const WelcomeCard = ({ name }) => {
   const dummyProfile =
     "https://www.its.ac.id/it/wp-content/uploads/sites/46/2021/06/blank-profile-picture-973460_1280.png";
   const { account } = useSelector((state) => state.auth);
-  const { image } = account;
+  const image = account ? account.image : null;
+
   return (
     <View style={styles.card}>
       <View>

@@ -6,7 +6,10 @@ import SettingScreen from "./SettingScreen";
 import DetailHotelScreen from "./DetailHotelScreen";
 import BookingHotelScreen from "./BookingHotelScreen";
 import EditProfile from "./EditProfile";
+import EditDetail from "./EditDetail";
+import SearchScreen from "./SearchScreen";
 
+export * from "./SearchResultScreen";
 export {
   LoginScreen,
   HomeScreen,
@@ -16,4 +19,6 @@ export {
   DetailHotelScreen,
   BookingHotelScreen,
   EditProfile,
+  EditDetail,
+  SearchScreen,
 };

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "hacktiv8-finalproject-3",
+    "name": "Hotel Reservation",
     "slug": "hacktiv8-finalproject-3",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,10 +18,6 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./src/assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
       "permissions": [
         "android.permission.RECORD_AUDIO"
       ],
@@ -37,11 +33,6 @@
           "photosPermission": "The app accesses your photos to let you share them with your friends."
         }
       ]
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "6b387218-1441-442b-ba3e-d4693308c91a"
-      }
-    }
+    ]
   }
 }

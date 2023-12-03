@@ -31,7 +31,9 @@ const CardFavorite = ({
             style={styles.wrappImage}
           ></ImageBackground>
           <View style={styles.rightContent}>
-            <Text style={styles.title}>{name}</Text>
+            <Text numberOfLines={2} style={styles.title}>
+              {name}
+            </Text>
             <View style={styles.rating}>
               <View style={{ flexDirection: "row" }}>{ratingStar}</View>
               <Text>{parseFloat(score).toFixed(1)}</Text>
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   rightContent: {
-    width: "50%",
+    width: "40%",
   },
   wrappImage: {
     width: 120,
