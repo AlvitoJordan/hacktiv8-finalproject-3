@@ -21,7 +21,7 @@ password : user123
    ```sh
    git clone https://github.com/AlvitoJordan/hacktiv8-finalproject-3.git
    ```
-2. Masuk kedalam folder hacktiv8-finalproject-2.git
+2. Masuk kedalam folder hacktiv8-finalproject-3.git
    ```sh
    cd hacktiv8-finalproject-3
    ```
